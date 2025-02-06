@@ -8,6 +8,8 @@ const getAllCourses = async (req, res) => {
         res.status(200).json(courses); 
     } catch (error) {
         res.status(500).json({ message: "Failed to get course datas", detail: error.message });
+        console.log(error.message);
+        
     }
 };
 

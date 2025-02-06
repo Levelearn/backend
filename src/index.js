@@ -10,39 +10,23 @@ const authRoutes = require('./routes/authRoutes.js');
 const authMiddleware = require('./middlewares/authMiddleware.js');
 const userRoutes = require('./routes/UserRouter.js');
 const courseRoutes = require('./routes/CourseRouter.js');
-const enrollmentRoutes = require('./routes/EnrollmentRouter.js');
+const chapterRoutes = require('./routes/ChapterRouter.js');
+const materialRoutes = require('./routes/MaterialRouter.js');
+const assessmentRoutes = require('./routes/AssessmentRouter.js');
+const assignmentRoutes = require('./routes/AssignmentRouter.js');
+
+require('dotenv').config();
 
 // Express Settings
 const app = express();
 app.use(express.json());
-// const port = process.env.PORT || 4000
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-
-// {{ start of testing }}
-
-// app.use(express.json())
-// app.use(express.static(path.join(__dirname, '../public')))
-
-// app.get('/', (req, res) => {
-//     // res.sendFile(path.join(__dirname, 'public', 'index.html'))
-//     res.json({ message: "Nice" })
-// })
-
-// // Routes
-// app.use('/auth', authRoutes)
-// app.use('/courses', authMiddleware, courseRoutes)
-
-// app.listen(port, () => {
-//     console.log(`Server running on localhost: ${port}`);
-// });
-
-// {{ end of testing }}
 
 app.use('/api', userRoutes);
 app.use('/api', courseRoutes);
-app.use('/api', enrollmentRoutes);
+app.use('/api', chapterRoutes);
+app.use('/api', materialRoutes);
+app.use('/api', assessmentRoutes);
+app.use('/api', assignmentRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
