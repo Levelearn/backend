@@ -9,7 +9,7 @@ This repository contains the backend code for a gamified learning application, b
 - [Features](#features)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
+- [API Documentation](#api-documentation)
 - [Database Schema](#database-schema)
 - [Testing with Postman](#testing-with-postman)
 - [Contributing](#contributing)
@@ -42,7 +42,7 @@ This backend application serves as the core logic for a gamified learning platfo
 1. **Clone the repository:**
 
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git)
+   git clone [https://github.com/TA-2425-13/backend.git](https://github.com/TA-2425-13/backend.git)
 
 2. **Navigate to the project directory:**
 
@@ -78,7 +78,7 @@ This backend application serves as the core logic for a gamified learning platfo
     ```bash
    npx prisma migrate dev --name init
 
-6. **Running The Application:**
+## Running The Application
 
     ```bash
    nodemon run dev
@@ -91,7 +91,7 @@ Base URL:
 | Features  | Function  | Method    | Endpoint      | Body      |
 | --------  | --------- |---------- |-------------- | --------  |
 | User      | Get All Users | GET       | `/user`       | -   |
-| Course    | Get User by ID | GET       | `/user/:id`   | -  |
-| Course    | Create User | POST      | `/user`       | `{name, username, password, user_role, student_id, student_point, student_course, student_badge, instructor_id, instructor_course}` |
-| Course    | Update User | PUT       | `/user/:id`   | `/user`       | `{name, username, password, user_role, student_id, student_point, student_course, student_badge, instructor_id, instructor_course}` |
-| Course    | Delete User | DELETE    | `/user/:id`   | Cell 6     |
+| User    | Get User by ID | GET       | `/user/:id`   | -  |
+| User    | Create User | POST      | `/user`       | `{name, username, password, user_role, student_id, student_point, student_course, student_badge, instructor_id, instructor_course}` |
+| User    | Update User | PUT       | `/user/:id`   | `{name, username, password, user_role, student_id, student_point, student_course, student_badge, instructor_id, instructor_course}`    |
+| User    | Delete User | DELETE    | `/user/:id`   |   -     |

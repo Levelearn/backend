@@ -10,25 +10,25 @@ exports.getAllCourses = async () => {
     }
 };
 
-exports.getCourseById = async (id) => {
+exports.getCourseById = async (course_id) => {
     try {
         const course = await prisma.course.findUnique({
             where: {
-                id
+                course_id
             },
         });
         return course;
     } catch (error) {
-        throw new Error(`Error retrieving course with id ${id}`);
+        throw new Error(`Error retrieving course with id ${course_id}`);
     }
 }
 
-exports.createCourse = async (name, userId) => {
+exports.createCourse = async (course_code, course_name) => {
     try {
         const newCourse = await prisma.course.create({
             data: {
-                name,
-                userId,
+                course_code,
+                course_name,
             },
         });
         return newCourse;
@@ -37,10 +37,10 @@ exports.createCourse = async (name, userId) => {
     }
 };
 
-exports.updateCourse = async(id, updateData) => {
+exports.updateCourse = async(course_id, updateData) => {
     try {
         const course = await prisma.course.update({
-            where: { id },      
+            where: { course_id },      
             data: updateData,     
         });
         return course;  
@@ -49,10 +49,10 @@ exports.updateCourse = async(id, updateData) => {
     }
 }
 
-exports.deleteCourse = async(id) => {
+exports.deleteCourse = async(course_id) => {
     try {
         await prisma.course.delete({
-            where: { id },
+            where: { course_id },
         });
         return "Success deleting course";
     } catch (error) {
