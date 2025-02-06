@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  user_id             Int       @id @default(autoincrement()) @unique
+  username            String    @unique
+  password            String    
+  name                String
+  user_role           Role
+  student_id          String? 
+	student_point       Int?
+	student_course      Int?
+	student_badge       Int?
+	instructor_id       String? 
+	instructor_course   Int?
+	createdAt           DateTime  @default(now())
+}
+
+enum Role {
+  STUDENT
+  INSTRUCTOR
+  ADMIN
+}
+
+model Course {
+  course_id           Int       @id @default(autoincrement())
+  course_code         String
+  course_name         String
+  createdAt           DateTime  @default(now())
+}
+
+model UserCourse {
+    user_course_id    Int       @id @default(autoincrement()) @unique
+    user_id           Int
+    course_id         Int
+    enrollmentTime    DateTime  @default(now())
+}
+
+model Chapter {
+    chapter_id          Int       @id @default(autoincrement()) @unique
+    chapter_name        String
+    chapter_description String
+    chapter_level       Int
+    createdAt           DateTime  @default(now())
+
+    materials Material[]
+    assesments Assessment[]
+    assignments Assignment[]
+}
+
+model CourseChapter {
+    course_chapter_id   Int       @id @default(autoincrement()) @unique
+    course              Int
+    chapter             Int
+    createdAt           DateTime  @default(now())
+}
+
+model Material {
+    material_id         Int       @id @default(autoincrement()) @unique
+    chapter_id          Int
+    material_chapter    Chapter   @relation(fields: [chapter_id], references: [chapter_id]) 
+    material_name       String
+    material_content    String
+    createdAt           DateTime  @default(now())
+}
+
+model Assessment {
+    assess_id           Int       @id @default(autoincrement()) @unique
+    chapter_id          Int
+    assess_chapter      Chapter   @relation(fields: [chapter_id], references: [chapter_id])
+    assess_instruction  String
+    assess_order        Int
+    assess_question     Json
+    assess_answer       Json
+    createdAt           DateTime  @default(now())
+}
+
+model Assignment {
+    assign_id           Int       @id @default(autoincrement()) @unique
+    chapter_id          Int
+    assign_chapter      Chapter   @relation(fields: [chapter_id], references: [chapter_id])
+    assign_instruction  String
+    assign_file         String
+    createdAt           DateTime  @default(now())
+}
+
+model UserChapter {
+    user_chapter_id     Int       @id @default(autoincrement()) @unique
+    user_id             Int
+    chapter_id          Int
+    chapter_status      Boolean   @default(false)
+    status_material     Boolean   @default(false)
+    status_assess       Boolean   @default(false)
+    status_assign       Boolean   @default(false)
+    asses_answer        Json
+    asses_grade         Int       @default(0)
+}
