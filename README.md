@@ -121,7 +121,6 @@ Base URL:
 | Assessment    | Create Assessment     | POST          | `/assessment`       | `{instruction, order, question, answer}`          |
 | Assessment    | Edit Assessment       | PUT           | `/assessment/:id`   | `{instruction, order, question, answer}`          |
 | Assessment    | Delete Assessment     | DEL           | `/assessment/:id`   | -                     |
-<!-- Assignment -->
 | Assignment    | Get All Assignments   | GET           | `/assignment`       | -                     |
 | Assignment    | Get Assignment By Id  | GET           | `/assignment/:id`   | -                     |
 | Assignment    | Create Assignment     | POST          | `/assignment`       | `{instruction, file}` |
