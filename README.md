@@ -95,7 +95,6 @@ Base URL:
 | User    | Create User | POST      | `/user`       | `{name, username, password, role, studentId, points, student_course, student_badge, instructor_id, instructor_course}` |
 | User    | Update User | PUT       | `/user/:id`   | `{name, username, password, role, studentId, points, student_course, student_badge, instructor_id, instructor_course}`    |
 | User    | Delete User | DELETE    | `/user/:id`   |   -     |
-<!-- Course -->
 | Course        | Get All Courses       | GET           | `/course`         | -                       |
 | Course        | Get Course By Id      | GET           | `/course/:id`     | -                       |
 | Course        | Create Course         | POST          | `/course`         | `{code, name}`          |
@@ -103,7 +102,6 @@ Base URL:
 | Course        | Delete Course         | DEL           | `/course/:id`     | -                       |
 | Course        | Get Chapter By Course | GET           | `/course/:id/chapters`    | -               |
 | Course        | Get Users By Course   | GET           | `/course/:id/users`       | -               |
-<!-- Chapter -->
 | Chapter       | Get All Chapter       | GET           | `/chapter`        | -                       |
 | Chapter       | Get Chapter By Id     | GET           | `/chapter/:id`    | -                       |
 | Chapter       | Create Chapter        | POST          | `/chapter`        | `{code, name}`          |
@@ -113,13 +111,11 @@ Base URL:
 | Chapter       | Get Materials By Chapter      | GET   | `/chapter/:id/materials`  | -               |
 | Chapter       | Get Assessments By Chapter    | GET   | `/chapter/:id/assessments`| -               |
 | Chapter       | Get Assignments By Chapter    | GET   | `/chapter/:id/assignments`| -               |
-<!-- Material -->
 | Material      | Get All Materials     | GET           | `/material`         | -                     |
 | Material      | Get Material By Id    | GET           | `/material/:id`     | -                     |
 | Material      | Create Material       | POST          | `/material`         | `{name, content}`     |
 | Material      | Edit Material         | PUT           | `/material/:id`     | `{name, content}`     |
 | Material      | Delete Material       | DEL           | `/material/:id`     | -                     |
-<!-- Assessment -->
 | Assessment    | Get All Assessments   | GET           | `/assessment`       | -                     |
 | Assessment    | Get Assessment By Id  | GET           | `/assessment/:id`   | -                     |
 | Assessment    | Create Assessment     | POST          | `/assessment`       | `{instruction, order, question, answer}`          |
