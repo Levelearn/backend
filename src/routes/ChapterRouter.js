@@ -19,4 +19,19 @@ router.put('/chapter/:id', chapterController.updateChapter);
 // Router for delete chapter by id
 router.delete('/chapter/:id', chapterController.deleteChapter);
 
+
+// SPECIAL ROUTES
+
+// Router for get material from chapter
+router.get('/chapter/:id/materials', chapterController.getMaterialsByChapter);
+
+// Router for get material from chapter
+router.get('/chapter/:id/assessments', chapterController.getAssessmentsByChapter);
+
+// Router for get material from chapter
+router.get('/chapter/:id/assignments', chapterController.getAssignmentsByChapter);
+
+// Router for get content from chapter
+router.get('/chapter/:id/content', chapterController.getContentByChapter);
+
 module.exports = router;

@@ -81,13 +81,13 @@ const deleteCourse = async (req, res) => {
 // SPECIAL ROUTES
 
 const getChapterByCourse = async (req, res) => {
-    const id = parseInt(req.params.id);
+    const courseId = parseInt(req.params.id);
 
     try {
-        const chapters = await courseService.getChapterByCourse(id);
-        req.status(200).json(chapters);
+        const chapters = await courseService.getChapterByCourse(courseId);
+        res.status(200).json(chapters);
     } catch (error) {
-        res.status(500).json({ message: `Failed to get chapters in course id: ${id}`});
+        res.status(500).json({ message: `Failed to get chapters in course id: ${courseId}`, details: error.message});
         console.log(error.message);
     }
 }

@@ -69,10 +69,74 @@ const deleteChapter = async (req, res) => {
     }
 };
 
+
+// SPECIAL CONTROLLER
+
+const getMaterialsByChapter = async (req, res) => {
+    const chapterId = parseInt(req.params.id);
+
+    try {
+        const materials = await chapterService.getMaterialsByChapter(chapterId);
+        res.status(200).json(materials);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get material from chapter ${chapterId}`, detail: error.message});
+        console.log(error.message);
+    }
+
+};
+
+const getAssessmentsByChapter = async (req, res) => {
+    const chapterId = parseInt(req.params.id);
+
+    try {
+        const assessments = await chapterService.getAssessmentsByChapter(chapterId);
+        res.status(200).json(assessments);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get assessment from chapter ${chapterId}`, detail: error.message});
+        console.log(error.message);
+    }
+    
+};
+
+const getAssignmentsByChapter = async (req, res) => {
+    const chapterId = parseInt(req.params.id);
+
+    try {
+        const assignments = await chapterService.getAssignmentsByChapter(chapterId);
+        res.status(200).json(assignments);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get assignment from chapter ${chapterId}`, detail: error.message});
+        console.log(error.message);
+    }
+    
+};
+
+const getContentByChapter = async (req, res) => {
+    const chapterId = parseInt(req.params.id);
+
+    try {
+        const materials = await chapterService.getMaterialsByChapter(chapterId);
+        const assessments = await chapterService.getAssessmentsByChapter(chapterId);
+        const assignments = await chapterService.getAssignmentsByChapter(chapterId);
+
+        chapterContent = {materials, assessments, assignments};
+
+        res.status(200).json(chapterContent);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get contents from chapter ${chapterId}`, detail: error.message});
+        console.log(error.message);
+    }
+}
+
+
 module.exports = {
     getAllChapters,
     getChapterById,
     createChapter,
     updateChapter,
-    deleteChapter
+    deleteChapter,
+    getMaterialsByChapter,
+    getAssessmentsByChapter,
+    getAssignmentsByChapter,
+    getContentByChapter
 };
