@@ -10,10 +10,6 @@ This repository contains the backend code for a gamified learning application, b
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [API Documentation](#api-documentation)
-- [Database Schema](#database-schema)
-- [Testing with Postman](#testing-with-postman)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -41,8 +37,9 @@ This backend application serves as the core logic for a gamified learning platfo
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone [https://github.com/TA-2425-13/backend.git](https://github.com/TA-2425-13/backend.git)
+    ```
+    git clone [https://github.com/TA-2425-13/backend.git](https://github.com/TA-2425-13/backend.git)
+    ```
 
 2. **Navigate to the project directory:**
 
@@ -67,6 +64,8 @@ This backend application serves as the core logic for a gamified learning platfo
         JWT_SECRET=your_secret_token
 
         DATABASE_URL="mysql://root:root@localhost:3306/graphci"
+        ```
+    - Make sure there's definition of `require('dotenv').config();` in the `index.js` file.
 
 4. **Generate Prisma Client:**
 
@@ -80,8 +79,9 @@ This backend application serves as the core logic for a gamified learning platfo
 
 ## Running The Application
 
-    ```bash
-   nodemon run dev
+    ```
+    nodemon run dev
+    ```
 
 ## API Documentation
 
@@ -92,6 +92,42 @@ Base URL:
 | --------  | --------- |---------- |-------------- | --------  |
 | User      | Get All Users | GET       | `/user`       | -   |
 | User    | Get User by ID | GET       | `/user/:id`   | -  |
-| User    | Create User | POST      | `/user`       | `{name, username, password, user_role, student_id, student_point, student_course, student_badge, instructor_id, instructor_course}` |
-| User    | Update User | PUT       | `/user/:id`   | `{name, username, password, user_role, student_id, student_point, student_course, student_badge, instructor_id, instructor_course}`    |
+| User    | Create User | POST      | `/user`       | `{name, username, password, role, studentId, points, student_course, student_badge, instructor_id, instructor_course}` |
+| User    | Update User | PUT       | `/user/:id`   | `{name, username, password, role, studentId, points, student_course, student_badge, instructor_id, instructor_course}`    |
 | User    | Delete User | DELETE    | `/user/:id`   |   -     |
+<!-- Course -->
+| Course        | Get All Courses       | GET           | `/course`         | -                       |
+| Course        | Get Course By Id      | GET           | `/course/:id`     | -                       |
+| Course        | Create Course         | POST          | `/course`         | `{code, name}`          |
+| Course        | Edit Course           | PUT           | `/course/:id`     | `{code, name}`          |
+| Course        | Delete Course         | DEL           | `/course/:id`     | -                       |
+| Course        | Get Chapter By Course | GET           | `/course/:id/chapters`    | -               |
+| Course        | Get Users By Course   | GET           | `/course/:id/users`       | -               |
+<!-- Chapter -->
+| Chapter       | Get All Chapter       | GET           | `/chapter`        | -                       |
+| Chapter       | Get Chapter By Id     | GET           | `/chapter/:id`    | -                       |
+| Chapter       | Create Chapter        | POST          | `/chapter`        | `{code, name}`          |
+| Chapter       | Edit Chapter          | PUT           | `/chapter/:id`    | `{code, name}`          |
+| Chapter       | Delete Chapter        | DEL           | `/chapter/:id`    | -                       |
+| Chapter       | Get Content By Chapter        | GET   | `/chapter/:id/content `   | -               |
+| Chapter       | Get Materials By Chapter      | GET   | `/chapter/:id/materials`  | -               |
+| Chapter       | Get Assessments By Chapter    | GET   | `/chapter/:id/assessments`| -               |
+| Chapter       | Get Assignments By Chapter    | GET   | `/chapter/:id/assignments`| -               |
+<!-- Material -->
+| Material      | Get All Materials     | GET           | `/material`         | -                     |
+| Material      | Get Material By Id    | GET           | `/material/:id`     | -                     |
+| Material      | Create Material       | POST          | `/material`         | `{name, content}`     |
+| Material      | Edit Material         | PUT           | `/material/:id`     | `{name, content}`     |
+| Material      | Delete Material       | DEL           | `/material/:id`     | -                     |
+<!-- Assessment -->
+| Assessment    | Get All Assessments   | GET           | `/assessment`       | -                     |
+| Assessment    | Get Assessment By Id  | GET           | `/assessment/:id`   | -                     |
+| Assessment    | Create Assessment     | POST          | `/assessment`       | `{instruction, order, question, answer}`          |
+| Assessment    | Edit Assessment       | PUT           | `/assessment/:id`   | `{instruction, order, question, answer}`          |
+| Assessment    | Delete Assessment     | DEL           | `/assessment/:id`   | -                     |
+<!-- Assignment -->
+| Assignment    | Get All Assignments   | GET           | `/assignment`       | -                     |
+| Assignment    | Get Assignment By Id  | GET           | `/assignment/:id`   | -                     |
+| Assignment    | Create Assignment     | POST          | `/assignment`       | `{instruction, file}` |
+| Assignment    | Edit Assignment       | PUT           | `/assignment/:id`   | `{instruction, file}` |
+| Assignment    | Delete Assignment     | DEL           | `/assignment/:id`   | -                     |
