@@ -14,13 +14,13 @@ const getAllAssessments = async (req, res) => {
 
 // Controller untuk mendapatkan assessment by id
 const getAssessmentById = async(req, res) => {
-    const assess_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const assessment = await assessmentService.getAssessmentById(assess_id);
+        const assessment = await assessmentService.getAssessmentById(id);
         res.status(200).json(assessment);
     } catch (error) {
-        res.status(500).json({ message: `Failed to get assessment with id ${ assess_id }`})
+        res.status(500).json({ message: `Failed to get assessment with id ${ id }`})
         console.log(error.mesage);
         
     }
@@ -32,7 +32,7 @@ const createAssessment = async (req, res) => {
         const newData = req.body;
 
         const assessment = await assessmentService.createAssessment(newData);
-        res.status(201).json({message: `Successfully create new assessment ${newData.assessment_name}`, assessment: assessment});
+        res.status(201).json({message: `Successfully create new assessment ${newData.name}`, assessment: assessment});
     } catch (error) {
         res.status(500).json({ message: "Failed to create new assessment", data: error.message });
         console.log(error.message);
@@ -42,12 +42,12 @@ const createAssessment = async (req, res) => {
 
 // Controller untuk update assessment by id
 const updateAssessment = async (req, res) => {
-    const assess_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     const updateData = req.body;
 
     try {
-        const updateAssessment = await assessmentService.updateAssessment(assess_id, updateData);
+        const updateAssessment = await assessmentService.updateAssessment(id, updateData);
         res.status(200).json({message: "Successfully updated assessment", assessment: updateAssessment});
     } catch (error) {
         res.status(500).json({ message: "Failed to update assessment", detail: error.message });
@@ -58,10 +58,10 @@ const updateAssessment = async (req, res) => {
 
 // Controller untuk delete assessment by id
 const deleteAssessment = async (req, res) => {
-    const assess_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const deleteAssessment = await assessmentService.deleteAssessment(assess_id);
+        const deleteAssessment = await assessmentService.deleteAssessment(id);
         res.status(200).json(deleteAssessment);
     } catch (error) {
         res.status(500).json({ message: 'Failed to delete assessment' });

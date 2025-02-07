@@ -10,16 +10,16 @@ exports.getAllMaterials = async () => {
     }
 };
 
-exports.getMaterialById = async (material_id) => {
+exports.getMaterialById = async (id) => {
     try {
         const material = await prisma.material.findUnique({
             where: {
-                material_id
+                id
             },
         });
         return material;
     } catch (error) {
-        throw new Error(`Error retrieving material with id ${material_id}`);
+        throw new Error(`Error retrieving material with id ${id}`);
     }
 }
 
@@ -34,10 +34,10 @@ exports.createMaterial = async (newData) => {
     }
 };
 
-exports.updateMaterial = async(material_id, updateData) => {
+exports.updateMaterial = async(id, updateData) => {
     try {
         const material = await prisma.material.update({
-            where: { material_id },      
+            where: { id },      
             data: updateData,     
         });
         return material;  
@@ -46,12 +46,12 @@ exports.updateMaterial = async(material_id, updateData) => {
     }
 }
 
-exports.deleteMaterial = async(material_id) => {
+exports.deleteMaterial = async(id) => {
     try {
         await prisma.material.delete({
-            where: { material_id },
+            where: { id },
         });
-        return `Successfully deleted material with id: ${material_id}`;
+        return `Successfully deleted material with id: ${id}`;
     } catch (error) {
         throw new Error('Error deleting material: ' + error.message); 
     }

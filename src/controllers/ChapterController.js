@@ -14,15 +14,14 @@ const getAllChapters = async (req, res) => {
 
 // Controller untuk mendapatkan chapter by id
 const getChapterById = async(req, res) => {
-    const chapter_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const chapter = await chapterService.getChapterById(chapter_id);
+        const chapter = await chapterService.getChapterById(id);
         res.status(200).json(chapter);
     } catch (error) {
-        res.status(500).json({ message: `Failed to get chapter with id ${ chapter_id }`})
+        res.status(500).json({ message: `Failed to get chapter with id ${ id }`})
         console.log(error.mesage);
-        
     }
 }
 
@@ -32,7 +31,7 @@ const createChapter = async (req, res) => {
         const newData = req.body;
 
         const chapter = await chapterService.createChapter(newData);
-        res.status(201).json({message: `Successfully create new chapter ${newData.chapter_name}`, chapter: chapter});
+        res.status(201).json({message: `Successfully create new chapter ${newData.name}`, chapter: chapter});
     } catch (error) {
         res.status(500).json({ message: "Failed to create new chapter", data: error.message });
         console.log(error.message);
@@ -42,12 +41,12 @@ const createChapter = async (req, res) => {
 
 // Controller untuk update chapter by id
 const updateChapter = async (req, res) => {
-    const chapter_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     const updateData = req.body;
 
     try {
-        const updateChapter = await chapterService.updateChapter(chapter_id, updateData);
+        const updateChapter = await chapterService.updateChapter(id, updateData);
         res.status(200).json({message: "Successfully updated chapter", chapter: updateChapter});
     } catch (error) {
         res.status(500).json({ message: "Failed to update chapter", detail: error.message });
@@ -58,10 +57,10 @@ const updateChapter = async (req, res) => {
 
 // Controller untuk delete chapter by id
 const deleteChapter = async (req, res) => {
-    const chapter_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const deleteChapter = await chapterService.deleteChapter(chapter_id);
+        const deleteChapter = await chapterService.deleteChapter(id);
         res.status(200).json(deleteChapter);
     } catch (error) {
         res.status(500).json({ message: 'Failed to create chapter' });

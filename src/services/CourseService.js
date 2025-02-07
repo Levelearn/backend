@@ -10,25 +10,25 @@ exports.getAllCourses = async () => {
     }
 };
 
-exports.getCourseById = async (course_id) => {
+exports.getCourseById = async (id) => {
     try {
         const course = await prisma.course.findUnique({
             where: {
-                course_id
+                id
             },
         });
         return course;
     } catch (error) {
-        throw new Error(`Error retrieving course with id ${course_id}`);
+        throw new Error(`Error retrieving course with id ${id}`);
     }
 }
 
-exports.createCourse = async (course_code, course_name) => {
+exports.createCourse = async (code, name) => {
     try {
         const newCourse = await prisma.course.create({
             data: {
-                course_code,
-                course_name,
+                code,
+                name,
             },
         });
         return newCourse;
@@ -37,10 +37,10 @@ exports.createCourse = async (course_code, course_name) => {
     }
 };
 
-exports.updateCourse = async(course_id, updateData) => {
+exports.updateCourse = async(id, updateData) => {
     try {
         const course = await prisma.course.update({
-            where: { course_id },      
+            where: { id },      
             data: updateData,     
         });
         return course;  
@@ -49,13 +49,28 @@ exports.updateCourse = async(course_id, updateData) => {
     }
 }
 
-exports.deleteCourse = async(course_id) => {
+exports.deleteCourse = async(id) => {
     try {
         await prisma.course.delete({
-            where: { course_id },
+            where: { id },
         });
         return "Success deleting course";
     } catch (error) {
         throw new Error('Error deleting course: ' + error.message); 
+    }
+}
+
+// Special Services
+
+exports.getChapterByCourse = async(id) => {
+    try {
+        const chapters = await prisma.chapter.findMany({
+            where: {
+                id: parseInt(id)
+            },
+        });
+        return chapters;
+    } catch (error) {
+        throw new Error('Error getting chapters: ' + error.message);
     }
 }

@@ -10,16 +10,16 @@ exports.getAllAssignments = async () => {
     }
 };
 
-exports.getAssignmentById = async (assign_id) => {
+exports.getAssignmentById = async (id) => {
     try {
         const assignment = await prisma.assignment.findUnique({
             where: {
-                assign_id
+                id
             },
         });
         return assignment;
     } catch (error) {
-        throw new Error(`Error retrieving assignment with id ${assign_id}`);
+        throw new Error(`Error retrieving assignment with id ${id}`);
     }
 }
 
@@ -34,10 +34,10 @@ exports.createAssignment = async (newData) => {
     }
 };
 
-exports.updateAssignment = async(assign_id, updateData) => {
+exports.updateAssignment = async(id, updateData) => {
     try {
         const assignment = await prisma.assignment.update({
-            where: { assign_id },      
+            where: { id },      
             data: updateData,     
         });
         return assignment;  
@@ -46,12 +46,12 @@ exports.updateAssignment = async(assign_id, updateData) => {
     }
 }
 
-exports.deleteAssignment = async(assign_id) => {
+exports.deleteAssignment = async(id) => {
     try {
         await prisma.assignment.delete({
-            where: { assign_id },
+            where: { id },
         });
-        return `Successfully deleted assignment with id: ${assign_id}`;
+        return `Successfully deleted assignment with id: ${id}`;
     } catch (error) {
         throw new Error('Error deleting assignment: ' + error.message); 
     }

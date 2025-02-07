@@ -10,16 +10,16 @@ exports.getAllAssessments = async () => {
     }
 };
 
-exports.getAssessmentById = async (assess_id) => {
+exports.getAssessmentById = async (id) => {
     try {
         const assessment = await prisma.assessment.findUnique({
             where: {
-                assess_id
+                id
             },
         });
         return assessment;
     } catch (error) {
-        throw new Error(`Error retrieving assessment with id ${assess_id}`);
+        throw new Error(`Error retrieving assessment with id ${id}`);
     }
 }
 
@@ -34,10 +34,10 @@ exports.createAssessment = async (newData) => {
     }
 };
 
-exports.updateAssessment = async(assess_id, updateData) => {
+exports.updateAssessment = async(id, updateData) => {
     try {
         const assessment = await prisma.assessment.update({
-            where: { assess_id },      
+            where: { id },      
             data: updateData,     
         });
         return assessment;  
@@ -46,12 +46,12 @@ exports.updateAssessment = async(assess_id, updateData) => {
     }
 }
 
-exports.deleteAssessment = async(assess_id) => {
+exports.deleteAssessment = async(id) => {
     try {
         await prisma.assessment.delete({
-            where: { assess_id },
+            where: { id },
         });
-        return `Successfully deleted assessment with id: ${assess_id}`;
+        return `Successfully deleted assessment with id: ${id}`;
     } catch (error) {
         throw new Error('Error deleting assessment: ' + error.message); 
     }

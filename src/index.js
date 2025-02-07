@@ -10,6 +10,7 @@ const authRoutes = require('./routes/authRoutes.js');
 const authMiddleware = require('./middlewares/authMiddleware.js');
 const userRoutes = require('./routes/UserRouter.js');
 const courseRoutes = require('./routes/CourseRouter.js');
+const userCourseRoutes = require('./routes/UserCourseRouter.js');
 const chapterRoutes = require('./routes/ChapterRouter.js');
 const materialRoutes = require('./routes/MaterialRouter.js');
 const assessmentRoutes = require('./routes/AssessmentRouter.js');
@@ -27,6 +28,7 @@ app.use('/api', chapterRoutes);
 app.use('/api', materialRoutes);
 app.use('/api', assessmentRoutes);
 app.use('/api', assignmentRoutes);
+app.use('/api', userCourseRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

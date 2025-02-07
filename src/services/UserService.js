@@ -10,11 +10,11 @@ exports.getAllUsers = async () => {
     }
 };
 
-exports.getUserById = async (user_id) => {
+exports.getUserById = async (id) => {
     try {
         const user = await prisma.user.findUnique({
             where: {
-                user_id
+                id
             },
         });
         return user;
@@ -27,26 +27,26 @@ exports.createUser = async (
         name, 
         username, 
         password,
-        user_role,
-        student_id,
-        student_point,
-        student_course,
-        student_badge,
-        instructor_id,
-        instructor_course) => {
+        role,
+        studentId,
+        points,
+        totalCourses,
+        badges,
+        instructorId,
+        instructorCourses) => {
     try {
         const newUser = await prisma.user.create({
             data: { 
                 name, 
                 username, 
                 password,
-                user_role,
-                student_id,
-                student_point,
-                student_course,
-                student_badge,
-                instructor_id,
-                instructor_course,
+                role,
+                studentId,
+                points,
+                totalCourses,
+                badges,
+                instructorId,
+                instructorCourses,
                 createdAt: new Date()
             }
         });
@@ -56,10 +56,10 @@ exports.createUser = async (
     }
 };
 
-exports.updateUser = async(user_id, updateData) => {
+exports.updateUser = async(id, updateData) => {
     try {
         const user = await prisma.user.update({
-            where: { user_id },      
+            where: { id },      
             data: updateData,     
         });
         return user;  
@@ -68,12 +68,12 @@ exports.updateUser = async(user_id, updateData) => {
     }
 }
 
-exports.deleteUser = async(user_id) => {
+exports.deleteUser = async(id) => {
     try {
         await prisma.user.delete({
-            where: { user_id },
+            where: { id },
         });
-        return `Success deleting user with id ${user_id}`;
+        return `Success deleting user with id ${id}`;
     } catch (error) {
         throw new Error('Error deleting user: ' + error.message); 
     }

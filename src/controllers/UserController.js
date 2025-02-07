@@ -1,5 +1,6 @@
 // @ts-ignore
 const userService = require('../services/UserService');
+const userCourseService = require('../services/UserCourseService');
 
 // Controller untuk mendapatkan daftar user
 const getAllUsers = async (req, res) => {
@@ -13,14 +14,14 @@ const getAllUsers = async (req, res) => {
 
 // Controller untuk mendapatkan user by id
 const getUserById = async(req, res) => {
-    const userId = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const user = await userService.getUserById(userId);
+        const user = await userService.getUserById(id);
         
         res.status(200).json(user);
     } catch (error) {
-        res.status(500).json({ message: `Failed to get user with id ${ userId }`, details: error.message})
+        res.status(500).json({ message: `Failed to get user with id ${ id }`, details: error.message})
         console.log(error.message);
     }
 }
@@ -30,7 +31,7 @@ const createUser = async (req, res) => {
     const { name,
             username, 
             password,
-            user_role,
+            role,
             student_id,
             student_point,
             student_course,
@@ -43,7 +44,7 @@ const createUser = async (req, res) => {
             name,
             username, 
             password,
-            user_role,
+            role,
             student_id,
             student_point,
             student_course,
@@ -51,11 +52,11 @@ const createUser = async (req, res) => {
             instructor_id,
             instructor_course);
 
-        const respoonse = {
-            message: `Successfully registered user ${name} as ${user_role}`,
+        const response = {
+            message: `Successfully registered user ${name} as ${role}`,
             user: newUser
         }
-        res.status(200).json(respoonse);
+        res.status(200).json(response);
     } catch (error) {
         res.status(500).json({ message: 'Failed to create user', details: error.message});
         console.log(error.message);
@@ -64,30 +65,13 @@ const createUser = async (req, res) => {
 
 // Controller untuk update user by id
 const updateUser = async (req, res) => {
-    const userId = parseInt(req.params.id);
-    const { name,
-            username, 
-            password,
-            user_role,
-            student_id,
-            student_point,
-            student_course,
-            student_badge,
-            instructor_id,
-            instructor_course } = req.body;
+    const id = parseInt(req.params.id);
 
-    if (!username && !password) {
-        return res.status(400).json({ message: 'At least one field (username or password) is required' });
-    }
-
-    const updateData = {};
-    if (username) updateData.username = username;
-    if (password) updateData.password = password;
+    const updateData = req.body;
 
     try {
-        const updateUser = await userService.updateUser(userId, updateData);
-        
-        res.status(200).json({message: `Successfully updated ${name}'s data`, user: updateUser});
+        const updateUser = await userService.updateUser(id, updateData);
+        res.status(200).json({message: `Successfully updated ${updateData.name}'s data`, user: updateUser});
     } catch (error) {
         res.status(500).json({ message: error.message });
         console.log(error.message);
@@ -96,10 +80,10 @@ const updateUser = async (req, res) => {
 
 // Controller untuk delete user by id
 const deleteUser = async (req, res) => {
-    const userId = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const deleteUser = await userService.deleteUser(userId);
+        const deleteUser = await userService.deleteUser(id);
         res.status(200).json(deleteUser);
     } catch (error) {
         res.status(500).json({ message: 'Failed to delete user' });
@@ -107,10 +91,28 @@ const deleteUser = async (req, res) => {
     }
 };
 
+
+// SPECIAL CONTROLLERS
+
+const getCoursesByUser = async (req, res) => {
+    const userId = parseInt(req.params.id);
+
+    try {
+        const courses = await userCourseService.getCoursesByUser(userId);
+        
+        res.status(200).json(courses);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get courses in user ${ userId }`, details: error.message})
+        console.log(error.message);
+    }
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    // 
+    getCoursesByUser
 };

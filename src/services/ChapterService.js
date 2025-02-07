@@ -10,16 +10,16 @@ exports.getAllChapters = async () => {
     }
 };
 
-exports.getChapterById = async (chapter_id) => {
+exports.getChapterById = async (id) => {
     try {
         const chapter = await prisma.chapter.findUnique({
             where: {
-                chapter_id
-            },
+                id
+            }
         });
         return chapter;
     } catch (error) {
-        throw new Error(`Error retrieving chapter with id ${chapter_id}`);
+        throw new Error(`Error retrieving chapter with id ${id}`);
     }
 }
 
@@ -34,10 +34,10 @@ exports.createChapter = async (newData) => {
     }
 };
 
-exports.updateChapter = async(chapter_id, updateData) => {
+exports.updateChapter = async(id, updateData) => {
     try {
         const chapter = await prisma.chapter.update({
-            where: { chapter_id },      
+            where: { id },      
             data: updateData,     
         });
         return chapter;  
@@ -46,12 +46,12 @@ exports.updateChapter = async(chapter_id, updateData) => {
     }
 }
 
-exports.deleteChapter = async(chapter_id) => {
+exports.deleteChapter = async(id) => {
     try {
         await prisma.chapter.delete({
-            where: { chapter_id },
+            where: { id },
         });
-        return `Successfully deleted chapter with id: ${chapter_id}`;
+        return `Successfully deleted chapter with id: ${id}`;
     } catch (error) {
         throw new Error('Error deleting chapter: ' + error.message); 
     }

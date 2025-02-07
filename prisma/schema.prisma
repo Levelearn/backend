@@ -14,18 +14,25 @@ datasource db {
 }
 
 model User {
-  user_id             Int       @id @default(autoincrement()) @unique
-  username            String    @unique
-  password            String    
-  name                String
-  user_role           Role
-  student_id          String? 
-	student_point       Int?
-	student_course      Int?
-	student_badge       Int?
-	instructor_id       String? 
-	instructor_course   Int?
-	createdAt           DateTime  @default(now())
+  id                Int           @id @default(autoincrement())
+  username          String        @unique
+  password          String    
+  name              String
+  role              Role
+  studentId         String?       // Data khusus student
+  points            Int?
+  totalCourses      Int?
+  badges            Int?
+  instructorId      String?       // Data khusus instructor
+  instructorCourses Int?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  // Relasi
+  enrolledCourses   UserCourse[]
+  chapterProgress   UserChapter[]
+
+  @@map("users")
 }
 
 enum Role {
@@ -35,75 +42,119 @@ enum Role {
 }
 
 model Course {
-  course_id           Int       @id @default(autoincrement())
-  course_code         String
-  course_name         String
-  createdAt           DateTime  @default(now())
+  id          Int           @id @default(autoincrement())
+  code        String
+  name        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  // Relasi
+  chapters    Chapter[]
+  enrollments UserCourse[]
+
+  @@map("courses")
 }
 
 model UserCourse {
-    user_course_id    Int       @id @default(autoincrement()) @unique
-    user_id           Int
-    course_id         Int
-    enrollmentTime    DateTime  @default(now())
+  id            Int       @id @default(autoincrement())
+  userId        Int
+  courseId      Int
+  enrolledAt    DateTime  @default(now())
+  
+  // Relasi
+  user          User      @relation(fields: [userId], references: [id])
+  course        Course    @relation(fields: [courseId], references: [id])
+
+  @@index([userId])
+  @@index([courseId])
+  @@map("user_courses")
 }
 
 model Chapter {
-    chapter_id          Int       @id @default(autoincrement()) @unique
-    chapter_name        String
-    chapter_description String
-    chapter_level       Int
-    createdAt           DateTime  @default(now())
+  id              Int       @id @default(autoincrement())
+  name            String
+  description     String
+  level           Int
+  courseId        Int      // Foreign key to Course
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
-    materials Material[]
-    assesments Assessment[]
-    assignments Assignment[]
-}
+  // Relasi
+  course          Course    @relation(fields: [courseId], references: [id])
+  materials       Material[]
+  assessments     Assessment[]
+  assignments     Assignment[]
+  userProgress    UserChapter[]
 
-model CourseChapter {
-    course_chapter_id   Int       @id @default(autoincrement()) @unique
-    course              Int
-    chapter             Int
-    createdAt           DateTime  @default(now())
+  @@index([courseId])
+  @@map("chapters")
 }
 
 model Material {
-    material_id         Int       @id @default(autoincrement()) @unique
-    chapter_id          Int
-    material_chapter    Chapter   @relation(fields: [chapter_id], references: [chapter_id]) 
-    material_name       String
-    material_content    String
-    createdAt           DateTime  @default(now())
+  id          Int       @id @default(autoincrement())
+  chapterId   Int
+  name        String
+  content     String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relasi
+  chapter     Chapter   @relation(fields: [chapterId], references: [id])
+
+  @@index([chapterId])
+  @@map("materials")
 }
 
 model Assessment {
-    assess_id           Int       @id @default(autoincrement()) @unique
-    chapter_id          Int
-    assess_chapter      Chapter   @relation(fields: [chapter_id], references: [chapter_id])
-    assess_instruction  String
-    assess_order        Int
-    assess_question     Json
-    assess_answer       Json
-    createdAt           DateTime  @default(now())
+  id            Int       @id @default(autoincrement())
+  chapterId     Int
+  instruction   String
+  orderNumber   Int
+  questions     Json
+  answers       Json
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relasi
+  chapter       Chapter   @relation(fields: [chapterId], references: [id])
+
+  @@index([chapterId])
+  @@map("assessments")
 }
 
 model Assignment {
-    assign_id           Int       @id @default(autoincrement()) @unique
-    chapter_id          Int
-    assign_chapter      Chapter   @relation(fields: [chapter_id], references: [chapter_id])
-    assign_instruction  String
-    assign_file         String
-    createdAt           DateTime  @default(now())
+  id            Int       @id @default(autoincrement())
+  chapterId     Int
+  instruction   String
+  fileUrl       String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relasi
+  chapter       Chapter   @relation(fields: [chapterId], references: [id])
+
+  @@index([chapterId])
+  @@map("assignments")
 }
 
 model UserChapter {
-    user_chapter_id     Int       @id @default(autoincrement()) @unique
-    user_id             Int
-    chapter_id          Int
-    chapter_status      Boolean   @default(false)
-    status_material     Boolean   @default(false)
-    status_assess       Boolean   @default(false)
-    status_assign       Boolean   @default(false)
-    asses_answer        Json
-    asses_grade         Int       @default(0)
+  id              Int       @id @default(autoincrement())
+  userId          Int
+  chapterId       Int
+  isCompleted     Boolean   @default(false)
+  materialDone    Boolean   @default(false)
+  assessmentDone  Boolean   @default(false)
+  assignmentDone  Boolean   @default(false)
+  assessmentAnswer Json?
+  assessmentGrade Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Relasi
+  user            User      @relation(fields: [userId], references: [id])
+  chapter         Chapter   @relation(fields: [chapterId], references: [id])
+
+  @@index([userId])
+  @@index([chapterId])
+  @@map("user_chapters")
 }

@@ -1,5 +1,6 @@
 // @ts-ignore
 const courseService = require('../services/CourseService');
+const userCourseService = require('../services/UserCourseService');
 
 // Controller untuk mendapatkan daftar course
 const getAllCourses = async (req, res) => {
@@ -15,13 +16,13 @@ const getAllCourses = async (req, res) => {
 
 // Controller untuk mendapatkan course by id
 const getCourseById = async(req, res) => {
-    const course_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const course = await courseService.getCourseById(course_id);
+        const course = await courseService.getCourseById(id);
         res.status(200).json(course);
     } catch (error) {
-        res.status(500).json({ message: `Failed to get course with id ${ course_id }`})
+        res.status(500).json({ message: `Failed to get course with id ${ id }`})
         console.log(error.mesage);
         
     }
@@ -30,9 +31,9 @@ const getCourseById = async(req, res) => {
 // Controller untuk membuat course baru
 const createCourse = async (req, res) => {
     try {
-        const { course_code, course_name } = req.body;
-        const course = await courseService.createCourse(course_code, course_name);
-        res.status(201).json({message: `Successfully create new course ${course_name}`, course: course});
+        const { code, name } = req.body;
+        const course = await courseService.createCourse(code, name);
+        res.status(201).json({message: `Successfully create new course ${name}`, course: course});
     } catch (error) {
         res.status(500).json({ message: "Failed to create new course", detail: error.message });
         console.log(error.message);
@@ -43,15 +44,15 @@ const createCourse = async (req, res) => {
 // Controller untuk update course by id
 const updateCourse = async (req, res) => {
     const courseId = parseInt(req.params.id);
-    const { course_code, course_name } = req.body;
+    const { code, name } = req.body;
 
     const updateData = {};
 
-    if (course_code) {
-        updateData.course_code = course_code;
+    if (code) {
+        updateData.code = code;
     }
-    if (course_name) {
-        updateData.course_name = course_name;
+    if (name) {
+        updateData.name = name;
     }
 
     try {
@@ -66,22 +67,50 @@ const updateCourse = async (req, res) => {
 
 // Controller untuk delete course by id
 const deleteCourse = async (req, res) => {
-    const course_id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
     try {
-        const deleteCourse = await courseService.deleteCourse(course_id);
+        const deleteCourse = await courseService.deleteCourse(id);
         res.status(200).json(deleteCourse);
     } catch (error) {
         res.status(500).json({ message: 'Failed to create course' });
         console.log(error.message);
-        
     }
 };
+
+// SPECIAL ROUTES
+
+const getChapterByCourse = async (req, res) => {
+    const id = parseInt(req.params.id);
+
+    try {
+        const chapters = await courseService.getChapterByCourse(id);
+        req.status(200).json(chapters);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get chapters in course id: ${id}`});
+        console.log(error.message);
+    }
+}
+
+const getUsersByCourse = async (req, res) => {
+    const courseId = parseInt(req.params.id);
+
+    try {
+        const users = await userCourseService.getUsersByCourse(courseId);
+        
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get users in course ${ courseId }`, details: error.message})
+        console.log(error.message);
+    }
+}
 
 module.exports = {
     getAllCourses,
     getCourseById,
     createCourse,
     updateCourse,
-    deleteCourse
+    deleteCourse,
+    getChapterByCourse,
+    getUsersByCourse
 };

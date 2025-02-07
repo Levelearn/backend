@@ -19,4 +19,10 @@ router.put('/user/:id', userController.updateUser);
 // Router for delete user by id
 router.delete('/user/:id', userController.deleteUser);
 
+
+// SPECIAL ROUTES
+
+// Get Courses by User
+router.get('/user/:id/courses', userController.getCoursesByUser);
+
 module.exports = router;
