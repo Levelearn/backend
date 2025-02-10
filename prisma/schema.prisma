@@ -31,6 +31,7 @@ model User {
   // Relasi
   enrolledCourses   UserCourse[]
   chapterProgress   UserChapter[]
+  userBadges        UserBadge[]
 
   @@map("users")
 }
@@ -51,6 +52,7 @@ model Course {
   // Relasi
   chapters    Chapter[]
   enrollments UserCourse[]
+  badges      Badge[]
 
   @@map("courses")
 }
@@ -85,6 +87,7 @@ model Chapter {
   assessments     Assessment[]
   assignments     Assignment[]
   userProgress    UserChapter[]
+  badges          Badge[]
 
   @@index([courseId])
   @@map("chapters")
@@ -157,4 +160,44 @@ model UserChapter {
   @@index([userId])
   @@index([chapterId])
   @@map("user_chapters")
+}
+
+model Badge {
+  id        Int      @id @default(autoincrement())
+  name      String
+  type      BadgeType
+  courseId  Int
+  chapterId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relasi
+  course    Course   @relation(fields: [courseId], references: [id])
+  chapter   Chapter  @relation(fields: [chapterId], references: [id])
+  userBadges UserBadge[]
+
+  @@index([courseId])
+  @@index([chapterId])
+  @@map("badges")
+}
+
+enum BadgeType {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCE
+}
+
+model UserBadge {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  badgeId   Int
+  awardedAt DateTime @default(now())
+
+  // Relasi
+  user      User  @relation(fields: [userId], references: [id])
+  badge     Badge @relation(fields: [badgeId], references: [id])
+
+  @@index([userId])
+  @@index([badgeId])
+  @@map("user_badges")
 }
