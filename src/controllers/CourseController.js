@@ -1,6 +1,7 @@
 // @ts-ignore
 const courseService = require('../services/CourseService');
 const userCourseService = require('../services/UserCourseService');
+const badgeService = require('../services/BadgeService');
 
 // Controller untuk mendapatkan daftar course
 const getAllCourses = async (req, res) => {
@@ -105,6 +106,18 @@ const getUsersByCourse = async (req, res) => {
     }
 }
 
+const getBadgesByCourse = async (req, res) => {
+    const courseId = parseInt(req.params.id);
+
+    try {
+        const badges = await badgeService.getBadgesByCourse(courseId);
+        res.status(200).json(badges);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get badges in course ${ courseId }`, details: error.message})
+        console.log(error.message);
+    }
+}
+
 module.exports = {
     getAllCourses,
     getCourseById,
@@ -112,5 +125,6 @@ module.exports = {
     updateCourse,
     deleteCourse,
     getChapterByCourse,
-    getUsersByCourse
+    getUsersByCourse,
+    getBadgesByCourse
 };

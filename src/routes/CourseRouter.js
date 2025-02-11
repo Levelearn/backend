@@ -31,5 +31,8 @@ router.get('/course/:id/chapters', courseController.getChapterByCourse);
 // Router for get users from course
 router.get('/course/:id/users', courseController.getUsersByCourse);
 
+// Router for get badges from course
+router.get('/course/:id/badges', courseController.getBadgesByCourse);
+
 
 module.exports = router;

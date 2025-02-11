@@ -1,6 +1,7 @@
 // @ts-ignore
 const userService = require('../services/UserService');
 const userCourseService = require('../services/UserCourseService');
+const userBadgeService = require('../services/UserBadgeService');
 
 // Controller untuk mendapatkan daftar user
 const getAllUsers = async (req, res) => {
@@ -107,6 +108,19 @@ const getCoursesByUser = async (req, res) => {
     }
 }
 
+const getBadgesByUser = async (req, res) => {
+    const userId = parseInt(req.params.id);
+
+    try {
+        const badges = await userBadgeService.getBadgesByUser(userId);
+        
+        res.status(200).json(badges);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get badges in user ${ userId }`, details: error.message})
+        console.log(error.message);
+    }
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
@@ -114,5 +128,6 @@ module.exports = {
     updateUser,
     deleteUser,
     // 
-    getCoursesByUser
+    getCoursesByUser,
+    getBadgesByUser
 };

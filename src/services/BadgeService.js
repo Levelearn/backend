@@ -56,3 +56,19 @@ exports.deleteBadge = async(id) => {
         throw new Error('Error deleting badge: ' + error.message); 
     }
 }
+
+
+// SPECIAL SERVICES
+
+exports.getBadgesByCourse = async(courseId) => {
+    try {
+        const badge = await prisma.badge.findMany({
+            where: {
+                courseId: parseInt(courseId)
+            }
+        });
+        return badge;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}

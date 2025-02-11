@@ -77,6 +77,12 @@ This backend application serves as the core logic for a gamified learning platfo
     ```bash
    npx prisma migrate dev --name init
 
+   
+6. **Run Database Seeder:**
+
+    ```bash
+   npx prisma db seed
+
 ## Running The Application
 
     ```

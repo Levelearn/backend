@@ -25,4 +25,7 @@ router.delete('/user/:id', userController.deleteUser);
 // Get Courses by User
 router.get('/user/:id/courses', userController.getCoursesByUser);
 
+// Get Badges by User
+router.get('/user/:id/badges', userController.getBadgesByUser);
+
 module.exports = router;
