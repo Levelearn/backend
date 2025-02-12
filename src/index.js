@@ -4,10 +4,8 @@ const path = require('path');
 const { dirname } = require('path');
 const { fileURLToPath } = require('url');
 
-const usersRoutes = require('./routes/users');
-
-const authRoutes = require('./routes/authRoutes.js');
-const authMiddleware = require('./middlewares/authMiddleware.js');
+const authRoutes = require('./routes/AuthRoutes.js');
+const authMiddleware = require('./middlewares/AuthMiddleware.js');
 const userRoutes = require('./routes/UserRouter.js');
 const courseRoutes = require('./routes/CourseRouter.js');
 const userCourseRoutes = require('./routes/UserCourseRouter.js');
