@@ -95,7 +95,7 @@ exports.getCoursesByUser = async (userId) => {
             throw new Error(`No course found for user with id ${userId}`);
         }
 
-        return course;
+        return course.map(item => item.course);
     } catch (error) {
         throw new Error(error.message);
     }

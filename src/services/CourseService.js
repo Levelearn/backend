@@ -64,12 +64,9 @@ exports.deleteCourse = async(id) => {
 
 exports.getChapterByCourse = async(id) => {
     try {
-        const chapters = await prisma.course.findMany({
+        const chapters = await prisma.chapter.findMany({
             where: {
-                id: parseInt(id)
-            },
-            select: {
-                chapters: true
+                courseId: parseInt(id)
             }
         });
 

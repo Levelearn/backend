@@ -25,7 +25,7 @@ app.use(express.json());
 
 app.use('/api', authRoutes);
 
-app.use('/api', authMiddleware);
+// app.use('/api', authMiddleware);
 
 app.use('/api', userRoutes);
 app.use('/api', courseRoutes);
