@@ -59,10 +59,13 @@ model Course {
 }
 
 model UserCourse {
-  id            Int       @id @default(autoincrement())
-  userId        Int
-  courseId      Int
-  enrolledAt    DateTime  @default(now())
+  id              Int       @id @default(autoincrement())
+  userId          Int
+  courseId        Int
+  progress        Int       @default(0)
+  currentChapter  Int       @default(0)
+  isCompleted     Boolean   @default(false)
+  enrolledAt      DateTime  @default(now())
   
   // Relasi
   user          User      @relation(fields: [userId], references: [id])
