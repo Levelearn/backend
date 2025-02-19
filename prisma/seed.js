@@ -5,15 +5,15 @@ const prisma = new PrismaClient();
 
 async function main() {
     try {
-        await prisma.userChapter.deleteMany();
-        await prisma.userCourse.deleteMany();
-        await prisma.material.deleteMany();
-        await prisma.assessment.deleteMany();
-        await prisma.assignment.deleteMany();
-        await prisma.courseChapter.deleteMany();
-        await prisma.chapter.deleteMany();
-        await prisma.course.deleteMany();
-        await prisma.user.deleteMany();
+        // await prisma.userChapter.deleteMany();
+        // await prisma.userCourse.deleteMany();
+        // await prisma.material.deleteMany();
+        // await prisma.assessment.deleteMany();
+        // await prisma.assignment.deleteMany();
+        // await prisma.courseChapter.deleteMany();
+        // await prisma.chapter.deleteMany();
+        // await prisma.course.deleteMany();
+        // await prisma.user.deleteMany();
 
         // Create Users
         const hashedPassword = await bcrypt.hash('password', 10);
@@ -99,7 +99,6 @@ async function main() {
       data: {
         chapterId: chapter1.id,
         instruction: 'Complete the following quiz',
-        orderNumber: 1,
         questions: JSON.stringify([
           {
             question: 'What does HTML stand for?',

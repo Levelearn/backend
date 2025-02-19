@@ -117,11 +117,9 @@ model Assessment {
   id            Int       @id @default(autoincrement())
   chapterId     Int
   instruction   String
-  type          QuestType @default(TRUEFALSE)
+  type          QuestType @default(TF)
   questions     Json
-  options       Json?
-  answersMC     Json?
-  answersTF     Boolean?
+  answers       Json?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -148,8 +146,8 @@ model Assignment {
 }
 
 enum QuestType {
-  MULTIPLE
-  TRUEFALSE
+  MC
+  TF
 }
 
 model UserChapter {

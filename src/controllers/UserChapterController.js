@@ -27,9 +27,31 @@ const getUserChapterById = async(req, res) => {
 
 // Controller untuk membuat userChapter baru
 const createUserChapter = async (req, res) => {
-    try {
-        const newData = req.body;
 
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        const err = new Error('Input value tidak sesuai');
+        err.errorStatus = 400;
+        err.data = errors.array();
+        throw err;
+    }
+
+    if (!req.file) {
+        const err = new Error('File harus di upload');
+        err.errorStatus = 422;
+        err.data = errors.array();
+        console.log(err.message);
+        throw err;
+    }
+
+    const newData = req.body;
+
+    const image = req.file.path;
+
+    newData.image = image;
+
+    try {
         const userChapter = await userChapterService.createUserChapter(newData);
         res.status(201).json({message: `Successfully create new userChapter ${newData.name}`, userChapter: userChapter});
     } catch (error) {
