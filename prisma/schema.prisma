@@ -117,9 +117,11 @@ model Assessment {
   id            Int       @id @default(autoincrement())
   chapterId     Int
   instruction   String
-  orderNumber   Int
+  type          QuestType @default(TRUEFALSE)
   questions     Json
-  answers       Json
+  options       Json?
+  answersMC     Json?
+  answersTF     Boolean?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -145,6 +147,11 @@ model Assignment {
   @@map("assignments")
 }
 
+enum QuestType {
+  MULTIPLE
+  TRUEFALSE
+}
+
 model UserChapter {
   id              Int       @id @default(autoincrement())
   userId          Int
@@ -153,8 +160,9 @@ model UserChapter {
   materialDone    Boolean   @default(false)
   assessmentDone  Boolean   @default(false)
   assignmentDone  Boolean   @default(false)
-  assessmentAnswer Json?
+  assessmentAnswer Json? 
   assessmentGrade Int       @default(0)
+  submission      String?
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
@@ -206,3 +214,4 @@ model UserBadge {
   @@index([badgeId])
   @@map("user_badges")
 }
+
