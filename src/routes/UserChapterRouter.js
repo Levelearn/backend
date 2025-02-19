@@ -20,5 +20,7 @@ router.put('/userchapter/:id', userChapterController.updateUserChapter);
 router.delete('/userchapter/:id', userChapterController.deleteUserChapter);
 
 
+// SPECIAL ROUTES
+router.get('/userchapter/:userId/:courseId', userChapterController.getUserChapterByUserByCourse);
 
 module.exports = router;

@@ -68,10 +68,27 @@ const deleteUserChapter = async (req, res) => {
     }
 };
 
+
+// SPECIAL CONTROLLER
+
+const getUserChapterByUserByCourse = async (req, res) => {
+    const userId = parseInt(req.params.userId);
+    const courseId = parseInt(req.params.courseId);
+
+    try {
+        const userChapter = await userChapterService.getUserChapterByUserByCourse(userId, courseId);
+        res.status(200).json(userChapter);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get userChapter from user Id: ${ userId } and course Id: ${ courseId }`})
+        console.log(error.mesage);
+    }
+};
+
 module.exports = {
     getAllUserChapters,
     getUserChapterById,
     createUserChapter,
     updateUserChapter,
-    deleteUserChapter
+    deleteUserChapter,
+    getUserChapterByUserByCourse
 };

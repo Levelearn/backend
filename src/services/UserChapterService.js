@@ -19,7 +19,7 @@ exports.getUserChapterById = async (id) => {
         });
         return userChapter;
     } catch (error) {
-        throw new Error(`Error retrieving userChapter with id ${id}`);
+        throw new Error(error.message);
     }
 }
 
@@ -96,6 +96,22 @@ exports.getCoursesByUser = async (userId) => {
         }
 
         return course;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
+
+// SPECIAL SERVICES
+
+exports.getUserChapterByUserByCourse = async (userId, courseId) => {
+    try {
+        const userChapter = await prisma.userChapter.findUnique({
+            where: {
+                userId
+            },
+        });
+        return userChapter;
     } catch (error) {
         throw new Error(error.message);
     }

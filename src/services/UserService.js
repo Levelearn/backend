@@ -33,7 +33,8 @@ exports.createUser = async (
         totalCourses,
         badges,
         instructorId,
-        instructorCourses) => {
+        instructorCourses,
+        image) => {
     try {
         const newUser = await prisma.user.create({
             data: { 
@@ -47,6 +48,7 @@ exports.createUser = async (
                 badges,
                 instructorId,
                 instructorCourses,
+                image,
                 createdAt: new Date()
             }
         });

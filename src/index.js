@@ -1,8 +1,5 @@
 const express = require('express');
-
-const path = require('path');
-const { dirname } = require('path');
-const { fileURLToPath } = require('url');
+const multer = require('multer');
 
 const authRoutes = require('./routes/AuthRoutes.js');
 const authMiddleware = require('./middlewares/AuthMiddleware.js');
@@ -17,11 +14,33 @@ const assignmentRoutes = require('./routes/AssignmentRouter.js');
 const badgeRoutes = require('./routes/BadgeRouter.js');
 const userBadgeRoutes = require('./routes/UserBadgeRouter.js');
 
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'images');
+    },
+    filename: (req, file, cb) => {
+        cb(null, new Date().getTime() + '-' + file.originalname)
+    }
+})
+
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/png' || 
+        file.mimetype === 'image/jpg' || 
+        file.mimetype === 'image/jpeg'
+    ) {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+}
+
 require('dotenv').config();
 
 // Express Settings
 const app = express();
 app.use(express.json());
+
+app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'));
 
 app.use('/api', authRoutes);
 

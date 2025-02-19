@@ -3,6 +3,8 @@ const userService = require('../services/UserService');
 const userCourseService = require('../services/UserCourseService');
 const userBadgeService = require('../services/UserBadgeService');
 
+const {validationResult} = require('express-validator');
+
 // Controller untuk mendapatkan daftar user
 const getAllUsers = async (req, res) => {
     try {
@@ -29,6 +31,24 @@ const getUserById = async(req, res) => {
 
 // Controller untuk membuat user baru
 const createUser = async (req, res) => {
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        const err = new Error('Input value tidak sesuai');
+        err.errorStatus = 400;
+        err.data = errors.array();
+        throw err;
+    }
+
+    if (!req.file) {
+        const err = new Error('Image harus di upload');
+        err.errorStatus = 422;
+        err.data = errors.array();
+        console.log(err.message);
+        throw err;
+    }
+
     const { name,
             username, 
             password,
@@ -40,6 +60,9 @@ const createUser = async (req, res) => {
             instructor_id,
             instructor_course
         } = req.body;
+
+    const image = req.file.path;
+
     try {
         const newUser = await userService.createUser(
             name,
@@ -51,7 +74,9 @@ const createUser = async (req, res) => {
             student_course,
             student_badge,
             instructor_id,
-            instructor_course);
+            instructor_course,
+            image
+        );
 
         const response = {
             message: `Successfully registered user ${name} as ${role}`,
@@ -66,9 +91,49 @@ const createUser = async (req, res) => {
 
 // Controller untuk update user by id
 const updateUser = async (req, res) => {
-    const id = parseInt(req.params.id);
 
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        const err = new Error('Input value tidak sesuai');
+        err.errorStatus = 400;
+        err.data = errors.array();
+        throw err;
+    }
+
+    if (!req.file) {
+        const err = new Error('Image harus di upload');
+        err.errorStatus = 422;
+        err.data = errors.array();
+        console.log(err.message);
+        throw err;
+    }
+
+    const id = parseInt(req.params.id);
+    
     const updateData = req.body;
+
+    const image = req.file.path;
+
+    updateData.image = image;
+
+    if (updateData.points) {
+        updateData.points = parseInt(updateData.points);
+    }
+    if (updateData.totalCourses) {
+        updateData.totalCourses = parseInt(updateData.totalCourses);
+    }
+    if (updateData.badges) {
+        updateData.badges = parseInt(updateData.badges);
+    }
+    if (updateData.instructorCourses) {
+        updateData.instructorCourses = parseInt(updateData.instructorCourses) || null; // Handle empty string
+    }
+    if (updateData.studentId) {
+        updateData.studentId = String(updateData.studentId)
+    }
+
+    updateData.instructorCourses = updateData.instructorCourses ? parseInt(updateData.instructorCourses) : null;
 
     try {
         const updateUser = await userService.updateUser(id, updateData);
