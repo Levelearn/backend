@@ -101,15 +101,28 @@ exports.getCoursesByUser = async (userId) => {
     }
 }
 
-
-// SPECIAL SERVICES
-
-exports.getUserChapterByUserByCourse = async (userId, courseId) => {
+exports.getUserChapterByUserByChapter = async (userId, chapterId) => {
     try {
-        const userChapter = await prisma.userChapter.findUnique({
+        const userChapter = await prisma.userChapter.findMany({
             where: {
-                userId
+                userId,
+                chapterId
             },
+        });
+        return userChapter;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
+exports.updateUserChapterByUserByChapter = async (userId, chapterId, updateData) => {
+    try {
+        const userChapter = await prisma.userChapter.update({
+            where: {
+                userId,
+                chapterId
+            },
+            data: updateData,  
         });
         return userChapter;
     } catch (error) {

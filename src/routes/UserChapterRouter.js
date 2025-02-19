@@ -21,6 +21,8 @@ router.delete('/userchapter/:id', userChapterController.deleteUserChapter);
 
 
 // SPECIAL ROUTES
-router.get('/userchapter/:userId/:courseId', userChapterController.getUserChapterByUserByCourse);
+router.get('/userchapter/:userId/:chapterId', userChapterController.getUserChapterByUserByChapter);
+
+router.put('/userchapter/:userId/:chapterId', userChapterController.updateUserChapterByUserByChapter);
 
 module.exports = router;

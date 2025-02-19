@@ -71,16 +71,31 @@ const deleteUserChapter = async (req, res) => {
 
 // SPECIAL CONTROLLER
 
-const getUserChapterByUserByCourse = async (req, res) => {
+const getUserChapterByUserByChapter = async (req, res) => {
     const userId = parseInt(req.params.userId);
-    const courseId = parseInt(req.params.courseId);
+    const chapterId = parseInt(req.params.chapterId);
 
     try {
-        const userChapter = await userChapterService.getUserChapterByUserByCourse(userId, courseId);
+        const userChapter = await userChapterService.getUserChapterByUserByChapter(userId, chapterId);
         res.status(200).json(userChapter);
     } catch (error) {
-        res.status(500).json({ message: `Failed to get userChapter from user Id: ${ userId } and course Id: ${ courseId }`})
-        console.log(error.mesage);
+        res.status(500).json({ message: `Failed to get userChapter from user Id: ${ userId } and course Id: ${ chapterId }`, detail: error.message})
+        console.log(error.message);
+    }
+};
+
+const updateUserChapterByUserByChapter = async (req, res) => {
+    const userId = parseInt(req.params.userId);
+    const chapterId = parseInt(req.params.chapterId);
+
+    const updateData = req.body;
+
+    try {
+        const updateUserChapter = await userChapterService.updateUserChapterByUserByChapter(userId, chapterId, updateData);
+        res.status(200).json({message: "Successfully updated userChapter", data: updateUserChapter});
+    } catch (error) {
+        res.status(500).json({ message: "Failed to update userChapter", detail: error.message });
+        console.log(error.message);
     }
 };
 
@@ -90,5 +105,6 @@ module.exports = {
     createUserChapter,
     updateUserChapter,
     deleteUserChapter,
-    getUserChapterByUserByCourse
+    getUserChapterByUserByChapter,
+    updateUserChapterByUserByChapter
 };

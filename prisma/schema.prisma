@@ -214,4 +214,3 @@ model UserBadge {
   @@index([badgeId])
   @@map("user_badges")
 }
-
