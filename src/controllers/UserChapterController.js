@@ -1,5 +1,8 @@
 const userChapterService = require('../services/UserChapterService');
 
+const {validationResult} = require('express-validator');
+
+
 // Controller untuk mendapatkan daftar userChapter
 const getAllUserChapters = async (req, res) => {
     try {
@@ -37,19 +40,7 @@ const createUserChapter = async (req, res) => {
         throw err;
     }
 
-    if (!req.file) {
-        const err = new Error('File harus di upload');
-        err.errorStatus = 422;
-        err.data = errors.array();
-        console.log(err.message);
-        throw err;
-    }
-
     const newData = req.body;
-
-    const image = req.file.path;
-
-    newData.image = image;
 
     try {
         const userChapter = await userChapterService.createUserChapter(newData);

@@ -20,5 +20,8 @@ router.put('/usercourse/:id', userCourseController.updateUserCourse);
 router.delete('/usercourse/:id', userCourseController.deleteUserCourse);
 
 
+// SPECIAL ROUTER
+
+router.get('/usercourse/:userId/:courseId', userCourseController.getUserCourseByUserByCourse);
 
 module.exports = router;

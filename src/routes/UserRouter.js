@@ -1,6 +1,7 @@
 const express = require('express');
 // @ts-ignore
 const userController = require('../controllers/UserController');
+const { uploadImage } = require('../middlewares/FileUpload');
 
 const router = express.Router();
 
@@ -11,10 +12,10 @@ router.get('/user', userController.getAllUsers);
 router.get('/user/:id', userController.getUserById);
 
 // Router for create user
-router.post('/user', userController.createUser);
+router.post('/user', uploadImage, userController.createUser);
 
 // Router for update user by id
-router.put('/user/:id', userController.updateUser);
+router.put('/user/:id', uploadImage, userController.updateUser);
 
 // Router for delete user by id
 router.delete('/user/:id', userController.deleteUser);
@@ -27,5 +28,6 @@ router.get('/user/:id/courses', userController.getCoursesByUser);
 
 // Get Badges by User
 router.get('/user/:id/badges', userController.getBadgesByUser);
+
 
 module.exports = router;

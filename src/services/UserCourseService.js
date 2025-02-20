@@ -100,3 +100,17 @@ exports.getCoursesByUser = async (userId) => {
         throw new Error(error.message);
     }
 }
+
+exports.getUserCourseByUserByCourse = async (userId, courseId) => {
+    try {
+        const userCourse = await prisma.userCourse.findMany({
+            where: {
+                userId,
+                courseId
+            },
+        });
+        return userCourse;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}

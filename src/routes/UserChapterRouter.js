@@ -1,8 +1,10 @@
 const express = require('express');
 // @ts-ignore
 const userChapterController = require('../controllers/UserChapterController');
+const { uploadImage } = require('../middlewares/FileUpload');
 
 const router = express.Router();
+
 
 // Route for get all userchapters
 router.get('/userchapter', userChapterController.getAllUserChapters);
@@ -24,5 +26,7 @@ router.delete('/userchapter/:id', userChapterController.deleteUserChapter);
 router.get('/userchapter/:userId/:chapterId', userChapterController.getUserChapterByUserByChapter);
 
 router.put('/userchapter/:userId/:chapterId', userChapterController.updateUserChapterByUserByChapter);
+
+
 
 module.exports = router;

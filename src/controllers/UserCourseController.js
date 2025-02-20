@@ -68,10 +68,27 @@ const deleteUserCourse = async (req, res) => {
     }
 };
 
+
+// SPECIAL CONTROLLER
+
+const getUserCourseByUserByCourse = async (req, res) => {
+    const userId = parseInt(req.params.userId);
+    const courseId = parseInt(req.params.courseId);
+
+    try {
+        const userCourse = await userCourseService.getUserCourseByUserByCourse(userId, courseId);
+        res.status(200).json(userCourse);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get userCourse from user Id: ${ userId } and course Id: ${ courseId }`, detail: error.message})
+        console.log(error.message);
+    }
+};
+
 module.exports = {
     getAllUserCourses,
     getUserCourseById,
     createUserCourse,
     updateUserCourse,
-    deleteUserCourse
+    deleteUserCourse,
+    getUserCourseByUserByCourse
 };
