@@ -165,7 +165,7 @@ const getCoursesByUser = async (req, res) => {
 
     try {
         const courses = await userCourseService.getCoursesByUser(userId);
-        
+
         res.status(200).json(courses);
     } catch (error) {
         res.status(500).json({ message: `Failed to get courses in user ${ userId }`, details: error.message})

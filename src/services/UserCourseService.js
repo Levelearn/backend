@@ -82,20 +82,33 @@ exports.getUsersByCourse = async (courseId) => {
 
 exports.getCoursesByUser = async (userId) => {
     try {
-        const course = await prisma.userCourse.findMany({
+        const userCourses  = await prisma.userCourse.findMany({
             where: {
                 userId: parseInt(userId)
             },
             select: {
-                course: true
-            }
+                progress: true,
+                course: {       
+                    select: {
+                        id: true,  
+                        code: true,
+                        name: true,
+                        description: true,
+                        createdAt: true,
+                        updatedAt: true
+                    }
+                }
+            },
         });
 
-        if (!course.length) {
+        if (!userCourses.length) {
             throw new Error(`No course found for user with id ${userId}`);
         }
 
-        return course.map(item => item.course);
+        return userCourses.map(userCourse => ({
+            course: userCourse.course, 
+            progress: userCourse.progress
+        }));
     } catch (error) {
         throw new Error(error.message);
     }
@@ -107,7 +120,7 @@ exports.getUserCourseByUserByCourse = async (userId, courseId) => {
             where: {
                 userId,
                 courseId
-            },
+            }
         });
         return userCourse;
     } catch (error) {
