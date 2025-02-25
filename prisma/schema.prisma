@@ -118,7 +118,6 @@ model Assessment {
   id            Int       @id @default(autoincrement())
   chapterId     Int
   instruction   String
-  type          QuestType @default(TF)
   questions     Json
   answers       Json?
   createdAt     DateTime  @default(now())

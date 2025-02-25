@@ -250,7 +250,6 @@ async function main() {
       data: {
         chapterId: chapter1.id,
         instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
-        type: QuestType.MC,
         questions: JSON.stringify([
           { 
             question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
@@ -260,7 +259,8 @@ async function main() {
               'Proses interaksi antara manusia dan perangkat lunak komputer',
               'Proses komunikasi antara manusia dan komputer melalui antarmuka'
             ],
-            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
           },
           { 
             question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
@@ -270,7 +270,8 @@ async function main() {
               'Proses interaksi antara manusia dan perangkat lunak komputer',
               'Proses komunikasi antara manusia dan komputer melalui antarmuka'
             ],
-            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem'
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
           },
           { 
             question: 'User Experience (UX) merujuk pada:', 
@@ -280,7 +281,8 @@ async function main() {
               'Penggunaan teknologi dalam pengembangan aplikasi',
               'Pemrograman perangkat lunak untuk pengguna'
             ],
-            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi'
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
           },
           { 
             question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
@@ -290,7 +292,8 @@ async function main() {
               'Jumlah fitur yang ada pada aplikasi',
               'Kecepatan loading aplikasi'
             ],
-            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan'
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
           },
           { 
             question: 'Wireframe adalah:', 
@@ -300,8 +303,17 @@ async function main() {
               'Proses pengujian aplikasi', 
               'Desain grafis yang menonjolkan warna dan font'
             ],
-            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi'
-          }
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
         ]),
       },
     });
