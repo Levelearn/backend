@@ -19,7 +19,7 @@ exports.getAssessmentById = async (id) => {
         });
         return assessment;
     } catch (error) {
-        throw new Error(`Error retrieving assessment with id ${id}`);
+        throw new Error(error.message);
     }
 }
 

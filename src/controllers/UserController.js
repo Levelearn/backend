@@ -41,13 +41,6 @@ const createUser = async (req, res) => {
         throw err;
     }
 
-    if (!req.file) {
-        const err = new Error('Image harus di upload');
-        err.errorStatus = 422;
-        err.data = errors.array();
-        console.log(err.message);
-        throw err;
-    }
 
     const { name,
             username, 
@@ -58,10 +51,9 @@ const createUser = async (req, res) => {
             student_course,
             student_badge,
             instructor_id,
-            instructor_course
+            instructor_course,
+            image
         } = req.body;
-
-    const image = req.file.path;
 
     try {
         const newUser = await userService.createUser(
@@ -101,21 +93,9 @@ const updateUser = async (req, res) => {
         throw err;
     }
 
-    if (!req.file) {
-        const err = new Error('Image harus di upload');
-        err.errorStatus = 422;
-        err.data = errors.array();
-        console.log(err.message);
-        throw err;
-    }
-
     const id = parseInt(req.params.id);
     
     const updateData = req.body;
-
-    const image = req.file.path;
-
-    updateData.image = image;
 
     if (updateData.points) {
         updateData.points = parseInt(updateData.points);
