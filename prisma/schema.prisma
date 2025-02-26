@@ -70,8 +70,8 @@ model UserCourse {
   enrolledAt      DateTime  @default(now())
   
   // Relasi
-  user          User      @relation(fields: [userId], references: [id])
-  course        Course    @relation(fields: [courseId], references: [id])
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course        Course    @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([courseId])
@@ -88,7 +88,7 @@ model Chapter {
   updatedAt       DateTime  @updatedAt
 
   // Relasi
-  course          Course    @relation(fields: [courseId], references: [id])
+  course          Course    @relation(fields: [courseId], references: [id], onDelete: Cascade)
   materials       Material[]
   assessments     Assessment[]
   assignments     Assignment[]
@@ -103,12 +103,12 @@ model Material {
   id          Int       @id @default(autoincrement())
   chapterId   Int
   name        String
-  content     String    @db.Text 
+  content     String    @db.LongText
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
   // Relasi
-  chapter     Chapter   @relation(fields: [chapterId], references: [id])
+  chapter     Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
   @@index([chapterId])
   @@map("materials")
@@ -124,7 +124,7 @@ model Assessment {
   updatedAt     DateTime  @updatedAt
 
   // Relasi
-  chapter       Chapter   @relation(fields: [chapterId], references: [id])
+  chapter       Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
   @@index([chapterId])
   @@map("assessments")
@@ -139,7 +139,7 @@ model Assignment {
   updatedAt     DateTime  @updatedAt
 
   // Relasi
-  chapter       Chapter   @relation(fields: [chapterId], references: [id])
+  chapter       Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
   @@index([chapterId])
   @@map("assignments")
@@ -165,8 +165,8 @@ model UserChapter {
   updatedAt       DateTime  @updatedAt
 
   // Relasi
-  user            User      @relation(fields: [userId], references: [id])
-  chapter         Chapter   @relation(fields: [chapterId], references: [id])
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapter         Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([chapterId])
@@ -183,8 +183,8 @@ model Badge {
   updatedAt DateTime @updatedAt
 
   // Relasi
-  course    Course   @relation(fields: [courseId], references: [id])
-  chapter   Chapter  @relation(fields: [chapterId], references: [id])
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   userBadges UserBadge[]
 
   @@index([courseId])
@@ -205,8 +205,8 @@ model UserBadge {
   awardedAt DateTime @default(now())
 
   // Relasi
-  user      User  @relation(fields: [userId], references: [id])
-  badge     Badge @relation(fields: [badgeId], references: [id])
+  user      User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge     Badge @relation(fields: [badgeId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([badgeId])
