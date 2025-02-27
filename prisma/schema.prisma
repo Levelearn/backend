@@ -67,6 +67,8 @@ model UserCourse {
   progress        Int       @default(0)
   currentChapter  Int       @default(0)
   isCompleted     Boolean   @default(false)
+  timeStarted     DateTime  @default(now()) 
+  timeFinished    DateTime  @default(now())
   enrolledAt      DateTime  @default(now())
   
   // Relasi
