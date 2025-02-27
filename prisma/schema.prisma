@@ -161,6 +161,8 @@ model UserChapter {
   assessmentAnswer Json? 
   assessmentGrade Int       @default(0)
   submission      String?
+  timeStarted     DateTime  @default(now()) 
+  timeFinished    DateTime  @default(now())
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
