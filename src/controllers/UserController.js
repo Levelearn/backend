@@ -45,14 +45,6 @@ const createUser = async (req, res) => {
     err.data = errors.array();
     throw err;
   }
-
-  if (!req.file) {
-    const err = new Error("Image harus di upload");
-    err.errorStatus = 422;
-    err.data = errors.array();
-    console.log(err.message);
-    throw err;
-  }
     const { name,
             username, 
             password,
@@ -102,14 +94,6 @@ const updateUser = async (req, res) => {
     const err = new Error("Input value tidak sesuai");
     err.errorStatus = 400;
     err.data = errors.array();
-    throw err;
-  }
-
-  if (!req.file) {
-    const err = new Error("Image harus di upload");
-    err.errorStatus = 422;
-    err.data = errors.array();
-    console.log(err.message);
     throw err;
   }
 
