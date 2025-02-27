@@ -1,4 +1,6 @@
 // @ts-ignore
+const bcrypt = require('bcrypt');
+
 const userService = require("../services/UserService");
 const userCourseService = require("../services/UserCourseService");
 const userBadgeService = require("../services/UserBadgeService");
@@ -45,24 +47,27 @@ const createUser = async (req, res) => {
     err.data = errors.array();
     throw err;
   }
-    const { name,
-            username, 
-            password,
-            role,
-            student_id,
-            student_point,
-            student_course,
-            student_badge,
-            instructor_id,
-            instructor_course,
-            image
-        } = req.body;
+
+  const { name,
+        username, 
+        password,
+        role,
+        student_id,
+        student_point,
+        student_course,
+        student_badge,
+        instructor_id,
+        instructor_course,
+        image
+    } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
         const newUser = await userService.createUser(
             name,
             username, 
-            password,
+            hashedPassword,
             role,
             student_id,
             student_point,
@@ -100,6 +105,10 @@ const updateUser = async (req, res) => {
     const id = parseInt(req.params.id);
     
     const updateData = req.body;
+
+    const hashedPassword = await bcrypt.hash(updateData.password, 10);
+
+    updateData.password = hashedPassword;
 
     if (updateData.points) {
         updateData.points = parseInt(updateData.points);
