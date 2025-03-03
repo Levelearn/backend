@@ -33,6 +33,7 @@ model User {
   enrolledCourses   UserCourse[]
   chapterProgress   UserChapter[]
   userBadges        UserBadge[]
+  userTrades        UserTrade[]
 
   @@map("users")
 }
@@ -49,6 +50,7 @@ model Course {
   name        String
   description String        @db.Text @default("")
   image       String        @default("")
+  checkpoints Chapter[]     @relation("CourseCheckpoints")
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
 
@@ -56,6 +58,10 @@ model Course {
   chapters    Chapter[]
   enrollments UserCourse[]
   badges      Badge[]
+
+  courseCheckpoint    Course?      @relation("CourseCheckpoints", fields: [courseCheckpointId], references: [id])
+  courseCheckpointId  Int?
+  courseCheckpoints   Course[]     @relation("CourseCheckpoints") // Relasi kebalikan
 
   @@map("courses")
 }
@@ -96,6 +102,9 @@ model Chapter {
   assignments     Assignment[]
   userProgress    UserChapter[]
   badges          Badge[]
+
+  courseCheckpoints   Course? @relation("CourseCheckpoints", fields: [courseCheckpointId], references: [id])
+  courseCheckpointId  Int?
 
   @@index([courseId])
   @@map("chapters")
@@ -215,4 +224,32 @@ model UserBadge {
   @@index([userId])
   @@index([badgeId])
   @@map("user_badges")
+}
+
+model Trade {
+  id                  Int         @id @default(autoincrement())
+  title               String
+  image               String
+  description         String
+  requiredBadgeType   BadgeType
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  userTrades UserTrade[]
+
+  @@map("trades")
+}
+
+model UserTrade {
+  id                  Int         @id @default(autoincrement())
+  userId              Int
+  tradeId             Int
+  purchasedAt         DateTime @default(now())
+
+  user      User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  trade     Trade @relation(fields: [tradeId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([tradeId])
+  @@map("user_trades")
 }
