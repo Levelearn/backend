@@ -393,6 +393,42 @@ async function main() {
       },
     });
 
+    // TRADES
+
+    const trade1 = await prisma.trade.create({
+      data: {
+        image: 'lib/assets/pictures/icon.png',
+        title: 'Voucher Belanja Cafetaria Del',
+        description: 'Voucher Belanja senilai Rp.10.000,- untuk transaksi di Cafetaria Del. Berlaku sampai 1 semester kedepan.',
+        requiredBadgeType: 'ADVANCE',
+      }
+    });
+
+    const trade2 = await prisma.trade.create({
+      data: {
+        image: 'lib/assets/pictures/icon.png',
+        title: 'Sticky Notes UTS',
+        description: 'Sticky Notes berupa cemilan makanan dan minuman dengan ucapan semangat menjalani UTS',
+        requiredBadgeType: 'BEGINNER',
+      }
+    });
+
+    const trade3 = await prisma.trade.create({
+      data: {
+        image: 'lib/assets/pictures/icon.png',
+        title: 'Nilai Tambah UTS +5',
+        description: 'Penambahan Nilai UTS sebanyak 5. Maksimal nilai yang bisa diperoleh dengan penambahan adalah 80',
+        requiredBadgeType: 'INTERMEDIATE',
+      }
+    });
+
+    await prisma.userTrade.create({
+      data: {
+        userId: student.id,
+        badgeId: trade1.id,
+      },
+    });
+
     console.log('Seeding completed successfully');
   } catch (error) {
     console.error('Error seeding database:', error);

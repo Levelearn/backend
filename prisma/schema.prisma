@@ -192,6 +192,7 @@ model Badge {
   type      BadgeType
   courseId  Int
   chapterId Int
+  isPurchased Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
