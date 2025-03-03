@@ -14,6 +14,8 @@ const assessmentRoutes = require("./routes/AssessmentRouter.js");
 const assignmentRoutes = require("./routes/AssignmentRouter.js");
 const badgeRoutes = require("./routes/BadgeRouter.js");
 const userBadgeRoutes = require("./routes/UserBadgeRouter.js");
+const tradeRoutes = require("./routes/TradeRouter.js");
+const userTradeRoutes = require("./routes/UserTradeRouter.js");
 const cors = require("cors");
 
 require("dotenv").config();
@@ -45,6 +47,8 @@ app.use("/api", userCourseRoutes);
 app.use("/api", userChapterRoutes);
 app.use("/api", badgeRoutes);
 app.use("/api", userBadgeRoutes);
+app.use("/api", tradeRoutes);
+app.use("/api", userTradeRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
