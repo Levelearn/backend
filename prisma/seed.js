@@ -123,6 +123,7 @@ async function main() {
         description: 'Elemen visual, hierarki informasi, konsistensi, dan keterbacaan antarmuka',
         level: 5,
         courseId: course1.id,
+        isCheckpoint: 1
       },
     });
 
@@ -150,6 +151,80 @@ async function main() {
         description: 'Ujian Tengah Semester',
         level: 8,
         courseId: course1.id,
+      },
+    });
+
+    const chapter9 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 9',
+        description: 'Deskripsi Materi Week 9',
+        level: 9,
+        courseId: course1.id,
+      },
+    });
+
+    const chapter10 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 10',
+        description: 'Deskripsi Materi Week 10',
+        level: 10,
+        courseId: course1.id,
+        isCheckpoint: 2
+      },
+    });
+
+    const chapter11 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 11',
+        description: 'Deskripsi Materi Week 11',
+        level: 11,
+        courseId: course1.id,
+      },
+    });
+
+    const chapter12 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 12',
+        description: 'Deskripsi Materi Week 12',
+        level: 12,
+        courseId: course1.id,
+      },
+    });
+
+    const chapter13 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 13',
+        description: 'Deskripsi Materi Week 13',
+        level: 13,
+        courseId: course1.id,
+      },
+    });
+
+    const chapter14 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 14',
+        description: 'Deskripsi Materi Week 14',
+        level: 14,
+        courseId: course1.id,
+      },
+    });
+
+    const chapter15 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 15',
+        description: 'Deskripsi Materi Week 15',
+        level: 15,
+        courseId: course1.id,
+      },
+    });
+
+    const chapter16 = await prisma.chapter.create({
+      data: {
+        name: 'Judul Materi Week 16',
+        description: 'Deskripsi Materi Week 16',
+        level: 16,
+        courseId: course1.id,
+        isCheckpoint: 3
       },
     });
 

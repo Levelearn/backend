@@ -70,10 +70,11 @@ const deleteBadge = async (req, res) => {
     }
 };
 
+
 module.exports = {
     getAllBadges,
     getBadgeById,
     createBadge,
     updateBadge,
-    deleteBadge
+    deleteBadge,
 };
