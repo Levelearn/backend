@@ -3,7 +3,12 @@ const prisma = new PrismaClient();
 
 exports.getAllBadges = async () => {
     try {
-        const badges = await prisma.badge.findMany(); 
+        const badges = await prisma.badge.findMany({
+            include: {
+                course: true,
+                chapter: true,
+            }
+        }); 
         return badges;
     } catch (error) {
         throw new Error(error.message);

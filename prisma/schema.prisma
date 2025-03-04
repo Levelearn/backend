@@ -122,7 +122,7 @@ model Assessment {
   id            Int       @id @default(autoincrement())
   chapterId     Int
   instruction   String
-  questions     Json
+  questions     Json?
   answers       Json?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -183,6 +183,7 @@ model Badge {
   id        Int      @id @default(autoincrement())
   name      String
   type      BadgeType
+  image     String
   courseId  Int
   chapterId Int
   createdAt DateTime @default(now())
@@ -193,6 +194,7 @@ model Badge {
   chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   userBadges UserBadge[]
 
+  @@unique([courseId, chapterId])
   @@index([courseId])
   @@index([chapterId])
   @@map("badges")

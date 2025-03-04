@@ -1,4 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
+const supabase = require('../../supabase/supabase')
 const prisma = new PrismaClient();
 
 exports.getAllChapters = async () => {
@@ -60,6 +61,28 @@ exports.updateChapter = async (id, updateData) => {
 
 exports.deleteChapter = async (id) => {
   try {
+     // Ambil semua assignment terkait dengan chapter yang akan dihapus
+    const assignments = await prisma.assignment.findMany({
+      where: { chapterId: id },
+      select: { fileUrl: true },
+    });
+
+    // Hapus file dari Supabase Storage
+    for (const assignment of assignments) {
+      if (assignment.fileUrl) {
+        const fileName = assignment.fileUrl.split('/').pop();
+        const filePath = `assignment/${id}/${fileName}`;
+
+        const { error } = await supabase.storage
+          .from('assignment')
+          .remove([filePath]);
+
+        if (error) {
+          console.error('Error deleting file from Supabase:', error.message);
+        }
+      }
+    }
+
     await prisma.chapter.delete({
       where: { id },
     });
@@ -96,7 +119,7 @@ exports.getMaterialsByChapter = async (id) => {
 
 exports.getAssessmentsByChapter = async (id) => {
   try {
-    const assessment = await prisma.chapter.findMany({
+    const chapter = await prisma.chapter.findUnique({
       where: {
         id: parseInt(id),
       },
@@ -105,11 +128,14 @@ exports.getAssessmentsByChapter = async (id) => {
       },
     });
 
-    if (!assessment.length) {
+    if (!chapter) {
       throw new Error(`No assessment found from chapter with id ${id}`);
     }
 
-    return assessment;
+    if (!chapter.assessments || chapter.assessments.length === 0) {
+    }
+
+    return chapter.assessments[0];
   } catch (error) {
     throw new Error(error.message);
   }
