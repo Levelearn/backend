@@ -15,7 +15,7 @@ async function main() {
         password: hashedPassword,
         name: 'Admin',
         role: Role.ADMIN,
-        image: 'images/default_avatar.png',
+        image: '',
       },
     });
 
@@ -25,7 +25,7 @@ async function main() {
         password: hashedPassword,
         name: 'Archico',
         role: Role.ADMIN,
-        image: 'images/default_avatar.png',
+        image: '',
       },
     });
 
@@ -36,8 +36,8 @@ async function main() {
         name: 'Rafael',
         role: Role.INSTRUCTOR,
         instructorId: '11S21028',
-        instructorCourses: 1,
-        image: 'images/default_avatar.png',
+        instructorCourses: 0,
+        image: '',
       },
     });   
     
@@ -48,10 +48,10 @@ async function main() {
         name: 'Benhard',
         role: Role.STUDENT,
         studentId: '11S21003',
-        points: 100,
-        totalCourses: 3,
-        badges: 2,
-        image: 'images/default_avatar.png',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
       },
     });
 
