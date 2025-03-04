@@ -62,12 +62,17 @@ exports.deleteUserBadge = async(id) => {
 
 exports.getBadgesByUser = async (userId) => {
     try {
-        const badge = await prisma.userBadge.findMany({
+        const badge = await prisma.userbadge.findMany({
             where: {
                 userId: parseInt(userId)
             },
-            select: {
-                badge: true
+            include: { 
+                badge: {
+                    include: {
+                        course: true,
+                        chapter: true
+                    }
+                }
             }
         });
 
@@ -75,7 +80,11 @@ exports.getBadgesByUser = async (userId) => {
             throw new Error(`No badge found for user with id ${userId}`);
         }
 
-        return badge;
+        return userbadge.map(userbadge => ({
+            ...userbadge.badge,
+            course: userbadge.badge.course,
+            chapter: userbadge.badge.chapter
+        }));
     } catch (error) {
         throw new Error(error.message);
     }

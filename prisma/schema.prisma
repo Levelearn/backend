@@ -158,7 +158,7 @@ model UserChapter {
   id              Int       @id @default(autoincrement())
   userId          Int
   chapterId       Int
-  isCompleted     Boolean   @default(false)
+  isStarted       Boolean   @default(false)
   materialDone    Boolean   @default(false)
   assessmentDone  Boolean   @default(false)
   assignmentDone  Boolean   @default(false)
