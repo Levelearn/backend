@@ -66,7 +66,7 @@ model UserCourse {
   userId          Int
   courseId        Int
   progress        Int       @default(0)
-  currentChapter  Int       @default(0)
+  currentChapter  Int       @default(1)
   isCompleted     Boolean   @default(false)
   timeStarted     DateTime  @default(now()) 
   timeFinished    DateTime  @default(now())
