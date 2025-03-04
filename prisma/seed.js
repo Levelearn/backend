@@ -105,6 +105,7 @@ async function main() {
         description: 'Prinsip usability (efektivitas, efisiensi, kepuasan) dan 10 Usability Heuristics',
         level: 3,
         courseId: course1.id,
+        isCheckpoint: 1
       },
     });
 
@@ -123,7 +124,6 @@ async function main() {
         description: 'Elemen visual, hierarki informasi, konsistensi, dan keterbacaan antarmuka',
         level: 5,
         courseId: course1.id,
-        isCheckpoint: 1
       },
     });
 
@@ -133,6 +133,7 @@ async function main() {
         description: 'Tahapan user centered design, identifikasi kebutuhan pengguna, pembuatan persona, dan user journey map',
         level: 6,
         courseId: course1.id,
+        isCheckpoint: 2
       },
     });
 
@@ -151,6 +152,7 @@ async function main() {
         description: 'Ujian Tengah Semester',
         level: 8,
         courseId: course1.id,
+        isCheckpoint: 3
       },
     });
 
@@ -169,7 +171,6 @@ async function main() {
         description: 'Deskripsi Materi Week 10',
         level: 10,
         courseId: course1.id,
-        isCheckpoint: 2
       },
     });
 
@@ -224,7 +225,6 @@ async function main() {
         description: 'Deskripsi Materi Week 16',
         level: 16,
         courseId: course1.id,
-        isCheckpoint: 3
       },
     });
 
@@ -321,6 +321,651 @@ async function main() {
       },
     });
 
+    const material2 = await prisma.material.create({
+      data: {
+        chapterId: chapter2.id,
+        name: 'Pengantar',
+        content: `
+          <p>HCI adalah bidang studi yang mulai 
+          berkembang pada tahun 1980-an, tetapi 
+          konsep interaksi manusia dan mesin 
+          sudah ada sebelumnya dengan berbagai 
+          istilah seperti Man-Machine Interaction 
+          (MMI) pada 1970-an, Computer and Human 
+          Interaction (CHI), dan Human-Machine 
+          Interaction (HMI). HCI mempelajari 
+          cara manusia dan komputer bekerja 
+          bersama untuk menyelesaikan tugas 
+          tertentu. Fokus utama HCI adalah 
+          perancangan, evaluasi, dan implementasi 
+          sistem interaktif yang digunakan manusia. 
+          HCI juga berhubungan dengan usability 
+          (daya guna), yang berarti sistem harus 
+          mudah digunakan, dipelajari, dan memberikan 
+          keamanan bagi pengguna.</p>
+          <p>HCI terdiri dari tiga elemen utama, 
+          yaitu <strong>manusia, komputer, dan interaksi</strong></p>
+          <ul>
+            <li><strong>Manusia</strong> sebagai pengguna memiliki 
+            kebutuhan dan keterbatasan yang harus 
+            dipertimbangkan dalam desain sistem. </li>
+            <li><strong>Komputer </strong> mencakup 
+            perangkat keras dan lunak yang digunakan 
+            untuk berinteraksi dengan manusia.  </li>
+            <li><strong>Interaksi </strong>terjadi 
+            melalui antarmuka yang harus dirancang 
+            agar nyaman dan efisien. </li>
+          </ul>
+          <p>
+            Fokus utama HCI adalah perancangan dan 
+            evaluasi user interface (UI), yaitu bagian 
+            dari sistem komputer yang memungkinkan manusia 
+            berinteraksi dengan komputer. 
+          </p>
+          <p><img src="asset:lib/assets/alurHCI.png"></p>
+          <p>
+            UI harus dirancang dengan mempertimbangkan <strong>human factors</strong>, seperti kognisi dan ergonomi, agar pengguna dapat berinteraksi dengan nyaman dan efektif.
+          </p>
+          <p>
+            Dalam desain sistem interaktif, sering 
+            kali desainer atau programmer tidak memahami 
+            dengan tepat kebutuhan dan lingkungan kerja 
+            pengguna. Masalah lain yang sering terjadi 
+            adalah sistem komputer yang mengharuskan 
+            pengguna mengingat terlalu banyak informasi, 
+            kurang toleran terhadap kesalahan pengguna, 
+            serta tidak mempertimbangkan variasi 
+            pengguna yang berbeda-beda. Kesalahan 
+            utama dalam desain HCI adalah mengasumsikan 
+            bahwa <strong>semua pengguna itu sama</strong> 
+            dan bahwa <strong>pengguna memiliki cara berpikir 
+            yang sama dengan desainer</strong>. Untuk menciptakan 
+            sistem yang baik, penting untuk mempertanyakan 
+            desain yang buruk dan memastikan bahwa 
+            sistem memungkinkan pengguna menyelesaikan 
+            tugas dengan aman, efektif, efisien, dan 
+            menyenangkan.
+          </p>
+          <p>
+            Tujuan utama HCI adalah meningkatkan <strong>kualitas hidup pengguna</strong> dengan membuat sistem interaktif yang baik dan mudah digunakan. Sebuah sistem yang baik memiliki beberapa karakteristik <strong>user-friendly</strong>, seperti tampilan yang menarik, kemudahan penggunaan, cepat dipelajari, memberikan pengalaman positif, dan direkomendasikan oleh pengguna lain. Tujuan dalam rekayasa sistem meliputi beberapa aspek penting:
+          </p>
+          <ol>
+            <li><strong>Fungsionalitas yang sesuai</strong>, yaitu memastikan sistem memiliki fitur yang benar-benar dibutuhkan pengguna.</li>
+            <li><strong>Keandalan, ketersediaan, keamanan, dan integritas data</strong>, sehingga sistem dapat digunakan kapan saja tanpa risiko kehilangan atau pencurian data.</li>
+            <li><strong>Standardisasi, integrasi, konsistensi, dan portabilitas</strong>, yang memastikan antarmuka mudah dipahami dan data dapat digunakan di berbagai perangkat.</li>
+            <li><strong>Penjadwalan dan anggaran</strong>, agar proyek selesai tepat waktu dan sesuai dengan biaya yang telah direncanakan.</li>
+          </ol>
+          <p>
+            HCI adalah bidang multidisipliner yang dipengaruhi oleh berbagai bidang ilmu, termasuk:
+          </p>
+          <ul>
+            <li><strong>Psikologi dan ilmu kognitif </strong> untuk memahami persepsi dan pemrosesan informasi oleh manusia. </li>
+            <li><strong>Ergonomi </strong>untuk mempertimbangkan aspek fisik pengguna.</li>
+            <li><strong>Sosiologi </strong>untuk memahami interaksi sosial dalam penggunaan teknologi.</li>
+            <li><strong>Ilmu komputer dan teknik </strong>untuk mengembangkan sistem teknologi.</li>
+            <li><strong>Bisnis dan pemasaran </strong>untuk memahami kebutuhan pasar.</li>
+            <li><strong>Desain grafis </strong>untuk menciptakan antarmuka yang menarik dan fungsional.</li>
+          </ul>
+          <p>
+            HCI telah berkembang sejak 1960-an, dimulai dengan komputer mainframe dan interaksi berbasis teks. Pada 1970-an, muncul konsep Graphical User Interface (GUI) yang lebih visual dan intuitif. Pada 1990-an, perhatian lebih difokuskan pada usability dan pendekatan desain yang berpusat pada pengguna (user-centered design). Hingga kini, HCI terus berkembang dengan kemajuan teknologi seperti mobile computing, AI, dan interaksi berbasis sensor. Human-centered design adalah pendekatan dalam HCI yang menempatkan manusia sebagai fokus utama dalam pengembangan sistem. Prinsip utama dalam pendekatan ini meliputi memahami kebutuhan pengguna, melibatkan pengguna dalam proses desain, dan mengevaluasi sistem berdasarkan pengalaman pengguna.
+          </p>
+        `,
+      },
+    });
+
+    const material3 = await prisma.material.create({
+      data: {
+        chapterId: chapter3.id,
+        name: 'Pengantar',
+        content: `
+          <p>HCI adalah bidang studi yang mulai 
+          berkembang pada tahun 1980-an, tetapi 
+          konsep interaksi manusia dan mesin 
+          sudah ada sebelumnya dengan berbagai 
+          istilah seperti Man-Machine Interaction 
+          (MMI) pada 1970-an, Computer and Human 
+          Interaction (CHI), dan Human-Machine 
+          Interaction (HMI). HCI mempelajari 
+          cara manusia dan komputer bekerja 
+          bersama untuk menyelesaikan tugas 
+          tertentu. Fokus utama HCI adalah 
+          perancangan, evaluasi, dan implementasi 
+          sistem interaktif yang digunakan manusia. 
+          HCI juga berhubungan dengan usability 
+          (daya guna), yang berarti sistem harus 
+          mudah digunakan, dipelajari, dan memberikan 
+          keamanan bagi pengguna.</p>
+          <p>HCI terdiri dari tiga elemen utama, 
+          yaitu <strong>manusia, komputer, dan interaksi</strong></p>
+          <ul>
+            <li><strong>Manusia</strong> sebagai pengguna memiliki 
+            kebutuhan dan keterbatasan yang harus 
+            dipertimbangkan dalam desain sistem. </li>
+            <li><strong>Komputer </strong> mencakup 
+            perangkat keras dan lunak yang digunakan 
+            untuk berinteraksi dengan manusia.  </li>
+            <li><strong>Interaksi </strong>terjadi 
+            melalui antarmuka yang harus dirancang 
+            agar nyaman dan efisien. </li>
+          </ul>
+          <p>
+            Fokus utama HCI adalah perancangan dan 
+            evaluasi user interface (UI), yaitu bagian 
+            dari sistem komputer yang memungkinkan manusia 
+            berinteraksi dengan komputer. 
+          </p>
+          <p><img src="asset:lib/assets/alurHCI.png"></p>
+          <p>
+            UI harus dirancang dengan mempertimbangkan <strong>human factors</strong>, seperti kognisi dan ergonomi, agar pengguna dapat berinteraksi dengan nyaman dan efektif.
+          </p>
+          <p>
+            Dalam desain sistem interaktif, sering 
+            kali desainer atau programmer tidak memahami 
+            dengan tepat kebutuhan dan lingkungan kerja 
+            pengguna. Masalah lain yang sering terjadi 
+            adalah sistem komputer yang mengharuskan 
+            pengguna mengingat terlalu banyak informasi, 
+            kurang toleran terhadap kesalahan pengguna, 
+            serta tidak mempertimbangkan variasi 
+            pengguna yang berbeda-beda. Kesalahan 
+            utama dalam desain HCI adalah mengasumsikan 
+            bahwa <strong>semua pengguna itu sama</strong> 
+            dan bahwa <strong>pengguna memiliki cara berpikir 
+            yang sama dengan desainer</strong>. Untuk menciptakan 
+            sistem yang baik, penting untuk mempertanyakan 
+            desain yang buruk dan memastikan bahwa 
+            sistem memungkinkan pengguna menyelesaikan 
+            tugas dengan aman, efektif, efisien, dan 
+            menyenangkan.
+          </p>
+          <p>
+            Tujuan utama HCI adalah meningkatkan <strong>kualitas hidup pengguna</strong> dengan membuat sistem interaktif yang baik dan mudah digunakan. Sebuah sistem yang baik memiliki beberapa karakteristik <strong>user-friendly</strong>, seperti tampilan yang menarik, kemudahan penggunaan, cepat dipelajari, memberikan pengalaman positif, dan direkomendasikan oleh pengguna lain. Tujuan dalam rekayasa sistem meliputi beberapa aspek penting:
+          </p>
+          <ol>
+            <li><strong>Fungsionalitas yang sesuai</strong>, yaitu memastikan sistem memiliki fitur yang benar-benar dibutuhkan pengguna.</li>
+            <li><strong>Keandalan, ketersediaan, keamanan, dan integritas data</strong>, sehingga sistem dapat digunakan kapan saja tanpa risiko kehilangan atau pencurian data.</li>
+            <li><strong>Standardisasi, integrasi, konsistensi, dan portabilitas</strong>, yang memastikan antarmuka mudah dipahami dan data dapat digunakan di berbagai perangkat.</li>
+            <li><strong>Penjadwalan dan anggaran</strong>, agar proyek selesai tepat waktu dan sesuai dengan biaya yang telah direncanakan.</li>
+          </ol>
+          <p>
+            HCI adalah bidang multidisipliner yang dipengaruhi oleh berbagai bidang ilmu, termasuk:
+          </p>
+          <ul>
+            <li><strong>Psikologi dan ilmu kognitif </strong> untuk memahami persepsi dan pemrosesan informasi oleh manusia. </li>
+            <li><strong>Ergonomi </strong>untuk mempertimbangkan aspek fisik pengguna.</li>
+            <li><strong>Sosiologi </strong>untuk memahami interaksi sosial dalam penggunaan teknologi.</li>
+            <li><strong>Ilmu komputer dan teknik </strong>untuk mengembangkan sistem teknologi.</li>
+            <li><strong>Bisnis dan pemasaran </strong>untuk memahami kebutuhan pasar.</li>
+            <li><strong>Desain grafis </strong>untuk menciptakan antarmuka yang menarik dan fungsional.</li>
+          </ul>
+          <p>
+            HCI telah berkembang sejak 1960-an, dimulai dengan komputer mainframe dan interaksi berbasis teks. Pada 1970-an, muncul konsep Graphical User Interface (GUI) yang lebih visual dan intuitif. Pada 1990-an, perhatian lebih difokuskan pada usability dan pendekatan desain yang berpusat pada pengguna (user-centered design). Hingga kini, HCI terus berkembang dengan kemajuan teknologi seperti mobile computing, AI, dan interaksi berbasis sensor. Human-centered design adalah pendekatan dalam HCI yang menempatkan manusia sebagai fokus utama dalam pengembangan sistem. Prinsip utama dalam pendekatan ini meliputi memahami kebutuhan pengguna, melibatkan pengguna dalam proses desain, dan mengevaluasi sistem berdasarkan pengalaman pengguna.
+          </p>
+        `,
+      },
+    });
+
+    const material4 = await prisma.material.create({
+      data: {
+        chapterId: chapter4.id,
+        name: 'Pengantar',
+        content: `
+          <p>HCI adalah bidang studi yang mulai 
+          berkembang pada tahun 1980-an, tetapi 
+          konsep interaksi manusia dan mesin 
+          sudah ada sebelumnya dengan berbagai 
+          istilah seperti Man-Machine Interaction 
+          (MMI) pada 1970-an, Computer and Human 
+          Interaction (CHI), dan Human-Machine 
+          Interaction (HMI). HCI mempelajari 
+          cara manusia dan komputer bekerja 
+          bersama untuk menyelesaikan tugas 
+          tertentu. Fokus utama HCI adalah 
+          perancangan, evaluasi, dan implementasi 
+          sistem interaktif yang digunakan manusia. 
+          HCI juga berhubungan dengan usability 
+          (daya guna), yang berarti sistem harus 
+          mudah digunakan, dipelajari, dan memberikan 
+          keamanan bagi pengguna.</p>
+          <p>HCI terdiri dari tiga elemen utama, 
+          yaitu <strong>manusia, komputer, dan interaksi</strong></p>
+          <ul>
+            <li><strong>Manusia</strong> sebagai pengguna memiliki 
+            kebutuhan dan keterbatasan yang harus 
+            dipertimbangkan dalam desain sistem. </li>
+            <li><strong>Komputer </strong> mencakup 
+            perangkat keras dan lunak yang digunakan 
+            untuk berinteraksi dengan manusia.  </li>
+            <li><strong>Interaksi </strong>terjadi 
+            melalui antarmuka yang harus dirancang 
+            agar nyaman dan efisien. </li>
+          </ul>
+          <p>
+            Fokus utama HCI adalah perancangan dan 
+            evaluasi user interface (UI), yaitu bagian 
+            dari sistem komputer yang memungkinkan manusia 
+            berinteraksi dengan komputer. 
+          </p>
+          <p><img src="asset:lib/assets/alurHCI.png"></p>
+          <p>
+            UI harus dirancang dengan mempertimbangkan <strong>human factors</strong>, seperti kognisi dan ergonomi, agar pengguna dapat berinteraksi dengan nyaman dan efektif.
+          </p>
+          <p>
+            Dalam desain sistem interaktif, sering 
+            kali desainer atau programmer tidak memahami 
+            dengan tepat kebutuhan dan lingkungan kerja 
+            pengguna. Masalah lain yang sering terjadi 
+            adalah sistem komputer yang mengharuskan 
+            pengguna mengingat terlalu banyak informasi, 
+            kurang toleran terhadap kesalahan pengguna, 
+            serta tidak mempertimbangkan variasi 
+            pengguna yang berbeda-beda. Kesalahan 
+            utama dalam desain HCI adalah mengasumsikan 
+            bahwa <strong>semua pengguna itu sama</strong> 
+            dan bahwa <strong>pengguna memiliki cara berpikir 
+            yang sama dengan desainer</strong>. Untuk menciptakan 
+            sistem yang baik, penting untuk mempertanyakan 
+            desain yang buruk dan memastikan bahwa 
+            sistem memungkinkan pengguna menyelesaikan 
+            tugas dengan aman, efektif, efisien, dan 
+            menyenangkan.
+          </p>
+          <p>
+            Tujuan utama HCI adalah meningkatkan <strong>kualitas hidup pengguna</strong> dengan membuat sistem interaktif yang baik dan mudah digunakan. Sebuah sistem yang baik memiliki beberapa karakteristik <strong>user-friendly</strong>, seperti tampilan yang menarik, kemudahan penggunaan, cepat dipelajari, memberikan pengalaman positif, dan direkomendasikan oleh pengguna lain. Tujuan dalam rekayasa sistem meliputi beberapa aspek penting:
+          </p>
+          <ol>
+            <li><strong>Fungsionalitas yang sesuai</strong>, yaitu memastikan sistem memiliki fitur yang benar-benar dibutuhkan pengguna.</li>
+            <li><strong>Keandalan, ketersediaan, keamanan, dan integritas data</strong>, sehingga sistem dapat digunakan kapan saja tanpa risiko kehilangan atau pencurian data.</li>
+            <li><strong>Standardisasi, integrasi, konsistensi, dan portabilitas</strong>, yang memastikan antarmuka mudah dipahami dan data dapat digunakan di berbagai perangkat.</li>
+            <li><strong>Penjadwalan dan anggaran</strong>, agar proyek selesai tepat waktu dan sesuai dengan biaya yang telah direncanakan.</li>
+          </ol>
+          <p>
+            HCI adalah bidang multidisipliner yang dipengaruhi oleh berbagai bidang ilmu, termasuk:
+          </p>
+          <ul>
+            <li><strong>Psikologi dan ilmu kognitif </strong> untuk memahami persepsi dan pemrosesan informasi oleh manusia. </li>
+            <li><strong>Ergonomi </strong>untuk mempertimbangkan aspek fisik pengguna.</li>
+            <li><strong>Sosiologi </strong>untuk memahami interaksi sosial dalam penggunaan teknologi.</li>
+            <li><strong>Ilmu komputer dan teknik </strong>untuk mengembangkan sistem teknologi.</li>
+            <li><strong>Bisnis dan pemasaran </strong>untuk memahami kebutuhan pasar.</li>
+            <li><strong>Desain grafis </strong>untuk menciptakan antarmuka yang menarik dan fungsional.</li>
+          </ul>
+          <p>
+            HCI telah berkembang sejak 1960-an, dimulai dengan komputer mainframe dan interaksi berbasis teks. Pada 1970-an, muncul konsep Graphical User Interface (GUI) yang lebih visual dan intuitif. Pada 1990-an, perhatian lebih difokuskan pada usability dan pendekatan desain yang berpusat pada pengguna (user-centered design). Hingga kini, HCI terus berkembang dengan kemajuan teknologi seperti mobile computing, AI, dan interaksi berbasis sensor. Human-centered design adalah pendekatan dalam HCI yang menempatkan manusia sebagai fokus utama dalam pengembangan sistem. Prinsip utama dalam pendekatan ini meliputi memahami kebutuhan pengguna, melibatkan pengguna dalam proses desain, dan mengevaluasi sistem berdasarkan pengalaman pengguna.
+          </p>
+        `,
+      },
+    });
+
+    const material5 = await prisma.material.create({
+      data: {
+        chapterId: chapter5.id,
+        name: 'Pengantar',
+        content: `
+          <p>HCI adalah bidang studi yang mulai 
+          berkembang pada tahun 1980-an, tetapi 
+          konsep interaksi manusia dan mesin 
+          sudah ada sebelumnya dengan berbagai 
+          istilah seperti Man-Machine Interaction 
+          (MMI) pada 1970-an, Computer and Human 
+          Interaction (CHI), dan Human-Machine 
+          Interaction (HMI). HCI mempelajari 
+          cara manusia dan komputer bekerja 
+          bersama untuk menyelesaikan tugas 
+          tertentu. Fokus utama HCI adalah 
+          perancangan, evaluasi, dan implementasi 
+          sistem interaktif yang digunakan manusia. 
+          HCI juga berhubungan dengan usability 
+          (daya guna), yang berarti sistem harus 
+          mudah digunakan, dipelajari, dan memberikan 
+          keamanan bagi pengguna.</p>
+          <p>HCI terdiri dari tiga elemen utama, 
+          yaitu <strong>manusia, komputer, dan interaksi</strong></p>
+          <ul>
+            <li><strong>Manusia</strong> sebagai pengguna memiliki 
+            kebutuhan dan keterbatasan yang harus 
+            dipertimbangkan dalam desain sistem. </li>
+            <li><strong>Komputer </strong> mencakup 
+            perangkat keras dan lunak yang digunakan 
+            untuk berinteraksi dengan manusia.  </li>
+            <li><strong>Interaksi </strong>terjadi 
+            melalui antarmuka yang harus dirancang 
+            agar nyaman dan efisien. </li>
+          </ul>
+          <p>
+            Fokus utama HCI adalah perancangan dan 
+            evaluasi user interface (UI), yaitu bagian 
+            dari sistem komputer yang memungkinkan manusia 
+            berinteraksi dengan komputer. 
+          </p>
+          <p><img src="asset:lib/assets/alurHCI.png"></p>
+          <p>
+            UI harus dirancang dengan mempertimbangkan <strong>human factors</strong>, seperti kognisi dan ergonomi, agar pengguna dapat berinteraksi dengan nyaman dan efektif.
+          </p>
+          <p>
+            Dalam desain sistem interaktif, sering 
+            kali desainer atau programmer tidak memahami 
+            dengan tepat kebutuhan dan lingkungan kerja 
+            pengguna. Masalah lain yang sering terjadi 
+            adalah sistem komputer yang mengharuskan 
+            pengguna mengingat terlalu banyak informasi, 
+            kurang toleran terhadap kesalahan pengguna, 
+            serta tidak mempertimbangkan variasi 
+            pengguna yang berbeda-beda. Kesalahan 
+            utama dalam desain HCI adalah mengasumsikan 
+            bahwa <strong>semua pengguna itu sama</strong> 
+            dan bahwa <strong>pengguna memiliki cara berpikir 
+            yang sama dengan desainer</strong>. Untuk menciptakan 
+            sistem yang baik, penting untuk mempertanyakan 
+            desain yang buruk dan memastikan bahwa 
+            sistem memungkinkan pengguna menyelesaikan 
+            tugas dengan aman, efektif, efisien, dan 
+            menyenangkan.
+          </p>
+          <p>
+            Tujuan utama HCI adalah meningkatkan <strong>kualitas hidup pengguna</strong> dengan membuat sistem interaktif yang baik dan mudah digunakan. Sebuah sistem yang baik memiliki beberapa karakteristik <strong>user-friendly</strong>, seperti tampilan yang menarik, kemudahan penggunaan, cepat dipelajari, memberikan pengalaman positif, dan direkomendasikan oleh pengguna lain. Tujuan dalam rekayasa sistem meliputi beberapa aspek penting:
+          </p>
+          <ol>
+            <li><strong>Fungsionalitas yang sesuai</strong>, yaitu memastikan sistem memiliki fitur yang benar-benar dibutuhkan pengguna.</li>
+            <li><strong>Keandalan, ketersediaan, keamanan, dan integritas data</strong>, sehingga sistem dapat digunakan kapan saja tanpa risiko kehilangan atau pencurian data.</li>
+            <li><strong>Standardisasi, integrasi, konsistensi, dan portabilitas</strong>, yang memastikan antarmuka mudah dipahami dan data dapat digunakan di berbagai perangkat.</li>
+            <li><strong>Penjadwalan dan anggaran</strong>, agar proyek selesai tepat waktu dan sesuai dengan biaya yang telah direncanakan.</li>
+          </ol>
+          <p>
+            HCI adalah bidang multidisipliner yang dipengaruhi oleh berbagai bidang ilmu, termasuk:
+          </p>
+          <ul>
+            <li><strong>Psikologi dan ilmu kognitif </strong> untuk memahami persepsi dan pemrosesan informasi oleh manusia. </li>
+            <li><strong>Ergonomi </strong>untuk mempertimbangkan aspek fisik pengguna.</li>
+            <li><strong>Sosiologi </strong>untuk memahami interaksi sosial dalam penggunaan teknologi.</li>
+            <li><strong>Ilmu komputer dan teknik </strong>untuk mengembangkan sistem teknologi.</li>
+            <li><strong>Bisnis dan pemasaran </strong>untuk memahami kebutuhan pasar.</li>
+            <li><strong>Desain grafis </strong>untuk menciptakan antarmuka yang menarik dan fungsional.</li>
+          </ul>
+          <p>
+            HCI telah berkembang sejak 1960-an, dimulai dengan komputer mainframe dan interaksi berbasis teks. Pada 1970-an, muncul konsep Graphical User Interface (GUI) yang lebih visual dan intuitif. Pada 1990-an, perhatian lebih difokuskan pada usability dan pendekatan desain yang berpusat pada pengguna (user-centered design). Hingga kini, HCI terus berkembang dengan kemajuan teknologi seperti mobile computing, AI, dan interaksi berbasis sensor. Human-centered design adalah pendekatan dalam HCI yang menempatkan manusia sebagai fokus utama dalam pengembangan sistem. Prinsip utama dalam pendekatan ini meliputi memahami kebutuhan pengguna, melibatkan pengguna dalam proses desain, dan mengevaluasi sistem berdasarkan pengalaman pengguna.
+          </p>
+        `,
+      },
+    });
+
+    const material6 = await prisma.material.create({
+      data: {
+        chapterId: chapter6.id,
+        name: 'Pengantar',
+        content: `
+          <p>HCI adalah bidang studi yang mulai 
+          berkembang pada tahun 1980-an, tetapi 
+          konsep interaksi manusia dan mesin 
+          sudah ada sebelumnya dengan berbagai 
+          istilah seperti Man-Machine Interaction 
+          (MMI) pada 1970-an, Computer and Human 
+          Interaction (CHI), dan Human-Machine 
+          Interaction (HMI). HCI mempelajari 
+          cara manusia dan komputer bekerja 
+          bersama untuk menyelesaikan tugas 
+          tertentu. Fokus utama HCI adalah 
+          perancangan, evaluasi, dan implementasi 
+          sistem interaktif yang digunakan manusia. 
+          HCI juga berhubungan dengan usability 
+          (daya guna), yang berarti sistem harus 
+          mudah digunakan, dipelajari, dan memberikan 
+          keamanan bagi pengguna.</p>
+          <p>HCI terdiri dari tiga elemen utama, 
+          yaitu <strong>manusia, komputer, dan interaksi</strong></p>
+          <ul>
+            <li><strong>Manusia</strong> sebagai pengguna memiliki 
+            kebutuhan dan keterbatasan yang harus 
+            dipertimbangkan dalam desain sistem. </li>
+            <li><strong>Komputer </strong> mencakup 
+            perangkat keras dan lunak yang digunakan 
+            untuk berinteraksi dengan manusia.  </li>
+            <li><strong>Interaksi </strong>terjadi 
+            melalui antarmuka yang harus dirancang 
+            agar nyaman dan efisien. </li>
+          </ul>
+          <p>
+            Fokus utama HCI adalah perancangan dan 
+            evaluasi user interface (UI), yaitu bagian 
+            dari sistem komputer yang memungkinkan manusia 
+            berinteraksi dengan komputer. 
+          </p>
+          <p><img src="asset:lib/assets/alurHCI.png"></p>
+          <p>
+            UI harus dirancang dengan mempertimbangkan <strong>human factors</strong>, seperti kognisi dan ergonomi, agar pengguna dapat berinteraksi dengan nyaman dan efektif.
+          </p>
+          <p>
+            Dalam desain sistem interaktif, sering 
+            kali desainer atau programmer tidak memahami 
+            dengan tepat kebutuhan dan lingkungan kerja 
+            pengguna. Masalah lain yang sering terjadi 
+            adalah sistem komputer yang mengharuskan 
+            pengguna mengingat terlalu banyak informasi, 
+            kurang toleran terhadap kesalahan pengguna, 
+            serta tidak mempertimbangkan variasi 
+            pengguna yang berbeda-beda. Kesalahan 
+            utama dalam desain HCI adalah mengasumsikan 
+            bahwa <strong>semua pengguna itu sama</strong> 
+            dan bahwa <strong>pengguna memiliki cara berpikir 
+            yang sama dengan desainer</strong>. Untuk menciptakan 
+            sistem yang baik, penting untuk mempertanyakan 
+            desain yang buruk dan memastikan bahwa 
+            sistem memungkinkan pengguna menyelesaikan 
+            tugas dengan aman, efektif, efisien, dan 
+            menyenangkan.
+          </p>
+          <p>
+            Tujuan utama HCI adalah meningkatkan <strong>kualitas hidup pengguna</strong> dengan membuat sistem interaktif yang baik dan mudah digunakan. Sebuah sistem yang baik memiliki beberapa karakteristik <strong>user-friendly</strong>, seperti tampilan yang menarik, kemudahan penggunaan, cepat dipelajari, memberikan pengalaman positif, dan direkomendasikan oleh pengguna lain. Tujuan dalam rekayasa sistem meliputi beberapa aspek penting:
+          </p>
+          <ol>
+            <li><strong>Fungsionalitas yang sesuai</strong>, yaitu memastikan sistem memiliki fitur yang benar-benar dibutuhkan pengguna.</li>
+            <li><strong>Keandalan, ketersediaan, keamanan, dan integritas data</strong>, sehingga sistem dapat digunakan kapan saja tanpa risiko kehilangan atau pencurian data.</li>
+            <li><strong>Standardisasi, integrasi, konsistensi, dan portabilitas</strong>, yang memastikan antarmuka mudah dipahami dan data dapat digunakan di berbagai perangkat.</li>
+            <li><strong>Penjadwalan dan anggaran</strong>, agar proyek selesai tepat waktu dan sesuai dengan biaya yang telah direncanakan.</li>
+          </ol>
+          <p>
+            HCI adalah bidang multidisipliner yang dipengaruhi oleh berbagai bidang ilmu, termasuk:
+          </p>
+          <ul>
+            <li><strong>Psikologi dan ilmu kognitif </strong> untuk memahami persepsi dan pemrosesan informasi oleh manusia. </li>
+            <li><strong>Ergonomi </strong>untuk mempertimbangkan aspek fisik pengguna.</li>
+            <li><strong>Sosiologi </strong>untuk memahami interaksi sosial dalam penggunaan teknologi.</li>
+            <li><strong>Ilmu komputer dan teknik </strong>untuk mengembangkan sistem teknologi.</li>
+            <li><strong>Bisnis dan pemasaran </strong>untuk memahami kebutuhan pasar.</li>
+            <li><strong>Desain grafis </strong>untuk menciptakan antarmuka yang menarik dan fungsional.</li>
+          </ul>
+          <p>
+            HCI telah berkembang sejak 1960-an, dimulai dengan komputer mainframe dan interaksi berbasis teks. Pada 1970-an, muncul konsep Graphical User Interface (GUI) yang lebih visual dan intuitif. Pada 1990-an, perhatian lebih difokuskan pada usability dan pendekatan desain yang berpusat pada pengguna (user-centered design). Hingga kini, HCI terus berkembang dengan kemajuan teknologi seperti mobile computing, AI, dan interaksi berbasis sensor. Human-centered design adalah pendekatan dalam HCI yang menempatkan manusia sebagai fokus utama dalam pengembangan sistem. Prinsip utama dalam pendekatan ini meliputi memahami kebutuhan pengguna, melibatkan pengguna dalam proses desain, dan mengevaluasi sistem berdasarkan pengalaman pengguna.
+          </p>
+        `,
+      },
+    });
+
+    const material7 = await prisma.material.create({
+      data: {
+        chapterId: chapter7.id,
+        name: 'Pengantar',
+        content: `
+          <p>HCI adalah bidang studi yang mulai 
+          berkembang pada tahun 1980-an, tetapi 
+          konsep interaksi manusia dan mesin 
+          sudah ada sebelumnya dengan berbagai 
+          istilah seperti Man-Machine Interaction 
+          (MMI) pada 1970-an, Computer and Human 
+          Interaction (CHI), dan Human-Machine 
+          Interaction (HMI). HCI mempelajari 
+          cara manusia dan komputer bekerja 
+          bersama untuk menyelesaikan tugas 
+          tertentu. Fokus utama HCI adalah 
+          perancangan, evaluasi, dan implementasi 
+          sistem interaktif yang digunakan manusia. 
+          HCI juga berhubungan dengan usability 
+          (daya guna), yang berarti sistem harus 
+          mudah digunakan, dipelajari, dan memberikan 
+          keamanan bagi pengguna.</p>
+          <p>HCI terdiri dari tiga elemen utama, 
+          yaitu <strong>manusia, komputer, dan interaksi</strong></p>
+          <ul>
+            <li><strong>Manusia</strong> sebagai pengguna memiliki 
+            kebutuhan dan keterbatasan yang harus 
+            dipertimbangkan dalam desain sistem. </li>
+            <li><strong>Komputer </strong> mencakup 
+            perangkat keras dan lunak yang digunakan 
+            untuk berinteraksi dengan manusia.  </li>
+            <li><strong>Interaksi </strong>terjadi 
+            melalui antarmuka yang harus dirancang 
+            agar nyaman dan efisien. </li>
+          </ul>
+          <p>
+            Fokus utama HCI adalah perancangan dan 
+            evaluasi user interface (UI), yaitu bagian 
+            dari sistem komputer yang memungkinkan manusia 
+            berinteraksi dengan komputer. 
+          </p>
+          <p><img src="asset:lib/assets/alurHCI.png"></p>
+          <p>
+            UI harus dirancang dengan mempertimbangkan <strong>human factors</strong>, seperti kognisi dan ergonomi, agar pengguna dapat berinteraksi dengan nyaman dan efektif.
+          </p>
+          <p>
+            Dalam desain sistem interaktif, sering 
+            kali desainer atau programmer tidak memahami 
+            dengan tepat kebutuhan dan lingkungan kerja 
+            pengguna. Masalah lain yang sering terjadi 
+            adalah sistem komputer yang mengharuskan 
+            pengguna mengingat terlalu banyak informasi, 
+            kurang toleran terhadap kesalahan pengguna, 
+            serta tidak mempertimbangkan variasi 
+            pengguna yang berbeda-beda. Kesalahan 
+            utama dalam desain HCI adalah mengasumsikan 
+            bahwa <strong>semua pengguna itu sama</strong> 
+            dan bahwa <strong>pengguna memiliki cara berpikir 
+            yang sama dengan desainer</strong>. Untuk menciptakan 
+            sistem yang baik, penting untuk mempertanyakan 
+            desain yang buruk dan memastikan bahwa 
+            sistem memungkinkan pengguna menyelesaikan 
+            tugas dengan aman, efektif, efisien, dan 
+            menyenangkan.
+          </p>
+          <p>
+            Tujuan utama HCI adalah meningkatkan <strong>kualitas hidup pengguna</strong> dengan membuat sistem interaktif yang baik dan mudah digunakan. Sebuah sistem yang baik memiliki beberapa karakteristik <strong>user-friendly</strong>, seperti tampilan yang menarik, kemudahan penggunaan, cepat dipelajari, memberikan pengalaman positif, dan direkomendasikan oleh pengguna lain. Tujuan dalam rekayasa sistem meliputi beberapa aspek penting:
+          </p>
+          <ol>
+            <li><strong>Fungsionalitas yang sesuai</strong>, yaitu memastikan sistem memiliki fitur yang benar-benar dibutuhkan pengguna.</li>
+            <li><strong>Keandalan, ketersediaan, keamanan, dan integritas data</strong>, sehingga sistem dapat digunakan kapan saja tanpa risiko kehilangan atau pencurian data.</li>
+            <li><strong>Standardisasi, integrasi, konsistensi, dan portabilitas</strong>, yang memastikan antarmuka mudah dipahami dan data dapat digunakan di berbagai perangkat.</li>
+            <li><strong>Penjadwalan dan anggaran</strong>, agar proyek selesai tepat waktu dan sesuai dengan biaya yang telah direncanakan.</li>
+          </ol>
+          <p>
+            HCI adalah bidang multidisipliner yang dipengaruhi oleh berbagai bidang ilmu, termasuk:
+          </p>
+          <ul>
+            <li><strong>Psikologi dan ilmu kognitif </strong> untuk memahami persepsi dan pemrosesan informasi oleh manusia. </li>
+            <li><strong>Ergonomi </strong>untuk mempertimbangkan aspek fisik pengguna.</li>
+            <li><strong>Sosiologi </strong>untuk memahami interaksi sosial dalam penggunaan teknologi.</li>
+            <li><strong>Ilmu komputer dan teknik </strong>untuk mengembangkan sistem teknologi.</li>
+            <li><strong>Bisnis dan pemasaran </strong>untuk memahami kebutuhan pasar.</li>
+            <li><strong>Desain grafis </strong>untuk menciptakan antarmuka yang menarik dan fungsional.</li>
+          </ul>
+          <p>
+            HCI telah berkembang sejak 1960-an, dimulai dengan komputer mainframe dan interaksi berbasis teks. Pada 1970-an, muncul konsep Graphical User Interface (GUI) yang lebih visual dan intuitif. Pada 1990-an, perhatian lebih difokuskan pada usability dan pendekatan desain yang berpusat pada pengguna (user-centered design). Hingga kini, HCI terus berkembang dengan kemajuan teknologi seperti mobile computing, AI, dan interaksi berbasis sensor. Human-centered design adalah pendekatan dalam HCI yang menempatkan manusia sebagai fokus utama dalam pengembangan sistem. Prinsip utama dalam pendekatan ini meliputi memahami kebutuhan pengguna, melibatkan pengguna dalam proses desain, dan mengevaluasi sistem berdasarkan pengalaman pengguna.
+          </p>
+        `,
+      },
+    });
+
+    const material8 = await prisma.material.create({
+      data: {
+        chapterId: chapter8.id,
+        name: 'Pengantar',
+        content: `
+          <p>HCI adalah bidang studi yang mulai 
+          berkembang pada tahun 1980-an, tetapi 
+          konsep interaksi manusia dan mesin 
+          sudah ada sebelumnya dengan berbagai 
+          istilah seperti Man-Machine Interaction 
+          (MMI) pada 1970-an, Computer and Human 
+          Interaction (CHI), dan Human-Machine 
+          Interaction (HMI). HCI mempelajari 
+          cara manusia dan komputer bekerja 
+          bersama untuk menyelesaikan tugas 
+          tertentu. Fokus utama HCI adalah 
+          perancangan, evaluasi, dan implementasi 
+          sistem interaktif yang digunakan manusia. 
+          HCI juga berhubungan dengan usability 
+          (daya guna), yang berarti sistem harus 
+          mudah digunakan, dipelajari, dan memberikan 
+          keamanan bagi pengguna.</p>
+          <p>HCI terdiri dari tiga elemen utama, 
+          yaitu <strong>manusia, komputer, dan interaksi</strong></p>
+          <ul>
+            <li><strong>Manusia</strong> sebagai pengguna memiliki 
+            kebutuhan dan keterbatasan yang harus 
+            dipertimbangkan dalam desain sistem. </li>
+            <li><strong>Komputer </strong> mencakup 
+            perangkat keras dan lunak yang digunakan 
+            untuk berinteraksi dengan manusia.  </li>
+            <li><strong>Interaksi </strong>terjadi 
+            melalui antarmuka yang harus dirancang 
+            agar nyaman dan efisien. </li>
+          </ul>
+          <p>
+            Fokus utama HCI adalah perancangan dan 
+            evaluasi user interface (UI), yaitu bagian 
+            dari sistem komputer yang memungkinkan manusia 
+            berinteraksi dengan komputer. 
+          </p>
+          <p><img src="asset:lib/assets/alurHCI.png"></p>
+          <p>
+            UI harus dirancang dengan mempertimbangkan <strong>human factors</strong>, seperti kognisi dan ergonomi, agar pengguna dapat berinteraksi dengan nyaman dan efektif.
+          </p>
+          <p>
+            Dalam desain sistem interaktif, sering 
+            kali desainer atau programmer tidak memahami 
+            dengan tepat kebutuhan dan lingkungan kerja 
+            pengguna. Masalah lain yang sering terjadi 
+            adalah sistem komputer yang mengharuskan 
+            pengguna mengingat terlalu banyak informasi, 
+            kurang toleran terhadap kesalahan pengguna, 
+            serta tidak mempertimbangkan variasi 
+            pengguna yang berbeda-beda. Kesalahan 
+            utama dalam desain HCI adalah mengasumsikan 
+            bahwa <strong>semua pengguna itu sama</strong> 
+            dan bahwa <strong>pengguna memiliki cara berpikir 
+            yang sama dengan desainer</strong>. Untuk menciptakan 
+            sistem yang baik, penting untuk mempertanyakan 
+            desain yang buruk dan memastikan bahwa 
+            sistem memungkinkan pengguna menyelesaikan 
+            tugas dengan aman, efektif, efisien, dan 
+            menyenangkan.
+          </p>
+          <p>
+            Tujuan utama HCI adalah meningkatkan <strong>kualitas hidup pengguna</strong> dengan membuat sistem interaktif yang baik dan mudah digunakan. Sebuah sistem yang baik memiliki beberapa karakteristik <strong>user-friendly</strong>, seperti tampilan yang menarik, kemudahan penggunaan, cepat dipelajari, memberikan pengalaman positif, dan direkomendasikan oleh pengguna lain. Tujuan dalam rekayasa sistem meliputi beberapa aspek penting:
+          </p>
+          <ol>
+            <li><strong>Fungsionalitas yang sesuai</strong>, yaitu memastikan sistem memiliki fitur yang benar-benar dibutuhkan pengguna.</li>
+            <li><strong>Keandalan, ketersediaan, keamanan, dan integritas data</strong>, sehingga sistem dapat digunakan kapan saja tanpa risiko kehilangan atau pencurian data.</li>
+            <li><strong>Standardisasi, integrasi, konsistensi, dan portabilitas</strong>, yang memastikan antarmuka mudah dipahami dan data dapat digunakan di berbagai perangkat.</li>
+            <li><strong>Penjadwalan dan anggaran</strong>, agar proyek selesai tepat waktu dan sesuai dengan biaya yang telah direncanakan.</li>
+          </ol>
+          <p>
+            HCI adalah bidang multidisipliner yang dipengaruhi oleh berbagai bidang ilmu, termasuk:
+          </p>
+          <ul>
+            <li><strong>Psikologi dan ilmu kognitif </strong> untuk memahami persepsi dan pemrosesan informasi oleh manusia. </li>
+            <li><strong>Ergonomi </strong>untuk mempertimbangkan aspek fisik pengguna.</li>
+            <li><strong>Sosiologi </strong>untuk memahami interaksi sosial dalam penggunaan teknologi.</li>
+            <li><strong>Ilmu komputer dan teknik </strong>untuk mengembangkan sistem teknologi.</li>
+            <li><strong>Bisnis dan pemasaran </strong>untuk memahami kebutuhan pasar.</li>
+            <li><strong>Desain grafis </strong>untuk menciptakan antarmuka yang menarik dan fungsional.</li>
+          </ul>
+          <p>
+            HCI telah berkembang sejak 1960-an, dimulai dengan komputer mainframe dan interaksi berbasis teks. Pada 1970-an, muncul konsep Graphical User Interface (GUI) yang lebih visual dan intuitif. Pada 1990-an, perhatian lebih difokuskan pada usability dan pendekatan desain yang berpusat pada pengguna (user-centered design). Hingga kini, HCI terus berkembang dengan kemajuan teknologi seperti mobile computing, AI, dan interaksi berbasis sensor. Human-centered design adalah pendekatan dalam HCI yang menempatkan manusia sebagai fokus utama dalam pengembangan sistem. Prinsip utama dalam pendekatan ini meliputi memahami kebutuhan pengguna, melibatkan pengguna dalam proses desain, dan mengevaluasi sistem berdasarkan pengalaman pengguna.
+          </p>
+        `,
+      },
+    });
+
+
     const assessment1 = await prisma.assessment.create({
       data: {
         chapterId: chapter1.id,
@@ -389,6 +1034,638 @@ async function main() {
             answer: '',
             type: 'EY'
           },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+        ]),
+      },
+    });
+
+    const assessment2 = await prisma.assessment.create({
+      data: {
+        chapterId: chapter2.id,
+        instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
+        questions: JSON.stringify([
+          { 
+            question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
+            options: [
+              'Proses komunikasi antara dua komputer', 
+              'Proses interaksi antara manusia dan perangkat keras komputer', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
+            options: [
+              'Membuat perangkat keras komputer lebih efisien', 
+              'Mempermudah pengguna dalam berinteraksi dengan sistem', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
+          },
+          { 
+            question: 'User Experience (UX) merujuk pada:', 
+            options: [
+              'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+              'Desain tampilan antarmuka pengguna',
+              'Penggunaan teknologi dalam pengembangan aplikasi',
+              'Pemrograman perangkat lunak untuk pengguna'
+            ],
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
+            options: [
+              'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+              'Kualitas grafis yang ditampilkan pada antarmuka',
+              'Jumlah fitur yang ada pada aplikasi',
+              'Kecepatan loading aplikasi'
+            ],
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
+          },
+          { 
+            question: 'Wireframe adalah:', 
+            options: [
+              'Proses pengkodean aplikasi', 
+              'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi', 
+              'Proses pengujian aplikasi', 
+              'Desain grafis yang menonjolkan warna dan font'
+            ],
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+        ]),
+      },
+    });
+
+    const assessment3 = await prisma.assessment.create({
+      data: {
+        chapterId: chapter3.id,
+        instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
+        questions: JSON.stringify([
+          { 
+            question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
+            options: [
+              'Proses komunikasi antara dua komputer', 
+              'Proses interaksi antara manusia dan perangkat keras komputer', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
+            options: [
+              'Membuat perangkat keras komputer lebih efisien', 
+              'Mempermudah pengguna dalam berinteraksi dengan sistem', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
+          },
+          { 
+            question: 'User Experience (UX) merujuk pada:', 
+            options: [
+              'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+              'Desain tampilan antarmuka pengguna',
+              'Penggunaan teknologi dalam pengembangan aplikasi',
+              'Pemrograman perangkat lunak untuk pengguna'
+            ],
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
+            options: [
+              'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+              'Kualitas grafis yang ditampilkan pada antarmuka',
+              'Jumlah fitur yang ada pada aplikasi',
+              'Kecepatan loading aplikasi'
+            ],
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
+          },
+          { 
+            question: 'Wireframe adalah:', 
+            options: [
+              'Proses pengkodean aplikasi', 
+              'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi', 
+              'Proses pengujian aplikasi', 
+              'Desain grafis yang menonjolkan warna dan font'
+            ],
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+        ]),
+      },
+    });
+
+    const assessment4 = await prisma.assessment.create({
+      data: {
+        chapterId: chapter4.id,
+        instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
+        questions: JSON.stringify([
+          { 
+            question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
+            options: [
+              'Proses komunikasi antara dua komputer', 
+              'Proses interaksi antara manusia dan perangkat keras komputer', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
+            options: [
+              'Membuat perangkat keras komputer lebih efisien', 
+              'Mempermudah pengguna dalam berinteraksi dengan sistem', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
+          },
+          { 
+            question: 'User Experience (UX) merujuk pada:', 
+            options: [
+              'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+              'Desain tampilan antarmuka pengguna',
+              'Penggunaan teknologi dalam pengembangan aplikasi',
+              'Pemrograman perangkat lunak untuk pengguna'
+            ],
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
+            options: [
+              'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+              'Kualitas grafis yang ditampilkan pada antarmuka',
+              'Jumlah fitur yang ada pada aplikasi',
+              'Kecepatan loading aplikasi'
+            ],
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
+          },
+          { 
+            question: 'Wireframe adalah:', 
+            options: [
+              'Proses pengkodean aplikasi', 
+              'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi', 
+              'Proses pengujian aplikasi', 
+              'Desain grafis yang menonjolkan warna dan font'
+            ],
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+        ]),
+      },
+    });
+
+    const assessment5 = await prisma.assessment.create({
+      data: {
+        chapterId: chapter5.id,
+        instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
+        questions: JSON.stringify([
+          { 
+            question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
+            options: [
+              'Proses komunikasi antara dua komputer', 
+              'Proses interaksi antara manusia dan perangkat keras komputer', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
+            options: [
+              'Membuat perangkat keras komputer lebih efisien', 
+              'Mempermudah pengguna dalam berinteraksi dengan sistem', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
+          },
+          { 
+            question: 'User Experience (UX) merujuk pada:', 
+            options: [
+              'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+              'Desain tampilan antarmuka pengguna',
+              'Penggunaan teknologi dalam pengembangan aplikasi',
+              'Pemrograman perangkat lunak untuk pengguna'
+            ],
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
+            options: [
+              'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+              'Kualitas grafis yang ditampilkan pada antarmuka',
+              'Jumlah fitur yang ada pada aplikasi',
+              'Kecepatan loading aplikasi'
+            ],
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
+          },
+          { 
+            question: 'Wireframe adalah:', 
+            options: [
+              'Proses pengkodean aplikasi', 
+              'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi', 
+              'Proses pengujian aplikasi', 
+              'Desain grafis yang menonjolkan warna dan font'
+            ],
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+        ]),
+      },
+    });
+
+    const assessment6 = await prisma.assessment.create({
+      data: {
+        chapterId: chapter6.id,
+        instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
+        questions: JSON.stringify([
+          { 
+            question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
+            options: [
+              'Proses komunikasi antara dua komputer', 
+              'Proses interaksi antara manusia dan perangkat keras komputer', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
+            options: [
+              'Membuat perangkat keras komputer lebih efisien', 
+              'Mempermudah pengguna dalam berinteraksi dengan sistem', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
+          },
+          { 
+            question: 'User Experience (UX) merujuk pada:', 
+            options: [
+              'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+              'Desain tampilan antarmuka pengguna',
+              'Penggunaan teknologi dalam pengembangan aplikasi',
+              'Pemrograman perangkat lunak untuk pengguna'
+            ],
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
+            options: [
+              'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+              'Kualitas grafis yang ditampilkan pada antarmuka',
+              'Jumlah fitur yang ada pada aplikasi',
+              'Kecepatan loading aplikasi'
+            ],
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
+          },
+          { 
+            question: 'Wireframe adalah:', 
+            options: [
+              'Proses pengkodean aplikasi', 
+              'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi', 
+              'Proses pengujian aplikasi', 
+              'Desain grafis yang menonjolkan warna dan font'
+            ],
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+        ]),
+      },
+    });
+
+    const assessment7 = await prisma.assessment.create({
+      data: {
+        chapterId: chapter7.id,
+        instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
+        questions: JSON.stringify([
+          { 
+            question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
+            options: [
+              'Proses komunikasi antara dua komputer', 
+              'Proses interaksi antara manusia dan perangkat keras komputer', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
+            options: [
+              'Membuat perangkat keras komputer lebih efisien', 
+              'Mempermudah pengguna dalam berinteraksi dengan sistem', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
+          },
+          { 
+            question: 'User Experience (UX) merujuk pada:', 
+            options: [
+              'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+              'Desain tampilan antarmuka pengguna',
+              'Penggunaan teknologi dalam pengembangan aplikasi',
+              'Pemrograman perangkat lunak untuk pengguna'
+            ],
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
+            options: [
+              'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+              'Kualitas grafis yang ditampilkan pada antarmuka',
+              'Jumlah fitur yang ada pada aplikasi',
+              'Kecepatan loading aplikasi'
+            ],
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
+          },
+          { 
+            question: 'Wireframe adalah:', 
+            options: [
+              'Proses pengkodean aplikasi', 
+              'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi', 
+              'Proses pengujian aplikasi', 
+              'Desain grafis yang menonjolkan warna dan font'
+            ],
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+        ]),
+      },
+    });
+
+    const assessment8 = await prisma.assessment.create({
+      data: {
+        chapterId: chapter8.id,
+        instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
+        questions: JSON.stringify([
+          { 
+            question: 'Apa yang dimaksud dengan Interaksi Manusia-Komputer (IMK)?', 
+            options: [
+              'Proses komunikasi antara dua komputer', 
+              'Proses interaksi antara manusia dan perangkat keras komputer', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Proses komunikasi antara manusia dan komputer melalui antarmuka',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang menjadi tujuan utama dalam desain User Interface (UI)?', 
+            options: [
+              'Membuat perangkat keras komputer lebih efisien', 
+              'Mempermudah pengguna dalam berinteraksi dengan sistem', 
+              'Proses interaksi antara manusia dan perangkat lunak komputer',
+              'Proses komunikasi antara manusia dan komputer melalui antarmuka'
+            ],
+            answer: 'Mempermudah pengguna dalam berinteraksi dengan sistem',
+            type: 'MC'
+          },
+          { 
+            question: 'User Experience (UX) merujuk pada:', 
+            options: [
+              'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+              'Desain tampilan antarmuka pengguna',
+              'Penggunaan teknologi dalam pengembangan aplikasi',
+              'Pemrograman perangkat lunak untuk pengguna'
+            ],
+            answer: 'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Apa yang dimaksud dengan usability dalam konteks desain UI/UX?', 
+            options: [
+              'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+              'Kualitas grafis yang ditampilkan pada antarmuka',
+              'Jumlah fitur yang ada pada aplikasi',
+              'Kecepatan loading aplikasi'
+            ],
+            answer: 'Pengukuran seberapa mudah dan efisien antarmuka digunakan',
+            type: 'MC'
+          },
+          { 
+            question: 'Wireframe adalah:', 
+            options: [
+              'Proses pengkodean aplikasi', 
+              'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi', 
+              'Proses pengujian aplikasi', 
+              'Desain grafis yang menonjolkan warna dan font'
+            ],
+            answer: 'Desain awal yang menunjukkan struktur dan elemen utama dari aplikasi',
+            type: 'MC'
+          },
+          { 
+            question: 'Jelaskan Apa itu Penelitian', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Preferensi Pengguna seperti apa yang kalian maksud?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
+          { 
+            question: 'Elearning seperti apa yang akan dibangun disini?', 
+            options: [
+              ''
+            ],
+            answer: '',
+            type: 'EY'
+          },
         ]),
       },
     });
@@ -401,13 +1678,70 @@ async function main() {
       },
     });
 
+    const assignment2 = await prisma.assignment.create({
+      data: {
+        chapterId: chapter2.id,
+        instruction: 'Kerjakan tugas berikut dalam kertas A4 dengan metode Cornell Method!',
+        fileUrl: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+      },
+    });
+
+    const assignment3 = await prisma.assignment.create({
+      data: {
+        chapterId: chapter3.id,
+        instruction: 'Kerjakan tugas berikut dalam kertas A4 dengan metode Cornell Method!',
+        fileUrl: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+      },
+    });
+
+    const assignment4 = await prisma.assignment.create({
+      data: {
+        chapterId: chapter4.id,
+        instruction: 'Kerjakan tugas berikut dalam kertas A4 dengan metode Cornell Method!',
+        fileUrl: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+      },
+    });
+
+    const assignment5 = await prisma.assignment.create({
+      data: {
+        chapterId: chapter5.id,
+        instruction: 'Kerjakan tugas berikut dalam kertas A4 dengan metode Cornell Method!',
+        fileUrl: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+      },
+    });
+
+    const assignment6 = await prisma.assignment.create({
+      data: {
+        chapterId: chapter6.id,
+        instruction: 'Kerjakan tugas berikut dalam kertas A4 dengan metode Cornell Method!',
+        fileUrl: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+      },
+    });
+
+    const assignment7 = await prisma.assignment.create({
+      data: {
+        chapterId: chapter7.id,
+        instruction: 'Kerjakan tugas berikut dalam kertas A4 dengan metode Cornell Method!',
+        fileUrl: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+      },
+    });
+
+    const assignment8 = await prisma.assignment.create({
+      data: {
+        chapterId: chapter8.id,
+        instruction: 'Kerjakan tugas berikut dalam kertas A4 dengan metode Cornell Method!',
+        fileUrl: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+      },
+    });
+
+
     // Create UserCourse relationship
     await prisma.userCourse.create({
       data: {
         userId: student.id,
         courseId: course1.id,
-        progress: 46,
-        currentChapter: 2,
+        progress: 0,
+        currentChapter: 1,
         isCompleted: false,
       },
     });
@@ -421,15 +1755,9 @@ async function main() {
         materialDone: false,
         assessmentDone: false,
         assignmentDone: false,
-        assessmentAnswer: JSON.stringify([
-          'Proses interaksi antara manusia dan perangkat keras komputer',
-          'Mempermudah pengguna dalam berinteraksi dengan sistem',
-          'Bagaimana pengguna merasakan pengalaman mereka selama menggunakan aplikasi',
-          'Kecepatan loading aplikasi',
-          'Proses pengkodean aplikasi',
-        ]),
-        assessmentGrade: 79,
-        submission: 'https://apipuro.del.ac.id/v1/file/0fa579a231624800ad8ab9db25f23481',
+        assessmentAnswer: JSON.stringify([]),
+        assessmentGrade: 0,
+        submission: '',
       },
     });
 
