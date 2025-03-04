@@ -183,7 +183,7 @@ model Badge {
   id        Int      @id @default(autoincrement())
   name      String
   type      BadgeType
-  image     String
+  image     String?
   courseId  Int
   chapterId Int
   createdAt DateTime @default(now())
