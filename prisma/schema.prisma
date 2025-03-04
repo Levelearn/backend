@@ -159,6 +159,7 @@ model UserChapter {
   userId          Int
   chapterId       Int
   isStarted       Boolean   @default(false)
+  isCompleted     Boolean   @default(false)
   materialDone    Boolean   @default(false)
   assessmentDone  Boolean   @default(false)
   assignmentDone  Boolean   @default(false)
