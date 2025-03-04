@@ -425,7 +425,7 @@ async function main() {
     await prisma.userTrade.create({
       data: {
         userId: student.id,
-        badgeId: trade3.id,
+        tradeId: trade3.id,
       },
     });
 
