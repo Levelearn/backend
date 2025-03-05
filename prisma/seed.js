@@ -40,6 +40,18 @@ async function main() {
         image: '',
       },
     });   
+
+    const instructor2 = await prisma.user.create({
+      data: {
+        username: 'ranty',
+        password: hashedPassword,
+        name: 'Ranty',
+        role: Role.INSTRUCTOR,
+        instructorId: 'RDS',
+        instructorCourses: 0,
+        image: '',
+      },
+    });   
     
     const student = await prisma.user.create({
       data: {
@@ -48,6 +60,118 @@ async function main() {
         name: 'Benhard',
         role: Role.STUDENT,
         studentId: '11S21003',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student2 = await prisma.user.create({
+      data: {
+        username: 'emely',
+        password: hashedPassword,
+        name: 'Emely',
+        role: Role.STUDENT,
+        studentId: '11S21052',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student3 = await prisma.user.create({
+      data: {
+        username: 'boy',
+        password: hashedPassword,
+        name: 'Boy',
+        role: Role.STUDENT,
+        studentId: '11S21025',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student4 = await prisma.user.create({
+      data: {
+        username: 'enrico',
+        password: hashedPassword,
+        name: 'Enrico',
+        role: Role.STUDENT,
+        studentId: '11S21034',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student5 = await prisma.user.create({
+      data: {
+        username: 'gerry',
+        password: hashedPassword,
+        name: 'Gerry',
+        role: Role.STUDENT,
+        studentId: '11S21055',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student6 = await prisma.user.create({
+      data: {
+        username: 'tabitha',
+        password: hashedPassword,
+        name: 'Tabitha',
+        role: Role.STUDENT,
+        studentId: '11S21042',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student7 = await prisma.user.create({
+      data: {
+        username: 'tesalonika',
+        password: hashedPassword,
+        name: 'Tesalonika',
+        role: Role.STUDENT,
+        studentId: '11S21005',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student8 = await prisma.user.create({
+      data: {
+        username: 'dedi',
+        password: hashedPassword,
+        name: 'Dedi',
+        role: Role.STUDENT,
+        studentId: '11S21014',
+        points: 0,
+        totalCourses: 0,
+        badges: 0,
+        image: '',
+      },
+    });
+    
+    const student9 = await prisma.user.create({
+      data: {
+        username: 'gerald',
+        password: hashedPassword,
+        name: 'Gerald',
+        role: Role.STUDENT,
+        studentId: '11S21015',
         points: 0,
         totalCourses: 0,
         badges: 0,
