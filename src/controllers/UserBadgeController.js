@@ -49,6 +49,7 @@ const updateUserBadge = async (req, res) => {
     try {
         const updateUserBadge = await UserBadgeService.updateUserBadge(id, updateData);
         res.status(200).json({message: "Successfully updated UserBadge", UserBadge: updateUserBadge});
+        console.log(updateUserBadge);
     } catch (error) {
         res.status(500).json({ message: "Failed to update UserBadge", detail: error.message });
         console.log(error.message);

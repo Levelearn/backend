@@ -39,19 +39,7 @@ async function main() {
         instructorCourses: 0,
         image: '',
       },
-    });   
-
-    const instructor2 = await prisma.user.create({
-      data: {
-        username: 'ranty',
-        password: hashedPassword,
-        name: 'Ranty',
-        role: Role.INSTRUCTOR,
-        instructorId: 'RDS',
-        instructorCourses: 0,
-        image: '',
-      },
-    });   
+    });     
     
     const student = await prisma.user.create({
       data: {
@@ -67,7 +55,7 @@ async function main() {
       },
     });
     
-    const student2 = await prisma.user.create({
+    const emely = await prisma.user.create({
       data: {
         username: 'emely',
         password: hashedPassword,
@@ -81,7 +69,7 @@ async function main() {
       },
     });
     
-    const student3 = await prisma.user.create({
+    const boy = await prisma.user.create({
       data: {
         username: 'boy',
         password: hashedPassword,
@@ -95,7 +83,7 @@ async function main() {
       },
     });
     
-    const student4 = await prisma.user.create({
+    const enrico = await prisma.user.create({
       data: {
         username: 'enrico',
         password: hashedPassword,
@@ -109,7 +97,7 @@ async function main() {
       },
     });
     
-    const student5 = await prisma.user.create({
+    const gerry = await prisma.user.create({
       data: {
         username: 'gerry',
         password: hashedPassword,
@@ -123,7 +111,7 @@ async function main() {
       },
     });
     
-    const student6 = await prisma.user.create({
+    const tabitha = await prisma.user.create({
       data: {
         username: 'tabitha',
         password: hashedPassword,
@@ -137,7 +125,7 @@ async function main() {
       },
     });
     
-    const student7 = await prisma.user.create({
+    const tesalonika = await prisma.user.create({
       data: {
         username: 'tesalonika',
         password: hashedPassword,
@@ -151,7 +139,7 @@ async function main() {
       },
     });
     
-    const student8 = await prisma.user.create({
+    const dedi = await prisma.user.create({
       data: {
         username: 'dedi',
         password: hashedPassword,
@@ -165,7 +153,7 @@ async function main() {
       },
     });
     
-    const student9 = await prisma.user.create({
+    const gerald = await prisma.user.create({
       data: {
         username: 'gerald',
         password: hashedPassword,
@@ -178,6 +166,18 @@ async function main() {
         image: '',
       },
     });
+
+    const rds = await prisma.user.create({
+      data: {
+        username: 'ranty',
+        password: hashedPassword,
+        name: 'Ranty',
+        role: Role.INSTRUCTOR,
+        instructorId: 'RDS',
+        instructorCourses: 0,
+        image: '',
+      },
+    }); 
 
     // Create Courses
     const course1 = await prisma.course.create({
@@ -1863,6 +1863,35 @@ async function main() {
     await prisma.userCourse.create({
       data: {
         userId: student.id,
+        courseId: course1.id,
+        progress: 0,
+        currentChapter: 1,
+        isCompleted: false,
+      },
+    });
+    
+    await prisma.userCourse.create({
+      data: {
+        userId: emely.id,
+        courseId: course1.id,
+        progress: 0,
+        currentChapter: 1,
+        isCompleted: false,
+      },
+    });
+    await prisma.userCourse.create({
+      data: {
+        userId: gerry.id,
+        courseId: course1.id,
+        progress: 0,
+        currentChapter: 1,
+        isCompleted: false,
+      },
+    });
+
+    await prisma.userCourse.create({
+      data: {
+        userId: gerald.id,
         courseId: course1.id,
         progress: 0,
         currentChapter: 1,

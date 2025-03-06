@@ -19,4 +19,5 @@ router.put('/userbadge/:id', UserBadgeController.updateUserBadge);
 // Router for delete UserBadge by id
 router.delete('/userbadge/:id', UserBadgeController.deleteUserBadge);
 
+
 module.exports = router;

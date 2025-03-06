@@ -38,7 +38,10 @@ exports.updateUserBadge = async(id, updateData) => {
     try {
         const UserBadge = await prisma.UserBadge.update({
             where: { id },      
-            data: updateData,     
+            data: updateData, 
+            include: {
+                badge: true
+            }    
         });
         return UserBadge;  
     } catch (error) {
@@ -66,7 +69,7 @@ exports.getBadgesByUser = async (userId) => {
             where: {
                 userId: parseInt(userId)
             },
-            select: {
+            include: {
                 badge: true
             }
         });
