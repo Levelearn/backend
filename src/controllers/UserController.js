@@ -104,11 +104,10 @@ const updateUser = async (req, res) => {
 
     const id = parseInt(req.params.id);
     
-    const updateData = req.body;
-
-    const hashedPassword = await bcrypt.hash(updateData.password, 10);
-
-    updateData.password = hashedPassword;
+    if(updateData.password) {
+      const hashedPassword = await bcrypt.hash(updateData.password, 10);
+      updateData.password = hashedPassword;
+    }
 
     if (updateData.points) {
         updateData.points = parseInt(updateData.points);
@@ -143,6 +142,7 @@ const updateUser = async (req, res) => {
     console.log(error.message);
   }
 };
+
 
 // Controller untuk delete user by id
 const deleteUser = async (req, res) => {
