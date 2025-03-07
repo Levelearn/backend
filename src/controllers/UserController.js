@@ -104,6 +104,8 @@ const updateUser = async (req, res) => {
 
     const id = parseInt(req.params.id);
     
+    const updateData = req.body;
+
     if(updateData.password) {
       const hashedPassword = await bcrypt.hash(updateData.password, 10);
       updateData.password = hashedPassword;

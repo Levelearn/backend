@@ -137,7 +137,7 @@ model Assessment {
 model Assignment {
   id            Int       @id @default(autoincrement())
   chapterId     Int
-  instruction   String
+  instruction   String    @db.LongText
   fileUrl       String
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
