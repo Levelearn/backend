@@ -588,7 +588,7 @@ async function main() {
 
     const material2 = await prisma.material.create({
       data: {
-        chapterId: chapter1.id,
+        chapterId: chapter2.id,
         name: 'Human Factors and Ergonomic Principles in Design Interaction',
         content: `
           <p><strong><i>Human Factor</i></strong> dalam desain interaksi mencakup pemahaman tentang manusia sebagai pengguna sistem interaktif, meliputi <strong>Fisiologi, Kognisi, Psikologi, Sosial, dan Budaya </strong>. Adapun Tujuan utama dari <strong><i>Human Factor</i></strong> yaitu:
@@ -797,7 +797,7 @@ async function main() {
 
     const material4 = await prisma.material.create({
       data: {
-        chapterId: chapter1.id,
+        chapterId: chapter4.id,
         name: 'Heuristic Evaluation: Nielsen’s 10 Principles',
         content: `
           <h2>Definisi Usability Testing</h2>
@@ -1051,6 +1051,33 @@ async function main() {
       data: {
         chapterId: chapter7.id,
         name: 'Implementasi User-Centered Design (UCD)',
+        content: `
+          <p id="isPasted"><strong><span style="font-size: 24px;">Definisi User-Centered Design (UCD)</span></strong></p>
+          <p>User-Centered Design (UCD) adalah pendekatan desain yang berfokus pada pengguna, di mana kebutuhan, keterbatasan, dan preferensi pengguna menjadi faktor utama dalam proses perancangan sistem atau produk digital (Preece et al., 2019; Benyon, 2019). UCD menempatkan pengguna sebagai fokus utama dalam setiap tahap pengembangan produk atau sistem. Tujuannya adalah untuk memastikan bahwa produk yang dikembangkan benar-benar sesuai dengan kebutuhan, keinginan, dan karakteristik pengguna.</p>
+          <p><br></p><p><strong><span style="font-size: 24px;">Konsep Dasar UCD</span></strong></p><p id="isPasted">Konsep dasar UCD mencakup:</p>
+          <ul style="list-style-type: disc;"><li>Mengutamakan kebutuhan dan pengalaman pengguna dalam desain.</li>
+          <li>Melibatkan pengguna dalam setiap tahap pengembangan.</li><li>Menekankan iterasi dan evaluasi desain untuk memastikan usability yang tinggi.</li>
+          </ul><p><br></p><p><strong><span style="font-size: 24px;">Pendekatan Desain yang Berfokus pada Pengguna</span></strong></p>
+          <p><span style="font-size: 14px;">Pendekatan UCD melibatkan pengguna secara aktif selama proses desain. Desainer tidak hanya mengandalkan asumsi, tetapi juga mengumpulkan masukan langsung dari pengguna melalui berbagai metode seperti wawancara, observasi, dan uji coba prototipe.</span></p>
+          <p><br></p><p><span style="font-size: 24px;"><strong>Karakteristik Utama UCD</strong></span></p>
+          <ul style="list-style-type: disc;"><li id="isPasted"><strong>Partisipasi Pengguna</strong>: Pengguna berperan aktif dalam setiap tahap pengembangan.</li>
+          <li><strong>Iterasi Desain</strong>: Desain dikembangkan secara bertahap berdasarkan umpan balik dari pengguna.</li>
+          <li><strong>Evaluasi Berkelanjutan</strong>: Desain diuji dan diperbaiki secara berulang untuk meningkatkan usability.</li>
+          </ul><p><br></p><p><strong><span style="font-size: 24px;">Manfaat UCD dalam Pengembangan Aplikasi</span></strong></p>
+          <p id="isPasted">Berdasarkan teori Norman (2013) dan Nielsen (1993), UCD memberikan beberapa manfaat utama:</p>
+          <ul style="list-style-type: disc;"><li><strong>Meningkatkan usability dan user experience (UX)</strong>: Produk lebih mudah digunakan dan lebih efisien.</li>
+          <li><strong>Mengurangi kesalahan penggunaan</strong>: Pengguna dapat berinteraksi dengan sistem secara lebih intuitif.</li>
+          <li><strong>Meningkatkan kepuasan pengguna</strong>: Produk lebih sesuai dengan kebutuhan pengguna, sehingga meningkatkan engagement.<br><br><strong><span style="font-size: 24px;">Contoh Penerapan UCD: Aplikasi GoFood dan GrabFood</span></strong><br>Aplikasi Pemesanan Makanan:</li>
+          <li id="isPasted">Desain antarmuka yang sederhana dan mudah digunakan.</li></ul><p>Proses pemesanan yang cepat dengan opsi pembayaran beragam.<br><strong><span style="font-size: 24px;"><br>Tahapan UCD</span></strong></p><p id="isPasted"><strong>Identify the User:</strong></p><ul style="list-style-type: disc;"><li id="isPasted">Menentukan siapa pengguna utama (primary user), sekunder (secondary user), dan tersier (tertiary user).</li><li>Memahami lingkungan, perilaku, dan pengalaman pengguna.</li></ul><p><br></p><p><strong>Research the User:</strong></p><ul style="list-style-type: disc;"><li id="isPasted">Mengumpulkan data melalui wawancara, kuesioner, diskusi kelompok (focus groups), observasi langsung di lokasi, dan rekaman video.</li><li>Memahami bagaimana pengguna berinteraksi dengan sistem atau produk yang sedang dikembangkan.</li></ul><p><br></p><p><strong>Create Goals:</strong></p><ul style="list-style-type: disc;"><li id="isPasted">Mengidentifikasi bagaimana kegunaan (usability) dapat diukur.</li><li>Mempertimbangkan faktor efektivitas, efisiensi, keamanan, utilitas, kemudahan belajar (learnability), dan daya ingat pengguna (memorability).</li></ul><p><br></p><p><strong>Design:</strong></p><ul style="list-style-type: disc;"><li id="isPasted">Membuat mock-ups atau model/desain awal produk yang dapat diuji oleh pengguna sepanjang proses pengembangan.</li><li>Memastikan instruksi mudah dipahami dengan batasan dan petunjuk visual.</li></ul><p><br></p><p><strong>Prototype:</strong></p><ul style="list-style-type: disc;"><li id="isPasted">Model awal atau versi percobaan dari suatu produk sebelum produk akhir dikembangkan.</li><li>Mengembangkan prototype fungsional yang dapat diuji dalam lingkungan nyata.</li></ul><p><br></p><p><strong>Test:</strong></p><ul style="list-style-type: disc;"><li id="isPasted">Mengevaluasi desain dengan melibatkan pengguna.</li><li>Menguji produk dalam lingkungan nyata dan mendokumentasikan hasilnya.</li>
+          <li>Memberikan instruksi minimal kepada pengguna untuk melihat apakah produk intuitif.</li></ul><p><br></p><p><strong>Produce:</strong></p><ul style="list-style-type: disc;"><li id="isPasted">Melanjutkan evaluasi produk berdasarkan umpan balik melalui wawancara dan survei.</li><li>Menyempurnakan produk berdasarkan hasil evaluasi.</li></ul>
+        `,
+      },
+    });
+
+    const materialWeek8 = await prisma.material.create({
+      data: {
+        chapterId: chapter8.id,
+        name: 'UTS',
         content: `
           <p id="isPasted"><strong><span style="font-size: 24px;">Definisi User-Centered Design (UCD)</span></strong></p>
           <p>User-Centered Design (UCD) adalah pendekatan desain yang berfokus pada pengguna, di mana kebutuhan, keterbatasan, dan preferensi pengguna menjadi faktor utama dalam proses perancangan sistem atau produk digital (Preece et al., 2019; Benyon, 2019). UCD menempatkan pengguna sebagai fokus utama dalam setiap tahap pengembangan produk atau sistem. Tujuannya adalah untuk memastikan bahwa produk yang dikembangkan benar-benar sesuai dengan kebutuhan, keinginan, dan karakteristik pengguna.</p>
@@ -2043,7 +2070,7 @@ async function main() {
       data: {
         name: 'Beginner Designer',
         type: BadgeType.BEGINNER,
-        image: 'lib/assets/badges/imk-1.png',
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//imk-1.png',
         courseId: course1.id,
         chapterId: chapter3.id,
       },
@@ -2053,7 +2080,7 @@ async function main() {
       data: {
         name: 'Intermediate Designer',
         type: BadgeType.INTERMEDIATE,
-        image: 'lib/assets/badges/imk-2.png',
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//imk-2.png',
         courseId: course1.id,
         chapterId: chapter6.id,
       },
@@ -2063,9 +2090,69 @@ async function main() {
       data: {
         name: 'Advance Designer',
         type: BadgeType.ADVANCE,
-        image: 'lib/assets/badges/imk-3.png',
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//imk-3.png',
         courseId: course1.id,
         chapterId: chapter8.id,
+      },
+    });
+
+    const badge4 = await prisma.badge.create({
+      data: {
+        name: 'Beginner Login',
+        type: BadgeType.BEGINNER,
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//login-1.png',
+        courseId: course2.id,
+        chapterId: chapter1.id,
+      },
+    });
+
+    const badge5 = await prisma.badge.create({
+      data: {
+        name: 'Intermediate Login',
+        type: BadgeType.INTERMEDIATE,
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//login-2.png',
+        courseId: course2.id,
+        chapterId: chapter2.id,
+      },
+    });
+
+    const badge6 = await prisma.badge.create({
+      data: {
+        name: 'Advance Login',
+        type: BadgeType.ADVANCE,
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//login-3.png',
+        courseId: course2.id,
+        chapterId: chapter3.id,
+      },
+    });
+
+    const badge7 = await prisma.badge.create({
+      data: {
+        name: 'Beginner TBFA',
+        type: BadgeType.BEGINNER,
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//tbfa-1.png',
+        courseId: course3.id,
+        chapterId: chapter1.id,
+      },
+    });
+
+    const badge8 = await prisma.badge.create({
+      data: {
+        name: 'Intermediate TBFA',
+        type: BadgeType.INTERMEDIATE,
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//tbfa-2.png',
+        courseId: course3.id,
+        chapterId: chapter2.id,
+      },
+    });
+
+    const badge9 = await prisma.badge.create({
+      data: {
+        name: 'Advance TBFA',
+        type: BadgeType.ADVANCE,
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges//tbfa-3.png',
+        courseId: course3.id,
+        chapterId: chapter3.id,
       },
     });
 
