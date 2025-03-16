@@ -195,7 +195,7 @@ model Badge {
   chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   userBadges UserBadge[]
 
-  @@unique([courseId, chapterId])
+  @@unique([courseId, chapterId, type])
   @@index([courseId])
   @@index([chapterId])
   @@map("badges")
