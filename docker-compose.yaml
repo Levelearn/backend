@@ -1,19 +1,20 @@
-version: '3'
+version: '3.8'
+
 services:
   app: 
     build: .
     container_name: graphci
+    working_dir: /app/levelearn/api/backend
     environment:
-      - DATABASE_URL=mysql://root:root@localhost:5432/graphci
+      - DATABASE_URL=mysql://root:root@db:3306/graphci
       - JWT_SECRET=your_jwt_secret_here
       - NODE_ENV=development
       - PORT=4000
     ports:
       - "4000:4000"
     depends_on:
-      - db
-    volumes:
-      - .:/app
+      db:
+        condition: service_healthy
 
   db:
     image: mysql:latest
@@ -24,9 +25,13 @@ services:
       - MYSQL_USER=root         
       - MYSQL_PASSWORD=root
     ports:  
-      - "5432:5432"
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      retries: 5
+      interval: 5s
 
 volumes:
   db_data:

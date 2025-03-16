@@ -1,20 +1,34 @@
-# Use an official node.js runtime as a parent image
+# Gunakan Node.js Alpine sebagai base image (ringan dan cepat)
 FROM node:22-alpine
 
-# Set the working directory in this container
-WORKDIR /app
+# Install dependensi sistem yang diperlukan
+RUN apk add --no-cache git bash
 
-# Copy the package.json and the package-lock.json files to the container
-COPY package*json .
+# Set working directory ke dalam project
+WORKDIR /app/levelearn/api
 
-# Install the dependencies
+# Clone backend dari GitHub ke dalam folder "backend"
+RUN git clone 'https://github.com/Levelearn/backend.git'
+
+# Set working directory ke dalam folder backend
+WORKDIR /app/levelearn/api/backend
+
+# Install dependensi
 RUN npm install
 
-# Copy the rest of the application code
-COPY . .
+# Buat file .env langsung di dalam container (karena tidak ada di Git)
+RUN echo "DB_HOST=db" > .env && \
+    echo "DB_USER=root" >> .env && \
+    echo "DB_PASSWORD=root" >> .env && \
+    echo "DB_DATABASE=graphci" >> .env && \
+    echo "JWT_SECRET=your_secret_token" >> .env && \
+    echo "DATABASE_URL=\"mysql://root:root@db:3306/graphci\"" >> .env
 
-# Expose the port that the app runs on
+# Generate Prisma Client (jika menggunakan Prisma ORM)
+RUN npx prisma generate
+
+# Ekspos port yang digunakan aplikasi
 EXPOSE 4000
 
-# Define the command to run the application
-CMD ["node", "./src/index.js"]
+# Jalankan migrasi database dan kemudian jalankan aplikasi
+CMD ["sh", "-c", "npx prisma migrate deploy || npx prisma migrate dev --name init && node ./src/index.js"]
