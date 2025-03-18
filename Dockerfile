@@ -9,7 +9,6 @@ WORKDIR /app
 
 # Copy package.json and install dependencies
 COPY package.json ./
-COPY package-lock.json ./
 COPY . .
 
 RUN npm install
@@ -17,4 +16,4 @@ RUN npx prisma generate
 
 EXPOSE 7000
 
-CMD ["node", "./src/index.js"]
+CMD ["npm", "run", "start"]
