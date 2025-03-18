@@ -48,7 +48,7 @@ model Course {
   id          Int           @id @default(autoincrement())
   code        String
   name        String
-  description String        @db.Text @default("")
+  description String        @db.Text
   image       String        @default("")
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
@@ -121,7 +121,7 @@ model Material {
 model Assessment {
   id            Int       @id @default(autoincrement())
   chapterId     Int
-  instruction   String
+  instruction   String    @db.Text
   questions     Json?
   answers       Json?
   createdAt     DateTime  @default(now())
