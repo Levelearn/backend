@@ -18,4 +18,4 @@ RUN npx prisma generate
 
 EXPOSE 7000
 
-CMD ["npm", "run", "start"]
+CMD ["node", "src/index.js"]
