@@ -13,6 +13,8 @@ COPY . .
 
 RUN npm install
 RUN npx prisma generate
+RUN npx prisma migrate dev --name "Initial Migration" --create-db
+RUN node prisma/seed.js
 
 EXPOSE 7000
 
