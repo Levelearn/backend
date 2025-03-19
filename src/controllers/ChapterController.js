@@ -128,6 +128,18 @@ const getContentByChapter = async (req, res) => {
     }
 }
 
+const getUserChapterByChapterId = async (req, res) => {
+    const chapterId = parseInt(req.params.id);
+
+    try {
+        const userChapter = await chapterService.getUserChapterByChapterId(chapterId);
+        res.status(200).json(userChapter);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to get contents from chapter ${chapterId}`, detail: error.message});
+        console.log(error.message);
+    }
+}
+
 
 module.exports = {
     getAllChapters,
@@ -138,5 +150,6 @@ module.exports = {
     getMaterialsByChapter,
     getAssessmentsByChapter,
     getAssignmentsByChapter,
-    getContentByChapter
+    getContentByChapter,
+    getUserChapterByChapterId
 };

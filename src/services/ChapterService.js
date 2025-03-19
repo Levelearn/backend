@@ -164,3 +164,24 @@ exports.getAssignmentsByChapter = async (id) => {
     throw new Error(error.message);
   }
 };
+
+exports.getUserChapterByChapterId = async (id) => {
+  try {
+    const userChapter = await prisma.userChapter.findMany({
+      include: {
+        user: {
+          select: {
+            name: true,
+            studentId: true,
+          }
+        }
+      },
+      where: {
+        chapterId: id,
+      }
+    })
+    return userChapter;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}

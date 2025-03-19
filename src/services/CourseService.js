@@ -23,14 +23,12 @@ exports.getCourseById = async (id) => {
     }
 }
 
-exports.createCourse = async (code, name) => {
+exports.createCourse = async (newData) => {
     try {
         const newCourse = await prisma.course.create({
-            data: {
-                code,
-                name,
-            },
+            data: newData,
         });
+        
         return newCourse;
     } catch (error) {
         throw new Error(error.message);

@@ -34,4 +34,7 @@ router.get('/chapter/:id/assignments', chapterController.getAssignmentsByChapter
 // Router for get content from chapter
 router.get('/chapter/:id/content', chapterController.getContentByChapter);
 
+// Router for get userchapter from chapter
+router.get('/chapter/:id/userchapter', chapterController.getUserChapterByChapterId);
+
 module.exports = router;
