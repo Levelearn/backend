@@ -32,9 +32,9 @@ const getCourseById = async(req, res) => {
 // Controller untuk membuat course baru
 const createCourse = async (req, res) => {
     try {
-        const { code, name } = req.body;
-        const course = await courseService.createCourse(code, name);
-        res.status(201).json({message: `Successfully create new course ${name}`, course: course});
+        const newData = req.body;
+        const course = await courseService.createCourse(newData);
+        res.status(201).json({message: `Successfully create new course ${newData.name}`, course: course});
     } catch (error) {
         res.status(500).json({ message: "Failed to create new course", detail: error.message });
         console.log(error.message);
@@ -45,16 +45,7 @@ const createCourse = async (req, res) => {
 // Controller untuk update course by id
 const updateCourse = async (req, res) => {
     const courseId = parseInt(req.params.id);
-    const { code, name } = req.body;
-
-    const updateData = {};
-
-    if (code) {
-        updateData.code = code;
-    }
-    if (name) {
-        updateData.name = name;
-    }
+    const updateData = req.body;
 
     try {
         const updateCourse = await courseService.updateCourse(courseId, updateData);
