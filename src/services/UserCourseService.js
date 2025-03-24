@@ -93,6 +93,7 @@ exports.getCoursesByUser = async (userId) => {
             id: true,
             code: true,
             name: true,
+            image: true,
             description: true,
             createdAt: true,
             updatedAt: true,
