@@ -169,6 +169,8 @@ model UserChapter {
   submission      String?
   timeStarted     DateTime  @default(now()) 
   timeFinished    DateTime  @default(now())
+  assignmentScore     Int     @default(0)
+  assignmentFeedback  String  @default("")
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
