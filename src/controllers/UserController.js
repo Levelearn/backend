@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const userService = require("../services/UserService");
 const userCourseService = require("../services/UserCourseService");
 const userBadgeService = require("../services/UserBadgeService");
+const UserTradeService = require("../services/UserTradeService");
 
 const { validationResult } = require("express-validator");
 
@@ -197,13 +198,31 @@ const getBadgesByUser = async (req, res) => {
   }
 };
 
+const getTradesByUser = async (req, res) => {
+  const userId = parseInt(req.params.id);
+
+  try {
+    const trades = await UserTradeService.getTradesByUser(userId);
+
+    res.status(200).json(trades);
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        message: `Failed to get badges in user ${userId}`,
+        details: error.message,
+      });
+    console.log(error.message);
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
-  //
+  getTradesByUser,
   getCoursesByUser,
   getBadgesByUser,
 };
