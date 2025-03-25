@@ -20,12 +20,12 @@ model User {
   name              String
   role              Role
   studentId         String?       // Data khusus student
-  points            Int?
-  totalCourses      Int?
-  badges            Int?
+  points            Int? @default(0)
+  totalCourses      Int? @default(0)
+  badges            Int? @default(0)
   instructorId      String?       // Data khusus instructor
   instructorCourses Int?
-  image             String?       @default("images/default_avatar.png")
+  image             String?       @default("")
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
 
