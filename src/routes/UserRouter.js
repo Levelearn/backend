@@ -29,5 +29,7 @@ router.get('/user/:id/courses', userController.getCoursesByUser);
 // Get Badges by User
 router.get('/user/:id/badges', userController.getBadgesByUser);
 
+// Get Trades by User
+router.get('/user/:id/trades', userController.getTradesByUser);
 
 module.exports = router;

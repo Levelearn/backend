@@ -66,7 +66,7 @@ exports.getTradesByUser = async (userId) => {
             where: {
                 userId: parseInt(userId)
             },
-            select: {
+            include: {
                 trade: true
             }
         });
