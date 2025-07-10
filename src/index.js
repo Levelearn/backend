@@ -27,7 +27,7 @@ app.use(express.json());
 // app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'));
 app.use(
   cors({
-    origin: ["http://31.97.67.152:7700"],
+    origin: ["http://localhost:7700"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),

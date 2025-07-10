@@ -76,18 +76,17 @@ This backend application serves as the core logic for a gamified learning platfo
 6. **Run Database Seeder:**
 
     ```bash
-   npx prisma db seed
+    npx prisma db seed
 
 ## Running The Application
 
-    ```
+    ```bash
     nodemon run dev
-    ```
 
 ## API Documentation
 
 Base URL:
-`http://localhost:3000/api/`
+`http://localhost:7000/api/`
 
 | Features  | Function  | Method    | Endpoint      | Body      |
 | --------  | --------- |---------- |-------------- | --------  |
