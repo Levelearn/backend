@@ -26,6 +26,7 @@ model User {
   instructorId      String?       // Data khusus instructor
   instructorCourses Int?
   image             String?       @default("")
+  salt              String?       @default("")
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
 

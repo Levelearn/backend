@@ -1,4 +1,4 @@
-# Gamified Learning App Backend
+# Levelearn - Gamified Learning App Backend
 
 This repository contains the backend code for a gamified learning application, built using Express.js, Node.js, MySQL, and Prisma.  It provides a REST API for managing users, courses, progress, rewards, and other game-related functionalities.
 
@@ -38,7 +38,7 @@ This backend application serves as the core logic for a gamified learning platfo
 1. **Clone the repository:**
 
     ```
-    git clone [https://github.com/TA-2425-13/backend.git](https://github.com/TA-2425-13/backend.git)
+    git clone [https://github.com/Levelearn/backend.git](https://github.com/Levelearn/backend.git)
     ```
 
 2. **Navigate to the project directory:**
@@ -54,16 +54,11 @@ This backend application serves as the core logic for a gamified learning platfo
 4. **Configure the database connection:**
 
     - Create a `.env` file in the root directory.
-    - Create a database in MySQL named `graphci`
+    - Create a database in MySQL named `levelearn`
     - Copy this code into the `.env` file, and adjust the value with your database
         ```
-        DB_HOST=localhost
-        DB_USER=root
-        DB_PASSWORD=root
-        DB_DATABASE=graphci
-        JWT_SECRET=your_secret_token
-
-        DATABASE_URL="mysql://root:root@localhost:3306/graphci"
+        DATABASE_URL="mysql://root:root@localhost/levelearn"
+        JWT_SECRET=levelearn
         ```
     - Make sure there's definition of `require('dotenv').config();` in the `index.js` file.
 

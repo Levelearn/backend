@@ -8,6 +8,52 @@ const UserTradeService = require("../services/UserTradeService");
 
 const { validationResult } = require("express-validator");
 
+function generateSalt() {
+  return Math.random().toString(36).substring(2, 15);
+}
+
+function manualHashWithSalt(password, salt) {
+  // 1. Gabungkan password dan salt
+  const saltedPassword = password + salt;
+
+  // 2. Padding Sederhana (menambahkan panjang input yang sudah di-salt)
+  const inputBytes = new TextEncoder().encode(saltedPassword);
+  const inputLength = inputBytes.length;
+  const paddedInput = [...inputBytes, ...(new TextEncoder().encode(String(inputLength).padStart(8, '0')))];
+  // Sekarang kita anggap ukuran blok adalah 4 byte
+
+  // 3. Parsing ke Blok-Blok
+  const blockSize = 4;
+  const blocks = [];
+  for (let i = 0; i < paddedInput.length; i += blockSize) {
+    const block = paddedInput.slice(i, i + blockSize);
+    blocks.push(block);
+  }
+
+  // 4. Inisialisasi Nilai Hash Awal (sangat sederhana)
+  let hashValue = 0x12345678;
+
+  // 5. Fungsi "Kompresi" Sederhana (operasi XOR dan penambahan)
+  function simpleCompress(currentHash, block) {
+    let blockValue = 0;
+    for (let i = 0; i < block.length; i++) {
+      blockValue = (blockValue << 8) | block[i];
+    }
+    currentHash ^= blockValue;
+    currentHash = (currentHash + blockValue) & 0xFFFFFFFF; // Jaga dalam 32-bit
+    return currentHash;
+  }
+
+  // Proses setiap blok
+  for (const block of blocks) {
+    hashValue = simpleCompress(hashValue, block);
+  }
+
+  // 6. Finalisasi Sederhana (konversi ke hexadecimal)
+  const finalHash = hashValue.toString(16).padStart(8, '0');
+  return finalHash;
+}
+
 // Controller untuk mendapatkan daftar user
 const getAllUsers = async (req, res) => {
   const { role } = req.query;
@@ -62,7 +108,13 @@ const createUser = async (req, res) => {
         image
     } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
+
+    // 1. Generate Salt
+    const salt = generateSalt();
+
+    // 2. Hash Password menggunakan manualHashWithSalt dengan salt
+    const hashedPassword = manualHashWithSalt(password, salt);
 
     try {
         const newUser = await userService.createUser(
@@ -76,7 +128,8 @@ const createUser = async (req, res) => {
             student_badge,
             instructor_id,
             instructor_course,
-            image
+            image,
+            salt
         );
 
     const response = {
@@ -108,8 +161,13 @@ const updateUser = async (req, res) => {
     const updateData = req.body;
 
     if(updateData.password) {
-      const hashedPassword = await bcrypt.hash(updateData.password, 10);
-      updateData.password = hashedPassword;
+      
+      const existingUser = await userService.getUserById(id);
+      if (!existingUser || !existingUser.salt) {
+        return res.status(400).json({ message: "User not found or salt missing" });
+      }
+      const salt = existingUser.salt;
+      updateData.password = manualHashWithSalt(updateData.password, salt);
     }
 
     if (updateData.points) {

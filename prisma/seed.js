@@ -167,158 +167,6 @@ async function main() {
         image: '',
       },
     });
-    
-    const user1 = await prisma.user.create({
-      data: {
-        username: 'User 1',
-        password: userPassword,
-        name: 'User 1',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user2 = await prisma.user.create({
-      data: {
-        username: 'User 2',
-        password: userPassword,
-        name: 'User 2',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user3 = await prisma.user.create({
-      data: {
-        username: 'User 3',
-        password: userPassword,
-        name: 'User 3',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user4 = await prisma.user.create({
-      data: {
-        username: 'User 4',
-        password: userPassword,
-        name: 'User 4',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user5 = await prisma.user.create({
-      data: {
-        username: 'User 5',
-        password: userPassword,
-        name: 'User 5',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-
-    const user6 = await prisma.user.create({
-      data: {
-        username: 'User 6',
-        password: userPassword,
-        name: 'User 6',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user7 = await prisma.user.create({
-      data: {
-        username: 'User 7',
-        password: userPassword,
-        name: 'User 7',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user8 = await prisma.user.create({
-      data: {
-        username: 'User 8',
-        password: userPassword,
-        name: 'User 8',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user9 = await prisma.user.create({
-      data: {
-        username: 'User 9',
-        password: userPassword,
-        name: 'User 9',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-    
-    const user10 = await prisma.user.create({
-      data: {
-        username: 'User 10',
-        password: userPassword,
-        name: 'User 10',
-        role: Role.STUDENT,
-        studentId: '11S23000',
-        points: 0,
-        totalCourses: 0,
-        badges: 0,
-        image: '',
-      },
-    });
-
-    const rds = await prisma.user.create({
-      data: {
-        username: 'ranty',
-        password: hashedPassword,
-        name: 'Ranty',
-        role: Role.INSTRUCTOR,
-        instructorId: 'RDS',
-        instructorCourses: 0,
-        image: '',
-      },
-    }); 
 
     // Create Courses
     const course1 = await prisma.course.create({
@@ -344,6 +192,118 @@ async function main() {
         description: 'Learn basic of software engineering',
       },
     });
+    
+    const usersData = [
+      { NIM: '11S19055', Nama: 'Kartika Novia Hutauruk' },
+      { NIM: '11S23001', Nama: 'Obenhard Alianto Pasaribu' },
+      { NIM: '11S23002', Nama: 'Lamgok Hando Siahaan' },
+      { NIM: '11S23003', Nama: 'Sefa Natan Situmeang' },
+      { NIM: '11S23004', Nama: 'Rudi Alva Jonathan Ginting' },
+      { NIM: '11S23005', Nama: 'Christo Sadatua Manatap Pasaribu' },
+      { NIM: '11S23006', Nama: 'Sri Intan Ivana Pasaribu' },
+      { NIM: '11S23007', Nama: 'Jelita Sibarani' },
+      { NIM: '11S23008', Nama: 'Yosep Mangadu Simatupang' },
+      { NIM: '11S23009', Nama: 'Elkana M. Yosafat Sitorus' },
+      { NIM: '11S23010', Nama: 'Ridho Alexander Pakpahan' },
+      { NIM: '11S23011', Nama: 'Moses Romulus Simangunsong' },
+      { NIM: '11S23012', Nama: 'Joey Cristo Thruli' },
+      { NIM: '11S23013', Nama: 'Wesly Fery Wanda Ambarita' },
+      { NIM: '11S23014', Nama: 'Gayus Jones Petra' },
+      { NIM: '11S23015', Nama: 'Ayu Hutasoit' },
+      { NIM: '11S23016', Nama: 'Rahel Pasaribu' },
+      { NIM: '11S23017', Nama: 'Syvra Christina Natalin Tambun' },
+      { NIM: '11S23018', Nama: 'Aisah Sipahutar' },
+      { NIM: '11S23019', Nama: 'Anny Klaudya Hutabarat' },
+      { NIM: '11S23020', Nama: 'D Yophanci P. Sihombing' },
+      { NIM: '11S23021', Nama: 'Marshall Manurung' },
+      { NIM: '11S23022', Nama: 'Aron Ivander Jeconia Hutapea' },
+      { NIM: '11S23023', Nama: 'Paul Bornok Manurung' },
+      { NIM: '11S23024', Nama: 'Glen Rejeki Sitorus' },
+      { NIM: '11S23025', Nama: 'Daniel L. Tobing' },
+      { NIM: '11S23026', Nama: 'Andre Christian Saragih' },
+      { NIM: '11S23027', Nama: 'Ruth Angelica Manurung' },
+      { NIM: '11S23028', Nama: 'Josua Lens Franklin Saragih' },
+      { NIM: '11S23029', Nama: 'Daniel Tulus Simamora' },
+      { NIM: '11S23030', Nama: 'Gloria Panjaitan' },
+      { NIM: '11S23031', Nama: 'Christian Rafael' },
+      { NIM: '11S23032', Nama: 'Jeffry Armando Tambunan' },
+      { NIM: '11S23033', Nama: 'Josua Asido Prima Silalahi' },
+      { NIM: '11S23034', Nama: 'Michael Nicolas Saragih' },
+      { NIM: '11S23035', Nama: 'Jeremy Marcell Prapaskah Manullang' },
+      { NIM: '11S23036', Nama: 'Christian Johannes Hutahaean' },
+      { NIM: '11S23037', Nama: 'Alberton Napitupulu' },
+      { NIM: '11S23038', Nama: 'Samuel Faldhieto Sibarani' },
+      { NIM: '11S23039', Nama: 'Raynal Haposan Napitupulu' },
+      { NIM: '11S23040', Nama: 'Wahyu Rizky F Simanjorang' },
+      { NIM: '11S23041', Nama: 'Firman Bintang Hutasoit' },
+      { NIM: '11S23042', Nama: 'Tasya Aprilda Marbun' },
+      { NIM: '11S23043', Nama: 'Grace Evelin Siallagan' },
+      { NIM: '11S23044', Nama: 'Maharani Sitorus' },
+      { NIM: '11S23045', Nama: 'Lofelyn Enzely Ambarita' },
+      { NIM: '11S23046', Nama: 'Grace Sania Silalahi' },
+      { NIM: '11S23047', Nama: 'Helga Zefanya Sipayung' },
+      { NIM: '11S23048', Nama: 'Iel Oceline Manik' },
+      { NIM: '11S23049', Nama: 'Rahel Debora Hasibuan' },
+      { NIM: '11S23050', Nama: 'Zefanya Ecklezia Saragih' },
+      { NIM: '11S23051', Nama: 'Yuri Elsa Rona Uli Pakpahan' },
+      { NIM: '11S23052', Nama: 'Bunga Rhiza Sitorus' },
+      { NIM: '11S23053', Nama: 'Lola Gracea Apriana Tampubolon' },
+      { NIM: '11S23054', Nama: 'Sri Diva Siagian' },
+      { NIM: '11S23055', Nama: 'Stacia Andani Siallagan' },
+    ];
+
+    for (const userData of usersData) {
+      const namaDepan = userData.Nama.split(' ')[0];
+      const NIM = userData.NIM;
+      const username = `ifs${NIM.substring(3)}`;
+      const encrypted = await bcrypt.hash(username, 10);
+
+      try {
+        const mahasiswa = await prisma.user.create({
+          data: {
+            username: username,
+            password: encrypted,
+            name: namaDepan,
+            role: Role.STUDENT,
+            studentId: NIM,
+            points: 0,
+            totalCourses: 0,
+            badges: 0,
+            image: '',
+          },
+        });
+        console.log(`Pengguna ${mahasiswa.username} berhasil dibuat.`);
+
+        // Assign user ke course1
+        await prisma.userCourse.create({
+          data: {
+            userId: mahasiswa.id,
+            courseId: course1.id,
+            progress: 0,
+            currentChapter: 1,
+            isCompleted: false,
+          },
+        });
+        console.log(`Pengguna ${mahasiswa.username} berhasil diassign ke course dengan ID ${course1.id}.`);
+      } catch (error) {
+        console.error(`Gagal membuat pengguna dengan NIM ${NIM}:`, error);
+      }
+    }
+    
+
+    const rds = await prisma.user.create({
+      data: {
+        username: 'ranty',
+        password: hashedPassword,
+        name: 'Ranty',
+        role: Role.INSTRUCTOR,
+        instructorId: 'RDS',
+        instructorCourses: 0,
+        image: '',
+      },
+    }); 
+
+    
 
     // Create Chapters for Course IMK
     const chapter1 = await prisma.chapter.create({
@@ -795,172 +755,172 @@ async function main() {
       },
     });
 
-    const material4 = await prisma.material.create({
-      data: {
-        chapterId: chapter4.id,
-        name: 'Heuristic Evaluation: Nielsen’s 10 Principles',
-        content: `
-          <h2>Definisi Usability Testing</h2>
-    <p>Usability testing adalah proses evaluasi produk atau sistem dengan menguji langsung pada pengguna untuk mengukur kemudahan penggunaan, efisiensi, dan kepuasan pengguna dalam berinteraksi dengan antarmuka. Menurut Preece et al. (2019), usability testing membantu dalam memahami bagaimana pengguna berinteraksi dengan sistem dan mengidentifikasi kendala yang mereka hadapi selama proses penggunaan.</p>
+//     const material4 = await prisma.material.create({
+//       data: {
+//         chapterId: chapter4.id,
+//         name: 'Heuristic Evaluation: Nielsen’s 10 Principles',
+//         content: `
+//           <h2>Definisi Usability Testing</h2>
+//     <p>Usability testing adalah proses evaluasi produk atau sistem dengan menguji langsung pada pengguna untuk mengukur kemudahan penggunaan, efisiensi, dan kepuasan pengguna dalam berinteraksi dengan antarmuka. Menurut Preece et al. (2019), usability testing membantu dalam memahami bagaimana pengguna berinteraksi dengan sistem dan mengidentifikasi kendala yang mereka hadapi selama proses penggunaan.</p>
     
-    <h2>Tujuan Usability Testing</h2>
-    <p>Menurut Nielsen (1993), usability testing memiliki beberapa tujuan utama:</p>
-    <ul>
-        <li>Mengidentifikasi masalah usability dalam antarmuka pengguna.</li>
-        <li>Menilai performa pengguna dalam menyelesaikan tugas tertentu.</li>
-        <li>Mengumpulkan umpan balik dari pengguna yang dapat digunakan untuk perbaikan desain.</li>
-    </ul>
+//     <h2>Tujuan Usability Testing</h2>
+//     <p>Menurut Nielsen (1993), usability testing memiliki beberapa tujuan utama:</p>
+//     <ul>
+//         <li>Mengidentifikasi masalah usability dalam antarmuka pengguna.</li>
+//         <li>Menilai performa pengguna dalam menyelesaikan tugas tertentu.</li>
+//         <li>Mengumpulkan umpan balik dari pengguna yang dapat digunakan untuk perbaikan desain.</li>
+//     </ul>
     
-    <h2>Usability Guidelines</h2>
-    <p>Usability guidelines adalah sekumpulan prinsip yang digunakan untuk memastikan bahwa desain sistem interaktif mendukung efektivitas, efisiensi, dan kepuasan pengguna. Beberapa pedoman yang sering digunakan dalam desain interaksi meliputi:</p>
-    <ul>
-        <li><strong>Golden Rules of Interface Design</strong> (Shneiderman et al., 2016), yang menekankan prinsip-prinsip dasar dalam desain UI.</li>
-        <li><strong>Norman's 10 Design Principles</strong> (Norman, 2013), yang berfokus pada bagaimana pengguna memahami dan berinteraksi dengan antarmuka.</li>
-        <li><strong>Web Content Accessibility Guidelines (WCAG)</strong> dari W3C, yang memberikan panduan tentang aksesibilitas bagi pengguna dengan kebutuhan khusus.</li>
-        <li><strong>Tognazzini’s Principles of Interaction Design</strong>, yang menyoroti prinsip dalam menciptakan pengalaman pengguna yang lebih baik.</li>
-    </ul>
+//     <h2>Usability Guidelines</h2>
+//     <p>Usability guidelines adalah sekumpulan prinsip yang digunakan untuk memastikan bahwa desain sistem interaktif mendukung efektivitas, efisiensi, dan kepuasan pengguna. Beberapa pedoman yang sering digunakan dalam desain interaksi meliputi:</p>
+//     <ul>
+//         <li><strong>Golden Rules of Interface Design</strong> (Shneiderman et al., 2016), yang menekankan prinsip-prinsip dasar dalam desain UI.</li>
+//         <li><strong>Norman's 10 Design Principles</strong> (Norman, 2013), yang berfokus pada bagaimana pengguna memahami dan berinteraksi dengan antarmuka.</li>
+//         <li><strong>Web Content Accessibility Guidelines (WCAG)</strong> dari W3C, yang memberikan panduan tentang aksesibilitas bagi pengguna dengan kebutuhan khusus.</li>
+//         <li><strong>Tognazzini’s Principles of Interaction Design</strong>, yang menyoroti prinsip dalam menciptakan pengalaman pengguna yang lebih baik.</li>
+//     </ul>
     
-    <h2>Definisi Heuristic Evaluation</h2>
-    <p>Heuristic Evaluation adalah metode evaluasi usability yang dilakukan oleh sekelompok evaluator yang menilai sistem berdasarkan serangkaian prinsip atau heuristik yang telah ditetapkan. Metode ini diperkenalkan oleh Jakob Nielsen (1993) sebagai pendekatan yang cepat dan efisien dalam mengidentifikasi masalah usability tanpa perlu melakukan pengujian langsung pada pengguna. Evaluasi heuristik memiliki beberapa manfaat utama, antara lain:</p>
-    <ul>
-        <li>Mengidentifikasi masalah usability dengan cepat tanpa perlu melakukan pengujian pengguna secara langsung.</li>
-        <li>Mengurangi biaya pengembangan dengan mengatasi masalah usability sejak awal dalam siklus desain.</li>
-        <li>Membantu dalam merancang pengalaman pengguna (UX) yang lebih baik, terutama pada tahap prototipe sebelum produk dirilis.</li>
-    </ul>
+//     <h2>Definisi Heuristic Evaluation</h2>
+//     <p>Heuristic Evaluation adalah metode evaluasi usability yang dilakukan oleh sekelompok evaluator yang menilai sistem berdasarkan serangkaian prinsip atau heuristik yang telah ditetapkan. Metode ini diperkenalkan oleh Jakob Nielsen (1993) sebagai pendekatan yang cepat dan efisien dalam mengidentifikasi masalah usability tanpa perlu melakukan pengujian langsung pada pengguna. Evaluasi heuristik memiliki beberapa manfaat utama, antara lain:</p>
+//     <ul>
+//         <li>Mengidentifikasi masalah usability dengan cepat tanpa perlu melakukan pengujian pengguna secara langsung.</li>
+//         <li>Mengurangi biaya pengembangan dengan mengatasi masalah usability sejak awal dalam siklus desain.</li>
+//         <li>Membantu dalam merancang pengalaman pengguna (UX) yang lebih baik, terutama pada tahap prototipe sebelum produk dirilis.</li>
+//     </ul>
 
-<p>Evaluasi heuristik memainkan peran penting dalam siklus pengembangan produk karena memungkinkan tim desain untuk mendeteksi masalah usability lebih awal. Hal ini membantu dalam memastikan bahwa perbaikan dilakukan sebelum produk diuji oleh pengguna akhir. Selain itu, evaluasi heuristik menjadi bagian dari siklus iteratif dalam desain UX dengan memberikan umpan balik yang berguna untuk meningkatkan pengalaman pengguna secara keseluruhan.</p>
+// <p>Evaluasi heuristik memainkan peran penting dalam siklus pengembangan produk karena memungkinkan tim desain untuk mendeteksi masalah usability lebih awal. Hal ini membantu dalam memastikan bahwa perbaikan dilakukan sebelum produk diuji oleh pengguna akhir. Selain itu, evaluasi heuristik menjadi bagian dari siklus iteratif dalam desain UX dengan memberikan umpan balik yang berguna untuk meningkatkan pengalaman pengguna secara keseluruhan.</p>
     
-    <h2>Sejarah Singkat Pengembangan 10 Prinsip Nielsen</h2>
-    <p>Prinsip heuristik yang dikembangkan oleh Jakob Nielsen pada tahun 1990-an didasarkan pada penelitian usability dan pengalaman dalam menilai antarmuka pengguna. Awalnya, Nielsen memperkenalkan sembilan prinsip, yang kemudian diperbarui menjadi sepuluh prinsip yang lebih komprehensif (Nielsen, 1993). Prinsip ini telah menjadi standar dalam evaluasi desain UX hingga saat ini.</p>
+//     <h2>Sejarah Singkat Pengembangan 10 Prinsip Nielsen</h2>
+//     <p>Prinsip heuristik yang dikembangkan oleh Jakob Nielsen pada tahun 1990-an didasarkan pada penelitian usability dan pengalaman dalam menilai antarmuka pengguna. Awalnya, Nielsen memperkenalkan sembilan prinsip, yang kemudian diperbarui menjadi sepuluh prinsip yang lebih komprehensif (Nielsen, 1993). Prinsip ini telah menjadi standar dalam evaluasi desain UX hingga saat ini.</p>
 
-<h2>Prinsip-Prinsip Heuristic Evaluation</h2>
-    <p>Pada sesi ini, kita akan membahas lebih dalam mengenai prinsip-prinsip dalam evaluasi heuristik yang dikembangkan oleh Jakob Nielsen. Prinsip-prinsip ini bertujuan untuk membantu evaluator dalam mengidentifikasi masalah usability dalam suatu sistem.</p>
+// <h2>Prinsip-Prinsip Heuristic Evaluation</h2>
+//     <p>Pada sesi ini, kita akan membahas lebih dalam mengenai prinsip-prinsip dalam evaluasi heuristik yang dikembangkan oleh Jakob Nielsen. Prinsip-prinsip ini bertujuan untuk membantu evaluator dalam mengidentifikasi masalah usability dalam suatu sistem.</p>
     
-    <h3>A. Visibility of System Status</h3>
-    <p>Sistem harus selalu memberi tahu pengguna tentang apa yang sedang terjadi melalui umpan balik yang tepat waktu.</p>
-    <ul>
-        <li> Memberikan notifikasi real-time tentang status sistem.</li>
-        <li> Menampilkan indikator loading atau progress bar untuk menghindari kebingungan pengguna.</li>
-        <li> Memberikan konfirmasi saat suatu aksi telah dilakukan.</li>
-    </ul>
+//     <h3>A. Visibility of System Status</h3>
+//     <p>Sistem harus selalu memberi tahu pengguna tentang apa yang sedang terjadi melalui umpan balik yang tepat waktu.</p>
+//     <ul>
+//         <li> Memberikan notifikasi real-time tentang status sistem.</li>
+//         <li> Menampilkan indikator loading atau progress bar untuk menghindari kebingungan pengguna.</li>
+//         <li> Memberikan konfirmasi saat suatu aksi telah dilakukan.</li>
+//     </ul>
     
-    <h3>B. Match Between System and the Real World</h3>
-    <p>Antarmuka harus menggunakan bahasa, istilah, dan konsep yang sudah familiar bagi pengguna.</p>
-    <ul>
-        <li> Menggunakan ikon dan simbol yang sesuai dengan dunia nyata.</li>
-        <li> Bahasa yang digunakan harus mudah dipahami dan sesuai dengan terminologi pengguna.</li>
-        <li> Tata letak harus mencerminkan bagaimana pengguna berinteraksi di kehidupan sehari-hari.</li>
-    </ul>
+//     <h3>B. Match Between System and the Real World</h3>
+//     <p>Antarmuka harus menggunakan bahasa, istilah, dan konsep yang sudah familiar bagi pengguna.</p>
+//     <ul>
+//         <li> Menggunakan ikon dan simbol yang sesuai dengan dunia nyata.</li>
+//         <li> Bahasa yang digunakan harus mudah dipahami dan sesuai dengan terminologi pengguna.</li>
+//         <li> Tata letak harus mencerminkan bagaimana pengguna berinteraksi di kehidupan sehari-hari.</li>
+//     </ul>
     
-    <h3>C. User Control and Freedom</h3>
-    <p>Pengguna sering kali melakukan kesalahan, sehingga sistem harus memberikan opsi untuk membatalkan atau memperbaiki tindakan yang dilakukan.</p>
-    <ul>
-        <li> Menyediakan tombol "Undo" untuk membatalkan kesalahan.</li>
-        <li> Memungkinkan navigasi kembali dengan tombol "Back".</li>
-        <li> Memberikan opsi untuk keluar dari suatu proses tanpa kehilangan data penting.</li>
-    </ul>
+//     <h3>C. User Control and Freedom</h3>
+//     <p>Pengguna sering kali melakukan kesalahan, sehingga sistem harus memberikan opsi untuk membatalkan atau memperbaiki tindakan yang dilakukan.</p>
+//     <ul>
+//         <li> Menyediakan tombol "Undo" untuk membatalkan kesalahan.</li>
+//         <li> Memungkinkan navigasi kembali dengan tombol "Back".</li>
+//         <li> Memberikan opsi untuk keluar dari suatu proses tanpa kehilangan data penting.</li>
+//     </ul>
     
-    <h3>D. Consistency and Standards</h3>
-    <p>Desain sistem harus konsisten di seluruh antarmuka agar pengguna tidak perlu belajar ulang bagaimana cara menggunakannya.</p>
-    <ul>
-        <li> Menggunakan ikon yang sama untuk fungsi yang sama di seluruh sistem.</li>
-        <li> Menyesuaikan standar desain yang umum digunakan dalam industri.</li>
-        <li> Menyediakan navigasi yang seragam di semua halaman.</li>
-    </ul>
+//     <h3>D. Consistency and Standards</h3>
+//     <p>Desain sistem harus konsisten di seluruh antarmuka agar pengguna tidak perlu belajar ulang bagaimana cara menggunakannya.</p>
+//     <ul>
+//         <li> Menggunakan ikon yang sama untuk fungsi yang sama di seluruh sistem.</li>
+//         <li> Menyesuaikan standar desain yang umum digunakan dalam industri.</li>
+//         <li> Menyediakan navigasi yang seragam di semua halaman.</li>
+//     </ul>
     
-    <h3>E. Error Prevention</h3>
-    <p>Sistem harus dirancang untuk mencegah kesalahan sebelum terjadi.</p>
-    <ul>
-        <li> Menampilkan pesan konfirmasi sebelum menghapus data penting.</li>
-        <li> Memvalidasi input pengguna sebelum dikirimkan.</li>
-        <li> Menyediakan rekomendasi atau saran untuk menghindari kesalahan.</li>
-    </ul>
+//     <h3>E. Error Prevention</h3>
+//     <p>Sistem harus dirancang untuk mencegah kesalahan sebelum terjadi.</p>
+//     <ul>
+//         <li> Menampilkan pesan konfirmasi sebelum menghapus data penting.</li>
+//         <li> Memvalidasi input pengguna sebelum dikirimkan.</li>
+//         <li> Menyediakan rekomendasi atau saran untuk menghindari kesalahan.</li>
+//     </ul>
     
-    <h3>F. Recognition Rather than Recall</h3>
-    <p>Pengguna sebaiknya tidak dipaksa untuk mengingat informasi yang tidak perlu.</p>
-    <ul>
-        <li> Menampilkan daftar pilihan daripada meminta pengguna mengetik ulang informasi.</li>
-        <li> Menyediakan ikon atau label yang membantu mengenali fungsi.</li>
-        <li> Menampilkan riwayat aktivitas pengguna untuk mempermudah navigasi.</li>
-    </ul>
+//     <h3>F. Recognition Rather than Recall</h3>
+//     <p>Pengguna sebaiknya tidak dipaksa untuk mengingat informasi yang tidak perlu.</p>
+//     <ul>
+//         <li> Menampilkan daftar pilihan daripada meminta pengguna mengetik ulang informasi.</li>
+//         <li> Menyediakan ikon atau label yang membantu mengenali fungsi.</li>
+//         <li> Menampilkan riwayat aktivitas pengguna untuk mempermudah navigasi.</li>
+//     </ul>
     
-    <h3>G. Flexibility and Efficiency of Use</h3>
-    <p>Desain sistem harus fleksibel untuk berbagai tingkat keahlian pengguna.</p>
-    <ul>
-        <li> Menyediakan pintasan keyboard untuk pengguna tingkat lanjut.</li>
-        <li> Memberikan opsi kustomisasi tampilan atau tata letak.</li>
-        <li> Memungkinkan mode navigasi cepat bagi pengguna berpengalaman.</li>
-    </ul>
+//     <h3>G. Flexibility and Efficiency of Use</h3>
+//     <p>Desain sistem harus fleksibel untuk berbagai tingkat keahlian pengguna.</p>
+//     <ul>
+//         <li> Menyediakan pintasan keyboard untuk pengguna tingkat lanjut.</li>
+//         <li> Memberikan opsi kustomisasi tampilan atau tata letak.</li>
+//         <li> Memungkinkan mode navigasi cepat bagi pengguna berpengalaman.</li>
+//     </ul>
     
-    <h3>H. Aesthetic and Minimalist Design</h3>
-    <p>Antarmuka harus dibuat sesederhana mungkin, hanya menampilkan elemen yang benar-benar diperlukan.</p>
-    <ul>
-        <li> Mengurangi elemen yang tidak perlu untuk menghindari kebingungan.</li>
-        <li> Menjaga keseimbangan antara estetika dan fungsionalitas.</li>
-        <li> Menggunakan warna dan tata letak yang tidak mengganggu pengguna.</li>
-    </ul>
+//     <h3>H. Aesthetic and Minimalist Design</h3>
+//     <p>Antarmuka harus dibuat sesederhana mungkin, hanya menampilkan elemen yang benar-benar diperlukan.</p>
+//     <ul>
+//         <li> Mengurangi elemen yang tidak perlu untuk menghindari kebingungan.</li>
+//         <li> Menjaga keseimbangan antara estetika dan fungsionalitas.</li>
+//         <li> Menggunakan warna dan tata letak yang tidak mengganggu pengguna.</li>
+//     </ul>
     
-    <h3>I. Help Users Recognize, Diagnose, and Recover from Errors</h3>
-    <p>Pesan kesalahan harus ditampilkan dengan jelas, menggunakan bahasa yang dapat dipahami oleh pengguna.</p>
-    <ul>
-        <li> Menyediakan deskripsi kesalahan yang informatif.</li>
-        <li> Memberikan solusi atau langkah untuk memperbaiki kesalahan.</li>
-        <li> Menampilkan pesan error dengan warna atau ikon yang mencolok.</li>
-    </ul>
+//     <h3>I. Help Users Recognize, Diagnose, and Recover from Errors</h3>
+//     <p>Pesan kesalahan harus ditampilkan dengan jelas, menggunakan bahasa yang dapat dipahami oleh pengguna.</p>
+//     <ul>
+//         <li> Menyediakan deskripsi kesalahan yang informatif.</li>
+//         <li> Memberikan solusi atau langkah untuk memperbaiki kesalahan.</li>
+//         <li> Menampilkan pesan error dengan warna atau ikon yang mencolok.</li>
+//     </ul>
     
-    <h3>J. Help and Documentation</h3>
-    <p>Sistem harus menyediakan dokumentasi atau panduan yang mudah diakses untuk membantu pengguna menyelesaikan masalah yang mereka hadapi.</p>
-    <ul>
-        <li> Menyediakan FAQ yang berisi jawaban atas pertanyaan umum.</li>
-        <li> Memiliki tutorial interaktif untuk membantu pengguna baru.</li>
-        <li> Memudahkan akses ke dokumentasi melalui menu bantuan.</li>
-    </ul>
-    <p>Seiring perkembangan teknologi, evaluasi heuristik akan terus berkembang dan beradaptasi dengan tren baru, seperti kecerdasan buatan (AI) dan realitas virtual (VR). Evaluasi heuristik akan tetap menjadi alat penting dalam menciptakan pengalaman pengguna yang lebih baik di berbagai platform. Evaluasi heuristik memainkan peran penting dalam siklus pengembangan produk karena memungkinkan tim desain untuk mendeteksi masalah usability lebih awal. Dengan melakukan evaluasi ini, pengembang dapat memastikan bahwa sistem yang dikembangkan lebih mudah digunakan dan sesuai dengan kebutuhan pengguna sebelum produk dirilis ke publik.</p>
-    <h2>Cara Melakukan Heuristic Evaluation</h2>
-    <p>Evaluasi heuristik dilakukan dengan beberapa langkah sistematis:</p>
-    <ol>
-        <li><strong>Menentukan evaluator</strong>: Biasanya terdiri dari 3-5 orang ahli UX.</li>
-        <li><strong>Meninjau sistem atau produk</strong>: Evaluator mengamati antarmuka dan interaksi pengguna.</li>
-        <li><strong>Menggunakan daftar heuristik</strong>: Evaluator menilai sistem berdasarkan prinsip heuristik.</li>
-        <li><strong>Mencatat permasalahan usability</strong>: Setiap evaluator mendokumentasikan masalah yang ditemukan.</li>
-        <li><strong>Mengategorikan masalah berdasarkan tingkat keparahan</strong>: Menentukan prioritas perbaikan.</li>
-        <li><strong>Memberikan rekomendasi perbaikan</strong>: Solusi yang dapat diterapkan untuk meningkatkan pengalaman pengguna.</li>
-    </ol>
-<h2>Severity Rating dalam Heuristic Evaluation</h2>
-    <p>Severity rating digunakan untuk memberi nilai pada masalah usability dengan skala 0-4:</p>
-    <ul>
-        <li><strong>0 - Bukan masalah usability</strong>: Tidak memerlukan perbaikan.</li>
-        <li><strong>1 - Masalah kosmetik</strong>: Tidak perlu diperbaiki segera.</li>
-        <li><strong>2 - Masalah minor</strong>: Perlu diperbaiki tetapi tidak kritis.</li>
-        <li><strong>3 - Masalah mayor</strong>: Berdampak signifikan pada usability.</li>
-        <li><strong>4 - Masalah kritis</strong>: Harus segera diperbaiki sebelum produk dirilis.</li>
-    </ul>
+//     <h3>J. Help and Documentation</h3>
+//     <p>Sistem harus menyediakan dokumentasi atau panduan yang mudah diakses untuk membantu pengguna menyelesaikan masalah yang mereka hadapi.</p>
+//     <ul>
+//         <li> Menyediakan FAQ yang berisi jawaban atas pertanyaan umum.</li>
+//         <li> Memiliki tutorial interaktif untuk membantu pengguna baru.</li>
+//         <li> Memudahkan akses ke dokumentasi melalui menu bantuan.</li>
+//     </ul>
+//     <p>Seiring perkembangan teknologi, evaluasi heuristik akan terus berkembang dan beradaptasi dengan tren baru, seperti kecerdasan buatan (AI) dan realitas virtual (VR). Evaluasi heuristik akan tetap menjadi alat penting dalam menciptakan pengalaman pengguna yang lebih baik di berbagai platform. Evaluasi heuristik memainkan peran penting dalam siklus pengembangan produk karena memungkinkan tim desain untuk mendeteksi masalah usability lebih awal. Dengan melakukan evaluasi ini, pengembang dapat memastikan bahwa sistem yang dikembangkan lebih mudah digunakan dan sesuai dengan kebutuhan pengguna sebelum produk dirilis ke publik.</p>
+//     <h2>Cara Melakukan Heuristic Evaluation</h2>
+//     <p>Evaluasi heuristik dilakukan dengan beberapa langkah sistematis:</p>
+//     <ol>
+//         <li><strong>Menentukan evaluator</strong>: Biasanya terdiri dari 3-5 orang ahli UX.</li>
+//         <li><strong>Meninjau sistem atau produk</strong>: Evaluator mengamati antarmuka dan interaksi pengguna.</li>
+//         <li><strong>Menggunakan daftar heuristik</strong>: Evaluator menilai sistem berdasarkan prinsip heuristik.</li>
+//         <li><strong>Mencatat permasalahan usability</strong>: Setiap evaluator mendokumentasikan masalah yang ditemukan.</li>
+//         <li><strong>Mengategorikan masalah berdasarkan tingkat keparahan</strong>: Menentukan prioritas perbaikan.</li>
+//         <li><strong>Memberikan rekomendasi perbaikan</strong>: Solusi yang dapat diterapkan untuk meningkatkan pengalaman pengguna.</li>
+//     </ol>
+// <h2>Severity Rating dalam Heuristic Evaluation</h2>
+//     <p>Severity rating digunakan untuk memberi nilai pada masalah usability dengan skala 0-4:</p>
+//     <ul>
+//         <li><strong>0 - Bukan masalah usability</strong>: Tidak memerlukan perbaikan.</li>
+//         <li><strong>1 - Masalah kosmetik</strong>: Tidak perlu diperbaiki segera.</li>
+//         <li><strong>2 - Masalah minor</strong>: Perlu diperbaiki tetapi tidak kritis.</li>
+//         <li><strong>3 - Masalah mayor</strong>: Berdampak signifikan pada usability.</li>
+//         <li><strong>4 - Masalah kritis</strong>: Harus segera diperbaiki sebelum produk dirilis.</li>
+//     </ul>
     
-    <h2>Petunjuk Heuristic Evaluation yang Baik</h2>
-    <p>Untuk memastikan evaluasi heuristik berjalan efektif, beberapa panduan yang harus diikuti meliputi:</p>
-    <ul>
-        <li>Gunakan evaluator yang memiliki pengalaman dalam UX.</li>
-        <li>Gabungkan evaluasi heuristik dengan metode usability lainnya.</li>
-        <li>Gunakan skala keparahan masalah untuk memprioritaskan perbaikan.</li>
-        <li>Buat laporan hasil evaluasi yang jelas dan mudah dimengerti.</li>
-    </ul>
-<h2>10 Prinsip Nielsen</h2>
-        <ol>
-            <li><strong>Visibility of System Status:</strong> Sistem harus selalu memberikan umpan balik kepada pengguna tentang status terkini.</li>
-            <li><strong>Match Between System and Real World:</strong> Sistem harus menggunakan bahasa dan konsep yang familiar bagi pengguna.</li>
-            <li><strong>User Control and Freedom:</strong> Pengguna harus dapat membatalkan atau mengulang tindakan dengan mudah.</li>
-            <li><strong>Consistency and Standards:</strong> Desain harus konsisten dan mengikuti standar yang dikenal luas.</li>
-            <li><strong>Error Prevention:</strong> Sistem harus dirancang untuk mencegah kesalahan sebelum terjadi.</li>
-            <li><strong>Recognition Rather than Recall:</strong> Kurangi beban kognitif dengan menampilkan opsi yang mudah dikenali.</li>
-            <li><strong>Flexibility and Efficiency of Use:</strong> Sistem harus dapat digunakan oleh pemula maupun pengguna ahli dengan efisien.</li>
-            <li><strong>Aesthetic and Minimalist Design:</strong> Antarmuka harus sederhana dan tidak membebani pengguna dengan informasi yang tidak perlu.</li>
-            <li><strong>Help Users Recognize, Diagnose, and Recover from Errors:</strong> Sistem harus menyediakan pesan kesalahan yang jelas dan solutif.</li>
-            <li><strong>Help and Documentation:</strong> Dokumentasi harus mudah diakses dan dipahami oleh pengguna.</li>
-        </ol>
+//     <h2>Petunjuk Heuristic Evaluation yang Baik</h2>
+//     <p>Untuk memastikan evaluasi heuristik berjalan efektif, beberapa panduan yang harus diikuti meliputi:</p>
+//     <ul>
+//         <li>Gunakan evaluator yang memiliki pengalaman dalam UX.</li>
+//         <li>Gabungkan evaluasi heuristik dengan metode usability lainnya.</li>
+//         <li>Gunakan skala keparahan masalah untuk memprioritaskan perbaikan.</li>
+//         <li>Buat laporan hasil evaluasi yang jelas dan mudah dimengerti.</li>
+//     </ul>
+// <h2>10 Prinsip Nielsen</h2>
+//         <ol>
+//             <li><strong>Visibility of System Status:</strong> Sistem harus selalu memberikan umpan balik kepada pengguna tentang status terkini.</li>
+//             <li><strong>Match Between System and Real World:</strong> Sistem harus menggunakan bahasa dan konsep yang familiar bagi pengguna.</li>
+//             <li><strong>User Control and Freedom:</strong> Pengguna harus dapat membatalkan atau mengulang tindakan dengan mudah.</li>
+//             <li><strong>Consistency and Standards:</strong> Desain harus konsisten dan mengikuti standar yang dikenal luas.</li>
+//             <li><strong>Error Prevention:</strong> Sistem harus dirancang untuk mencegah kesalahan sebelum terjadi.</li>
+//             <li><strong>Recognition Rather than Recall:</strong> Kurangi beban kognitif dengan menampilkan opsi yang mudah dikenali.</li>
+//             <li><strong>Flexibility and Efficiency of Use:</strong> Sistem harus dapat digunakan oleh pemula maupun pengguna ahli dengan efisien.</li>
+//             <li><strong>Aesthetic and Minimalist Design:</strong> Antarmuka harus sederhana dan tidak membebani pengguna dengan informasi yang tidak perlu.</li>
+//             <li><strong>Help Users Recognize, Diagnose, and Recover from Errors:</strong> Sistem harus menyediakan pesan kesalahan yang jelas dan solutif.</li>
+//             <li><strong>Help and Documentation:</strong> Dokumentasi harus mudah diakses dan dipahami oleh pengguna.</li>
+//         </ol>
     
-        `,
-      },
-    });
+//         `,
+//       },
+//     });
 
     const materialWeek5 = await prisma.material.create({
       data: {
@@ -1167,48 +1127,48 @@ async function main() {
         chapterId: chapter2.id,
         instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
         questions: JSON.stringify([
-          {
-            question: "Sebuah game mobile memiliki tutorial interaktif yang memandu pemain baru step by step. Ini adalah contoh implementasi aspek computer dalam HCI.",
-            options: ["True", "False"],
-            answer: "True",
-            type: "MC"
-          },
-          {
-            question: "Marketplace online menerapkan fitur Rekomendasi Produk berdasarkan riwayat pencarian pengguna. Hal ini merupakan implementasi dari fokus HCI dalam hal...",
-            options: [
-              "Keamanan sistem",
-              "Efisiensi database",
-              "User experience",
-              "Kecepatan loading",
-              "Kapasitas server"
-            ],
-            answer: "User experience",
-            type: "MC"
-          },
-          {
-            question: "Dalam pengembangan aplikasi kesehatan, tim developer menempatkan tombol Panggil Ambulans di pojok kanan atas dengan warna merah mencolok. Keputusan ini didasari oleh bidang studi yang mempengaruhi HCI yaitu...",
-            options: [
-              "Sosiologi",
-              "Psikologi Kognitif",
-              "Matematika",
-              "Komputer Graphics",
-              "Database"
-            ],
-            answer: "Psikologi Kognitif",
-            type: "MC"
-          },
-          {
-            question: "Situs berita online yang memuat banyak konten teks dan gambar namun loading-nya cepat adalah contoh implementasi tujuan HCI dalam hal efisiensi sistem.",
-            options: ["True", "False"],
-            answer: "True",
-            type: "MC"
-          },
-          {
-            question: "Dalam pengembangan ATM terbaru, layar dibuat lebih rendah untuk mengakomodasi pengguna kursi roda. Ini adalah implementasi dari bidang studi yang mempengaruhi HCI yaitu...",
-            options: ["Ergonomi", "Psikologi", "Linguistik", "Matematika", "Grafik Komputer"],
-            answer: "Ergonomi",
-            type: "MC"
-          },
+          // {
+          //   question: "Sebuah game mobile memiliki tutorial interaktif yang memandu pemain baru step by step. Ini adalah contoh implementasi aspek computer dalam HCI.",
+          //   options: ["True", "False"],
+          //   answer: "True",
+          //   type: "MC"
+          // },
+          // {
+          //   question: "Marketplace online menerapkan fitur Rekomendasi Produk berdasarkan riwayat pencarian pengguna. Hal ini merupakan implementasi dari fokus HCI dalam hal...",
+          //   options: [
+          //     "Keamanan sistem",
+          //     "Efisiensi database",
+          //     "User experience",
+          //     "Kecepatan loading",
+          //     "Kapasitas server"
+          //   ],
+          //   answer: "User experience",
+          //   type: "MC"
+          // },
+          // {
+          //   question: "Dalam pengembangan aplikasi kesehatan, tim developer menempatkan tombol Panggil Ambulans di pojok kanan atas dengan warna merah mencolok. Keputusan ini didasari oleh bidang studi yang mempengaruhi HCI yaitu...",
+          //   options: [
+          //     "Sosiologi",
+          //     "Psikologi Kognitif",
+          //     "Matematika",
+          //     "Komputer Graphics",
+          //     "Database"
+          //   ],
+          //   answer: "Psikologi Kognitif",
+          //   type: "MC"
+          // },
+          // {
+          //   question: "Situs berita online yang memuat banyak konten teks dan gambar namun loading-nya cepat adalah contoh implementasi tujuan HCI dalam hal efisiensi sistem.",
+          //   options: ["True", "False"],
+          //   answer: "True",
+          //   type: "MC"
+          // },
+          // {
+          //   question: "Dalam pengembangan ATM terbaru, layar dibuat lebih rendah untuk mengakomodasi pengguna kursi roda. Ini adalah implementasi dari bidang studi yang mempengaruhi HCI yaitu...",
+          //   options: ["Ergonomi", "Psikologi", "Linguistik", "Matematika", "Grafik Komputer"],
+          //   answer: "Ergonomi",
+          //   type: "MC"
+          // },
           {
             question: "Sebuah aplikasi banking menerapkan fitur autentikasi biometrik (sidik jari/wajah) sebagai alternatif dari password. Dari perspektif Human Factors, hal ini menguntungkan karena...",
             options: [
@@ -1280,60 +1240,60 @@ async function main() {
         chapterId: chapter3.id,
         instruction: 'Pilihlah jawaban yang menurut anda paling benar. Silahkan screenshot hasil dari kuis setelah selesai',
         questions: JSON.stringify([
-          {
-              question: "Dalam mendesain workspace virtual, pengembang harus mempertimbangkan...",
-              options: [
-                "Hanya aspek visual",
-                "Hanya aspek auditori",
-                "anya aspek kognitif",
-                "Multisensory ergonomics",
-                "Hanya aspek motor"
-              ],
-              answer: "Multisensory ergonomics",
-              type: "MC"
-            },
-            {
-              question: "Menggunakan warna merah untuk tombol Hapus dan hijau untuk tombol Simpan adalah contoh penerapan model mental yang baik.",
-              options: ["True", "False"],
-              answer: "True",
-              type: "MC"
-            },
-            {
-              question: "Aplikasi produktivitas menampilkan notifikasi setiap 5 menit untuk mengingatkan deadline. Dari perspektif Human Factors, ini problematik karena...",
-              options: [
-                "Terlalu banyak interupsi",
-                "Masalah baterai",
-                "Masalah jaringan",
-                "Keamanan data",
-                "Masalah storage"
-              ],
-              answer: "Terlalu banyak interupsi",
-              type: "MC"
-            },
-            {
-              question: "Dalam mendesain aplikasi untuk anak-anak, pertimbangan Human Factors yang paling penting adalah...",
-              options: [
-                "Kecepatan sistem",
-                "Kapasitas storage",
-                "Perkembangan motorik",
-                "Efisiensi database",
-                "Keamanan server"
-              ],
-              answer: "Perkembangan motorik",
-              type: "MC"
-            },
-            {
-              question: "Aplikasi video conference menggunakan layout yang dapat disesuaikan pengguna. Ini merupakan implementasi dari...",
-              options: [
-                "Fleksibilitas dan efisiensi",
-                "Kecepatan sistem",
-                "Keamanan data",
-                "Manajemen server",
-                "Protokol jaringan"
-              ],
-              answer: "Fleksibilitas dan efisiensi",
-              type: "MC"
-            },
+          // {
+          //     question: "Dalam mendesain workspace virtual, pengembang harus mempertimbangkan...",
+          //     options: [
+          //       "Hanya aspek visual",
+          //       "Hanya aspek auditori",
+          //       "anya aspek kognitif",
+          //       "Multisensory ergonomics",
+          //       "Hanya aspek motor"
+          //     ],
+          //     answer: "Multisensory ergonomics",
+          //     type: "MC"
+          //   },
+          //   {
+          //     question: "Menggunakan warna merah untuk tombol Hapus dan hijau untuk tombol Simpan adalah contoh penerapan model mental yang baik.",
+          //     options: ["True", "False"],
+          //     answer: "True",
+          //     type: "MC"
+          //   },
+          //   {
+          //     question: "Aplikasi produktivitas menampilkan notifikasi setiap 5 menit untuk mengingatkan deadline. Dari perspektif Human Factors, ini problematik karena...",
+          //     options: [
+          //       "Terlalu banyak interupsi",
+          //       "Masalah baterai",
+          //       "Masalah jaringan",
+          //       "Keamanan data",
+          //       "Masalah storage"
+          //     ],
+          //     answer: "Terlalu banyak interupsi",
+          //     type: "MC"
+          //   },
+          //   {
+          //     question: "Dalam mendesain aplikasi untuk anak-anak, pertimbangan Human Factors yang paling penting adalah...",
+          //     options: [
+          //       "Kecepatan sistem",
+          //       "Kapasitas storage",
+          //       "Perkembangan motorik",
+          //       "Efisiensi database",
+          //       "Keamanan server"
+          //     ],
+          //     answer: "Perkembangan motorik",
+          //     type: "MC"
+          //   },
+          //   {
+          //     question: "Aplikasi video conference menggunakan layout yang dapat disesuaikan pengguna. Ini merupakan implementasi dari...",
+          //     options: [
+          //       "Fleksibilitas dan efisiensi",
+          //       "Kecepatan sistem",
+          //       "Keamanan data",
+          //       "Manajemen server",
+          //       "Protokol jaringan"
+          //     ],
+          //     answer: "Fleksibilitas dan efisiensi",
+          //     type: "MC"
+          //   },
             {
               question: "Aplikasi mobile banking memiliki fitur keamanan yang sangat ketat dengan 5 langkah verifikasi setiap kali login. Hal ini menunjukkan tingkat usability yang tinggi karena mengutamakan keamanan pengguna.",
               options: ["True", "False"],
@@ -1951,105 +1911,6 @@ async function main() {
       },
     });
 
-    await prisma.userCourse.create({
-      data: {
-        userId: user1.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user2.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user3.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user4.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user5.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user6.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user7.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user8.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user9.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
-
-    await prisma.userCourse.create({
-      data: {
-        userId: user10.id,
-        courseId: course1.id,
-        progress: 0,
-        currentChapter: 1,
-        isCompleted: false,
-      },
-    });
 
     // Create UserChapter relationship
     await prisma.userChapter.create({
@@ -2062,6 +1923,8 @@ async function main() {
         assignmentDone: false,
         assessmentAnswer: JSON.stringify([]),
         assessmentGrade: 0,
+        assignmentFeedback: "Bagus",
+        assignmentScore: 90,
         submission: '',
       },
     });
@@ -2168,7 +2031,7 @@ async function main() {
 
     const trade1 = await prisma.trade.create({
       data: {
-        image: 'lib/assets/pictures/icon.png',
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges/Trades/cafetaria-trade.jpg',
         title: 'Voucher Belanja Cafetaria Del',
         description: 'Voucher Belanja senilai Rp.10.000,- untuk transaksi di Cafetaria Del. Berlaku sampai 1 semester kedepan.',
         requiredBadgeType: 'ADVANCE',
@@ -2177,28 +2040,28 @@ async function main() {
 
     const trade2 = await prisma.trade.create({
       data: {
-        image: 'lib/assets/pictures/icon.png',
-        title: 'Sticky Notes UTS',
-        description: 'Sticky Notes berupa cemilan makanan dan minuman dengan ucapan semangat menjalani UTS',
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges/Trades/stickynotes-trade.jpg',
+        title: 'Sticky Notes Perkuliahan',
+        description: 'Sticky Notes berupa cemilan makanan dan minuman dengan ucapan semangat menjalani perkuliahan',
         requiredBadgeType: 'BEGINNER',
       }
     });
 
     const trade3 = await prisma.trade.create({
       data: {
-        image: 'lib/assets/pictures/icon.png',
-        title: 'Nilai Tambah UTS +5',
-        description: 'Penambahan Nilai UTS sebanyak 5. Maksimal nilai yang bisa diperoleh dengan penambahan adalah 80',
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges/Trades/utsbonus-trade.jpg',
+        title: 'Poin Keaktifan +5',
+        description: 'Penambahan Poin Keaktifan sebanyak 5. Maksimal nilai yang bisa diperoleh dengan penambahan adalah 80',
         requiredBadgeType: 'INTERMEDIATE',
       }
     });
 
     const trade4 = await prisma.trade.create({
       data: {
-        image: 'lib/assets/pictures/icon.png',
-        title: 'Peserta Evaluasi Levelearn Gamification',
-        description: 'Kesempatan berpartisipasi dalam Research TA-2024/2025-13 terkait Evaluasi Gamification Aplikasi Levelearn',
-        requiredBadgeType: 'BEGINNER',
+        image: 'https://izqdlgxwetajwkatptnt.supabase.co/storage/v1/object/public/badges/Trades/evaluation-trade.jpg',
+        title: 'Voucher Pulsa Rp.10.000',
+        description: 'Perolehan Voucher Pulsa sebesar Rp.10.000. Kuota hanya terbatas pada 3 pengguna saja',
+        requiredBadgeType: 'ADVANCE',
       }
     });
 
