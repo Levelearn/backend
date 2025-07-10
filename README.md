@@ -1,4 +1,4 @@
-# Levelearn - Gamified Learning App Backend
+# Levelearn: Gamified Learning App - Backend
 
 This repository contains the backend code for a gamified learning application, built using Express.js, Node.js, MySQL, and Prisma.  It provides a REST API for managing users, courses, progress, rewards, and other game-related functionalities.
 
@@ -38,7 +38,7 @@ This backend application serves as the core logic for a gamified learning platfo
 1. **Clone the repository:**
 
     ```
-    git clone [https://github.com/Levelearn/backend.git](https://github.com/Levelearn/backend.git)
+    git clone https://github.com/Levelearn/backend.git
     ```
 
 2. **Navigate to the project directory:**
@@ -80,8 +80,9 @@ This backend application serves as the core logic for a gamified learning platfo
 
 ## Running The Application
 
-    ```bash
+    ```
     nodemon run dev
+    ```
 
 ## API Documentation
 
